@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-23 21:22:37 UTC",
+  "generated_at_utc": "2026-11-23 21:26:17 UTC",
   "wallet": "0xd0d6053c3c37e727402d84c14069780d360993aa",
   "window": {
     "start_utc": "2026-03-17 13:12:57 UTC",
@@ -138,7 +138,7 @@
         "sell_executed": 102964,
         "skipped_market_closed": 54
       },
-      "runtime_seconds": 18.9
+      "runtime_seconds": 18.0
     },
     "ideal_copy": {
       "name": "ideal_copy",
@@ -250,7 +250,7 @@
         "buy_rejected": 84630,
         "skipped_market_closed": 54
       },
-      "runtime_seconds": 13.2
+      "runtime_seconds": 12.8
     },
     "realistic_copy": {
       "name": "realistic_copy",
@@ -715,7 +715,7 @@
         "skipped_market_closed": 39,
         "buy_rejected": 1394
       },
-      "runtime_seconds": 4.6
+      "runtime_seconds": 4.5
     }
   },
   "verdict": [
