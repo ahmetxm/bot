@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+logs/
+data/*.csv.gz
+data/bot_state*.json
+reports/backtest_*_trades.csv.gz
+.env

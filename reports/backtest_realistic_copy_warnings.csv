@@ -1,0 +1,13 @@
+ts,time,type,message
+1773755123.0,2026-03-17 13:45:23 UTC,DAILY_LOSS_HALT,realized PnL today -522.33 <= -500.00: new entries halted until next UTC day
+1773802231.0,2026-03-18 02:50:31 UTC,DAILY_LOSS_HALT,realized PnL today -501.85 <= -500.00: new entries halted until next UTC day
+1773885643.0,2026-03-19 02:00:43 UTC,DAILY_LOSS_HALT,realized PnL today -501.82 <= -500.00: new entries halted until next UTC day
+1773992302.0,2026-03-20 07:38:22 UTC,STOP_LOSS,"Bitcoin Up or Down - March 20, 3AM ET outcome 1: unrealized -501.77 exceeds 5% of equity"
+1774004352.0,2026-03-20 10:59:12 UTC,STOP_LOSS,"Bitcoin Up or Down - March 20, 6AM ET outcome 1: unrealized -428.34 exceeds 5% of equity"
+1774004725.0,2026-03-20 11:05:25 UTC,DAILY_LOSS_HALT,realized PnL today -502.53 <= -500.00: new entries halted until next UTC day
+1774068982.0,2026-03-21 04:56:22 UTC,STOP_LOSS,"Bitcoin Up or Down - March 21, 12AM ET outcome 0: unrealized -434.89 exceeds 5% of equity"
+1774071627.0,2026-03-21 05:40:27 UTC,DAILY_LOSS_HALT,realized PnL today -527.52 <= -500.00: new entries halted until next UTC day
+1774157153.0,2026-03-22 05:25:53 UTC,DAILY_LOSS_HALT,realized PnL today -501.13 <= -500.00: new entries halted until next UTC day
+1774254625.0,2026-03-23 08:30:25 UTC,DAILY_LOSS_HALT,realized PnL today -520.91 <= -500.00: new entries halted until next UTC day
+1774321042.0,2026-03-24 02:57:22 UTC,STOP_LOSS,"Bitcoin Up or Down - March 23, 10PM ET outcome 0: unrealized -335.07 exceeds 5% of equity"
+1774322549.0,2026-03-24 03:22:29 UTC,DAILY_LOSS_HALT,realized PnL today -637.82 <= -500.00: new entries halted until next UTC day

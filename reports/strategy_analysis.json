@@ -1,0 +1,1005 @@
+{
+  "meta": {
+    "anchor_ts": 1774354377,
+    "anchor_utc": "2026-03-24 12:12:57 UTC",
+    "latest_ts": 1775479047,
+    "latest_utc": "2026-04-06 12:37:27 UTC",
+    "window_start_ts": 1773749577,
+    "window_start_utc": "2026-03-17 12:12:57 UTC",
+    "window_end_ts": 1775479047,
+    "window_end_utc": "2026-04-06 12:37:27 UTC",
+    "days_inactive": 244.4,
+    "include_maker_fills": true,
+    "roles_labeled": true,
+    "n_fills": 842318,
+    "n_markets": 7939,
+    "n_resolved_markets": 7939,
+    "n_requests": 1778,
+    "elapsed_seconds": 359.9,
+    "collected_at_utc": "2026-11-23 21:13:42 UTC",
+    "wallet": "0xd0d6053c3c37e727402d84c14069780d360993aa"
+  },
+  "data_quality": {
+    "fills_total": 842318,
+    "fills_after_market_close_excluded": 238
+  },
+  "overview": {
+    "first_fill_utc": "2026-03-17 12:12:57 UTC",
+    "last_fill_utc": "2026-03-24 12:12:57 UTC",
+    "span_days": 7.0,
+    "fills": 842080,
+    "markets": 7933,
+    "volume_usdc": 7926913.519046981,
+    "fills_per_day": 120297.14285714286,
+    "volume_per_day_usdc": 1132416.2170067115,
+    "markets_per_day": 1133.2857142857142,
+    "roles": {
+      "maker": {
+        "fills": 658699,
+        "fills_pct": 78.22285293558807,
+        "usdc": 4604241.905591233,
+        "usdc_pct": 58.08366515577655
+      },
+      "taker": {
+        "fills": 183381,
+        "fills_pct": 21.777147064411935,
+        "usdc": 3322671.61345575,
+        "usdc_pct": 41.916334844223464
+      }
+    }
+  },
+  "market_focus": {
+    "by_category": {
+      "BTC 5m": {
+        "fills": 348257,
+        "usdc": 2737667.921,
+        "markets": 1898,
+        "usdc_pct": 34.536,
+        "fills_pct": 41.357
+      },
+      "BTC 15m": {
+        "fills": 147427,
+        "usdc": 1725573.091,
+        "markets": 651,
+        "usdc_pct": 21.769,
+        "fills_pct": 17.507
+      },
+      "BTC 1h": {
+        "fills": 41375,
+        "usdc": 898653.773,
+        "markets": 156,
+        "usdc_pct": 11.337,
+        "fills_pct": 4.913
+      },
+      "ETH 15m": {
+        "fills": 90858,
+        "usdc": 861075.633,
+        "markets": 649,
+        "usdc_pct": 10.863,
+        "fills_pct": 10.79
+      },
+      "SOL 5m": {
+        "fills": 70980,
+        "usdc": 554458.075,
+        "markets": 1677,
+        "usdc_pct": 6.995,
+        "fills_pct": 8.429
+      },
+      "XRP 5m": {
+        "fills": 61707,
+        "usdc": 374359.577,
+        "markets": 1679,
+        "usdc_pct": 4.723,
+        "fills_pct": 7.328
+      },
+      "ETH 1h": {
+        "fills": 22818,
+        "usdc": 371181.768,
+        "markets": 151,
+        "usdc_pct": 4.683,
+        "fills_pct": 2.71
+      },
+      "SOL 15m": {
+        "fills": 30995,
+        "usdc": 238787.629,
+        "markets": 536,
+        "usdc_pct": 3.012,
+        "fills_pct": 3.681
+      },
+      "XRP 15m": {
+        "fills": 27663,
+        "usdc": 165156.053,
+        "markets": 536,
+        "usdc_pct": 2.083,
+        "fills_pct": 3.285
+      }
+    },
+    "by_asset": {
+      "BTC": {
+        "fills": 537059,
+        "usdc": 5361894.784,
+        "markets": 2705,
+        "usdc_pct": 67.642,
+        "fills_pct": 63.778
+      },
+      "ETH": {
+        "fills": 113676,
+        "usdc": 1232257.401,
+        "markets": 800,
+        "usdc_pct": 15.545,
+        "fills_pct": 13.499
+      },
+      "SOL": {
+        "fills": 101975,
+        "usdc": 793245.704,
+        "markets": 2213,
+        "usdc_pct": 10.007,
+        "fills_pct": 12.11
+      },
+      "XRP": {
+        "fills": 89370,
+        "usdc": 539515.63,
+        "markets": 2215,
+        "usdc_pct": 6.806,
+        "fills_pct": 10.613
+      }
+    },
+    "by_timeframe": {
+      "5m": {
+        "fills": 480944,
+        "usdc": 3666485.572,
+        "markets": 5254,
+        "usdc_pct": 46.254,
+        "fills_pct": 57.114
+      },
+      "15m": {
+        "fills": 296943,
+        "usdc": 2990592.406,
+        "markets": 2372,
+        "usdc_pct": 37.727,
+        "fills_pct": 35.263
+      },
+      "1h": {
+        "fills": 64193,
+        "usdc": 1269835.541,
+        "markets": 307,
+        "usdc_pct": 16.019,
+        "fills_pct": 7.623
+      }
+    },
+    "btc_5m_15m_usdc_pct": 56.304903551674315,
+    "btc_5m_15m_fills_pct": 58.86424092722782,
+    "crypto_updown_usdc_pct": 100.0
+  },
+  "side_distribution": {
+    "by_side": {
+      "BUY": {
+        "fills": 737993,
+        "usdc": 7096391.58,
+        "shares": 16837909.78
+      },
+      "SELL": {
+        "fills": 104087,
+        "usdc": 830521.94,
+        "shares": 2762800.81
+      }
+    },
+    "by_role_side": {
+      "maker/BUY": {
+        "fills": 586630,
+        "usdc": 4224527.34
+      },
+      "maker/SELL": {
+        "fills": 72069,
+        "usdc": 379714.56
+      },
+      "taker/BUY": {
+        "fills": 151363,
+        "usdc": 2871864.23
+      },
+      "taker/SELL": {
+        "fills": 32018,
+        "usdc": 450807.38
+      }
+    },
+    "by_outcome": {
+      "Down": {
+        "fills": 414529,
+        "usdc": 4000772.57
+      },
+      "Up": {
+        "fills": 427551,
+        "usdc": 3926140.95
+      }
+    },
+    "buy_fill_pct": 87.63929792893786
+  },
+  "position_sizes": {
+    "fill_usdc": {
+      "count": 842080,
+      "mean": 9.41349220863455,
+      "median": 4.2625,
+      "std": 13.582854174279811,
+      "min": 0.0004,
+      "p10": 0.5653839999764375,
+      "p90": 23.532218387577384,
+      "p99": 67.84,
+      "max": 229.9,
+      "sum": 7926913.519046981
+    },
+    "fill_shares": {
+      "count": 842080,
+      "mean": 23.276542123161704,
+      "median": 12.0,
+      "std": 27.67409201046856,
+      "min": 0.0097,
+      "p10": 2.05,
+      "p90": 51.0,
+      "p99": 124.0,
+      "max": 242.0,
+      "sum": 19600710.591072008
+    },
+    "buy_fill_usdc": {
+      "count": 737993,
+      "mean": 9.615797949690291,
+      "median": 4.1728,
+      "std": 14.111503653636397,
+      "min": 0.0004,
+      "p10": 0.5316449999997462,
+      "p90": 24.70313,
+      "p99": 70.0192878,
+      "max": 229.9,
+      "sum": 7096391.576285787
+    },
+    "per_market_buy_usdc": {
+      "count": 7933,
+      "mean": 894.5407256127301,
+      "median": 478.31710371370525,
+      "std": 1307.5629325851212,
+      "min": 0.177062,
+      "p10": 77.8840193744934,
+      "p90": 1978.819281647204,
+      "p99": 6060.216133367634,
+      "max": 23809.132038540032,
+      "sum": 7096391.576285788
+    },
+    "per_market_fills": {
+      "count": 7933,
+      "mean": 106.14899785705282,
+      "median": 65.0,
+      "std": 108.98331093843221,
+      "min": 1.0,
+      "p10": 15.0,
+      "p90": 254.0,
+      "p99": 478.3600000000006,
+      "max": 1054.0,
+      "sum": 842080.0
+    }
+  },
+  "frequency": {
+    "daily": {
+      "2026-03-17": {
+        "fills": 76888,
+        "usdc": 699023.87,
+        "markets": 465
+      },
+      "2026-03-18": {
+        "fills": 130385,
+        "usdc": 1274794.17,
+        "markets": 1190
+      },
+      "2026-03-19": {
+        "fills": 120172,
+        "usdc": 1183176.91,
+        "markets": 1249
+      },
+      "2026-03-20": {
+        "fills": 106707,
+        "usdc": 1003455.49,
+        "markets": 818
+      },
+      "2026-03-21": {
+        "fills": 93502,
+        "usdc": 823846.48,
+        "markets": 1141
+      },
+      "2026-03-22": {
+        "fills": 114540,
+        "usdc": 979588.97,
+        "markets": 1282
+      },
+      "2026-03-23": {
+        "fills": 137634,
+        "usdc": 1352424.26,
+        "markets": 1152
+      },
+      "2026-03-24": {
+        "fills": 62252,
+        "usdc": 610603.36,
+        "markets": 636
+      }
+    },
+    "hour_of_day_utc": {
+      "0": {
+        "fills": 36404,
+        "usdc": 328235.16,
+        "fills_per_day": 4550.5
+      },
+      "1": {
+        "fills": 28966,
+        "usdc": 259715.77,
+        "fills_per_day": 3620.75
+      },
+      "2": {
+        "fills": 31329,
+        "usdc": 291874.03,
+        "fills_per_day": 3916.12
+      },
+      "3": {
+        "fills": 33778,
+        "usdc": 302682.12,
+        "fills_per_day": 4222.25
+      },
+      "4": {
+        "fills": 33037,
+        "usdc": 313321.71,
+        "fills_per_day": 4129.62
+      },
+      "5": {
+        "fills": 32823,
+        "usdc": 331418.8,
+        "fills_per_day": 4102.88
+      },
+      "6": {
+        "fills": 33699,
+        "usdc": 329198.4,
+        "fills_per_day": 4212.38
+      },
+      "7": {
+        "fills": 30864,
+        "usdc": 305837.88,
+        "fills_per_day": 3858.0
+      },
+      "8": {
+        "fills": 31992,
+        "usdc": 306840.44,
+        "fills_per_day": 3999.0
+      },
+      "9": {
+        "fills": 31278,
+        "usdc": 276380.47,
+        "fills_per_day": 3909.75
+      },
+      "10": {
+        "fills": 30560,
+        "usdc": 278542.51,
+        "fills_per_day": 3820.0
+      },
+      "11": {
+        "fills": 33433,
+        "usdc": 296275.27,
+        "fills_per_day": 4179.12
+      },
+      "12": {
+        "fills": 44741,
+        "usdc": 416364.22,
+        "fills_per_day": 5592.62
+      },
+      "13": {
+        "fills": 54680,
+        "usdc": 510150.01,
+        "fills_per_day": 6835.0
+      },
+      "14": {
+        "fills": 41775,
+        "usdc": 428740.99,
+        "fills_per_day": 5221.88
+      },
+      "15": {
+        "fills": 38969,
+        "usdc": 404475.07,
+        "fills_per_day": 4871.12
+      },
+      "16": {
+        "fills": 35119,
+        "usdc": 325683.51,
+        "fills_per_day": 4389.88
+      },
+      "17": {
+        "fills": 37566,
+        "usdc": 335129.82,
+        "fills_per_day": 4695.75
+      },
+      "18": {
+        "fills": 37548,
+        "usdc": 364279.14,
+        "fills_per_day": 4693.5
+      },
+      "19": {
+        "fills": 34793,
+        "usdc": 324795.72,
+        "fills_per_day": 4349.12
+      },
+      "20": {
+        "fills": 30612,
+        "usdc": 290567.54,
+        "fills_per_day": 3826.5
+      },
+      "21": {
+        "fills": 34709,
+        "usdc": 330156.94,
+        "fills_per_day": 4338.62
+      },
+      "22": {
+        "fills": 29749,
+        "usdc": 268499.55,
+        "fills_per_day": 3718.62
+      },
+      "23": {
+        "fills": 33656,
+        "usdc": 307748.45,
+        "fills_per_day": 4207.0
+      }
+    },
+    "day_of_week": {
+      "Friday": {
+        "fills": 106707,
+        "usdc": 1003455.49
+      },
+      "Monday": {
+        "fills": 137634,
+        "usdc": 1352424.26
+      },
+      "Saturday": {
+        "fills": 93502,
+        "usdc": 823846.48
+      },
+      "Sunday": {
+        "fills": 114540,
+        "usdc": 979588.97
+      },
+      "Thursday": {
+        "fills": 120172,
+        "usdc": 1183176.91
+      },
+      "Tuesday": {
+        "fills": 139140,
+        "usdc": 1309627.23
+      },
+      "Wednesday": {
+        "fills": 130385,
+        "usdc": 1274794.17
+      }
+    },
+    "most_active_hours_utc": [
+      13,
+      14,
+      12,
+      15,
+      18
+    ],
+    "least_active_hours_utc": [
+      1,
+      22,
+      9
+    ],
+    "hourly_fill_rate": {
+      "count": 169,
+      "mean": 4982.721893491124,
+      "median": 4869.0,
+      "std": 1616.6672139094449,
+      "min": 424.0,
+      "p10": 3169.0,
+      "p90": 6701.4000000000015,
+      "p99": 10075.119999999994,
+      "max": 11300.0,
+      "sum": 842080.0
+    }
+  },
+  "entry_timing": {
+    "by_window_fraction": {
+      "before window": {
+        "fills": 0,
+        "usdc": 0.0,
+        "usdc_pct": 0.0
+      },
+      "0-20%": {
+        "fills": 231318,
+        "usdc": 2494342.274,
+        "usdc_pct": 31.467
+      },
+      "20-40%": {
+        "fills": 215128,
+        "usdc": 1907894.493,
+        "usdc_pct": 24.069
+      },
+      "40-60%": {
+        "fills": 171858,
+        "usdc": 1488439.032,
+        "usdc_pct": 18.777
+      },
+      "60-80%": {
+        "fills": 159588,
+        "usdc": 1340353.761,
+        "usdc_pct": 16.909
+      },
+      "80-90%": {
+        "fills": 47941,
+        "usdc": 499319.59,
+        "usdc_pct": 6.299
+      },
+      "90-100%": {
+        "fills": 16193,
+        "usdc": 196264.649,
+        "usdc_pct": 2.476
+      },
+      "after end": {
+        "fills": 54,
+        "usdc": 299.719,
+        "usdc_pct": 0.004
+      }
+    },
+    "median_window_fraction": 0.37222222222222223,
+    "5m_seconds_to_window_end": {
+      "count": 480944,
+      "mean": 189.78747629661666,
+      "median": 199.0,
+      "std": 71.64958712665891,
+      "min": -59.0,
+      "p10": 87.0,
+      "p90": 279.0,
+      "p99": 295.0,
+      "max": 297.0,
+      "sum": 91277148.0
+    },
+    "5m_seconds_from_window_start": {
+      "count": 480944,
+      "mean": 110.21252370338334,
+      "median": 101.0,
+      "std": 71.64958712665891,
+      "min": 3.0,
+      "p10": 21.0,
+      "p90": 213.0,
+      "p99": 275.0,
+      "max": 359.0,
+      "sum": 53006052.0
+    },
+    "15m_seconds_to_window_end": {
+      "count": 296943,
+      "mean": 513.8136106929612,
+      "median": 517.0,
+      "std": 237.2199911496912,
+      "min": 47.0,
+      "p10": 191.0,
+      "p90": 841.0,
+      "p99": 893.0,
+      "max": 897.0,
+      "sum": 152573355.0
+    },
+    "15m_seconds_from_window_start": {
+      "count": 296943,
+      "mean": 386.1863893070387,
+      "median": 383.0,
+      "std": 237.2199911496912,
+      "min": 3.0,
+      "p10": 59.0,
+      "p90": 709.0,
+      "p99": 809.0,
+      "max": 853.0,
+      "sum": 114675345.0
+    }
+  },
+  "price_profile": {
+    "buy_price_buckets": {
+      "[0.0, 0.1)": {
+        "fills": 42267,
+        "usdc": 69927.703,
+        "usdc_pct": 0.985
+      },
+      "[0.1, 0.2)": {
+        "fills": 85466,
+        "usdc": 266218.5,
+        "usdc_pct": 3.751
+      },
+      "[0.2, 0.3)": {
+        "fills": 92967,
+        "usdc": 485418.19,
+        "usdc_pct": 6.84
+      },
+      "[0.3, 0.4)": {
+        "fills": 122242,
+        "usdc": 894038.683,
+        "usdc_pct": 12.598
+      },
+      "[0.4, 0.5)": {
+        "fills": 141740,
+        "usdc": 1434308.519,
+        "usdc_pct": 20.212
+      },
+      "[0.5, 0.6)": {
+        "fills": 111055,
+        "usdc": 1358322.089,
+        "usdc_pct": 19.141
+      },
+      "[0.6, 0.7)": {
+        "fills": 71042,
+        "usdc": 1042579.872,
+        "usdc_pct": 14.692
+      },
+      "[0.7, 0.8)": {
+        "fills": 49361,
+        "usdc": 913933.168,
+        "usdc_pct": 12.879
+      },
+      "[0.8, 0.9)": {
+        "fills": 18109,
+        "usdc": 463495.137,
+        "usdc_pct": 6.531
+      },
+      "[0.9, 0.95)": {
+        "fills": 2852,
+        "usdc": 116060.898,
+        "usdc_pct": 1.635
+      },
+      "[0.95, 1.0)": {
+        "fills": 892,
+        "usdc": 52088.818,
+        "usdc_pct": 0.734
+      }
+    },
+    "buy_vwap_price": 0.4214532366835974,
+    "buy_price": {
+      "count": 737993,
+      "mean": 0.4125461697946785,
+      "median": 0.4100001931,
+      "std": 0.2019084744542809,
+      "min": 0.0027863248,
+      "p10": 0.13,
+      "p90": 0.69,
+      "p99": 0.86,
+      "max": 0.98,
+      "sum": 304456.1854852842
+    }
+  },
+  "two_sided_behaviour": {
+    "markets_with_buys": 7933,
+    "markets_buying_both_outcomes": 7451,
+    "both_sides_pct": 93.92411445859071,
+    "avg_combined_cost_up_plus_down": 0.9080542429541982,
+    "median_combined_cost_up_plus_down": 0.9177185517407809,
+    "pct_pairs_combined_cost_below_1": 75.54690645550933,
+    "median_share_balance_ratio": 0.5798284731163208,
+    "sell_fills_pct": 12.360702071062132
+  },
+  "performance": {
+    "markets_total": 7933,
+    "markets_resolved": 7933,
+    "markets_truncated_excluded": 58,
+    "markets_evaluated": 7875,
+    "total_pnl_usdc": 120024.848360224,
+    "win_rate_pct": 50.59047619047619,
+    "loss_rate_pct": 49.40952380952381,
+    "avg_win": 160.1378559998295,
+    "avg_loss": -133.11857361683286,
+    "profit_factor": 1.2317241403562371,
+    "roi_on_buy_volume_pct": 1.7082131519487835,
+    "market_pnl_distribution": {
+      "count": 7875,
+      "mean": 15.24125058542527,
+      "median": 1.4714456517475014,
+      "std": 240.67407325329214,
+      "min": -1939.3527339912794,
+      "p10": -205.6342978825864,
+      "p90": 251.77536794673554,
+      "p99": 802.8978219038746,
+      "max": 3593.4453206273633,
+      "sum": 120024.848360224
+    },
+    "by_category": {
+      "BTC 5m": {
+        "markets": 1885,
+        "pnl": 45208.35,
+        "win_rate": 58.143,
+        "buy_usdc": 2212306.827,
+        "roi_pct": 2.043
+      },
+      "BTC 15m": {
+        "markets": 646,
+        "pnl": 31992.756,
+        "win_rate": 57.43,
+        "buy_usdc": 1467257.684,
+        "roi_pct": 2.18
+      },
+      "SOL 5m": {
+        "markets": 1665,
+        "pnl": 15712.44,
+        "win_rate": 51.532,
+        "buy_usdc": 550787.492,
+        "roi_pct": 2.853
+      },
+      "ETH 15m": {
+        "markets": 645,
+        "pnl": 14216.608,
+        "win_rate": 46.667,
+        "buy_usdc": 781347.083,
+        "roi_pct": 1.819
+      },
+      "BTC 1h": {
+        "markets": 154,
+        "pnl": 9926.197,
+        "win_rate": 59.091,
+        "buy_usdc": 877513.522,
+        "roi_pct": 1.131
+      },
+      "SOL 15m": {
+        "markets": 532,
+        "pnl": 9546.114,
+        "win_rate": 41.541,
+        "buy_usdc": 237293.446,
+        "roi_pct": 4.023
+      },
+      "ETH 1h": {
+        "markets": 149,
+        "pnl": 493.933,
+        "win_rate": 42.953,
+        "buy_usdc": 363651.651,
+        "roi_pct": 0.136
+      },
+      "XRP 15m": {
+        "markets": 532,
+        "pnl": -1330.632,
+        "win_rate": 37.03,
+        "buy_usdc": 163956.791,
+        "roi_pct": -0.812
+      },
+      "XRP 5m": {
+        "markets": 1667,
+        "pnl": -5740.918,
+        "win_rate": 47.091,
+        "buy_usdc": 372224.59,
+        "roi_pct": -1.542
+      }
+    },
+    "daily_pnl": {
+      "2026-03-17": {
+        "pnl": 8332.55,
+        "markets": 407,
+        "win_rate": 52.83
+      },
+      "2026-03-18": {
+        "pnl": 18125.72,
+        "markets": 1190,
+        "win_rate": 49.33
+      },
+      "2026-03-19": {
+        "pnl": 27871.74,
+        "markets": 1249,
+        "win_rate": 52.6
+      },
+      "2026-03-20": {
+        "pnl": 21897.96,
+        "markets": 818,
+        "win_rate": 50.49
+      },
+      "2026-03-21": {
+        "pnl": 5152.7,
+        "markets": 1141,
+        "win_rate": 52.76
+      },
+      "2026-03-22": {
+        "pnl": 19318.06,
+        "markets": 1282,
+        "win_rate": 50.78
+      },
+      "2026-03-23": {
+        "pnl": 16735.58,
+        "markets": 1152,
+        "win_rate": 48.7
+      },
+      "2026-03-24": {
+        "pnl": 2590.55,
+        "markets": 636,
+        "win_rate": 46.86
+      }
+    },
+    "pnl_by_hour_utc": {
+      "0": {
+        "pnl": 10774.5,
+        "markets": 311
+      },
+      "1": {
+        "pnl": -2019.4,
+        "markets": 291
+      },
+      "2": {
+        "pnl": 15463.47,
+        "markets": 336
+      },
+      "3": {
+        "pnl": 3735.15,
+        "markets": 297
+      },
+      "4": {
+        "pnl": 4468.45,
+        "markets": 320
+      },
+      "5": {
+        "pnl": 3333.39,
+        "markets": 337
+      },
+      "6": {
+        "pnl": -6984.59,
+        "markets": 346
+      },
+      "7": {
+        "pnl": 7173.25,
+        "markets": 366
+      },
+      "8": {
+        "pnl": 4741.12,
+        "markets": 367
+      },
+      "9": {
+        "pnl": 327.42,
+        "markets": 366
+      },
+      "10": {
+        "pnl": 2077.94,
+        "markets": 364
+      },
+      "11": {
+        "pnl": 4457.74,
+        "markets": 355
+      },
+      "12": {
+        "pnl": 2084.74,
+        "markets": 316
+      },
+      "13": {
+        "pnl": 6787.79,
+        "markets": 332
+      },
+      "14": {
+        "pnl": 9094.37,
+        "markets": 284
+      },
+      "15": {
+        "pnl": 6036.89,
+        "markets": 302
+      },
+      "16": {
+        "pnl": 6142.34,
+        "markets": 327
+      },
+      "17": {
+        "pnl": 1856.72,
+        "markets": 346
+      },
+      "18": {
+        "pnl": 10700.2,
+        "markets": 350
+      },
+      "19": {
+        "pnl": 11304.94,
+        "markets": 324
+      },
+      "20": {
+        "pnl": 7488.14,
+        "markets": 309
+      },
+      "21": {
+        "pnl": 5174.48,
+        "markets": 312
+      },
+      "22": {
+        "pnl": 1568.96,
+        "markets": 308
+      },
+      "23": {
+        "pnl": 4236.83,
+        "markets": 309
+      }
+    },
+    "buy_fill_win_rate_pct": 41.681548555066634,
+    "buy_fill_win_rate_share_weighted_pct": 42.608435037497664,
+    "buy_calibration": {
+      "[0.0, 0.2)": {
+        "fills": 126504.0,
+        "usdc": 332622.7381,
+        "avg_price": 0.1125,
+        "win_rate": 0.1053,
+        "edge_pct_pts": -0.7144
+      },
+      "[0.2, 0.4)": {
+        "fills": 212932.0,
+        "usdc": 1364853.9376,
+        "avg_price": 0.3045,
+        "win_rate": 0.3017,
+        "edge_pct_pts": -0.2822
+      },
+      "[0.4, 0.5)": {
+        "fills": 140622.0,
+        "usdc": 1421959.4348,
+        "avg_price": 0.4477,
+        "win_rate": 0.4439,
+        "edge_pct_pts": -0.3732
+      },
+      "[0.5, 0.6)": {
+        "fills": 110197.0,
+        "usdc": 1345844.4297,
+        "avg_price": 0.5375,
+        "win_rate": 0.5532,
+        "edge_pct_pts": 1.575
+      },
+      "[0.6, 0.8)": {
+        "fills": 119469.0,
+        "usdc": 1938238.3142,
+        "avg_price": 0.686,
+        "win_rate": 0.7061,
+        "edge_pct_pts": 2.0092
+      },
+      "[0.8, 0.95)": {
+        "fills": 20708.0,
+        "usdc": 571446.2931,
+        "avg_price": 0.8514,
+        "win_rate": 0.8879,
+        "edge_pct_pts": 3.644
+      },
+      "[0.95, 1.0)": {
+        "fills": 882.0,
+        "usdc": 51373.9381,
+        "avg_price": 0.96,
+        "win_rate": 0.9887,
+        "edge_pct_pts": 2.8722
+      }
+    },
+    "buy_maker_win_rate_share_weighted_pct": 41.99672824454546,
+    "buy_maker_avg_price": 0.41715694702699685,
+    "buy_taker_win_rate_share_weighted_pct": 43.531936578452225,
+    "buy_taker_avg_price": 0.4280344597016502
+  },
+  "ground_truth": {
+    "all_time": {
+      "trades": 54353,
+      "trade_count": 7298261,
+      "economic_pnl": 1483450.468351,
+      "trade_pnl": 1713434.474833,
+      "realized_pnl": 1393320.995674,
+      "volume_usdc": 90149166.733688,
+      "fees_paid": -320113.872982,
+      "maker_rebate": 90129.1854,
+      "join_date_utc": "2025-12-23 11:55:32 UTC",
+      "biggest_win": 7634.235475
+    },
+    "window": {
+      "from_utc": "2026-03-17 13:00:00 UTC",
+      "to_utc": "2026-04-06 13:00:00 UTC",
+      "economic_pnl": 107635.15012699994,
+      "trade_pnl": 140920.5936220002,
+      "realized_pnl": 96631.8275929999,
+      "volume_usdc": 8717977.598187998,
+      "fees": -676185.5088149998,
+      "maker_rebate": 11142.9421
+    },
+    "daily_economic_pnl_all_time": {
+      "active_days": 98,
+      "positive_days_pct": 87.75510204081633,
+      "mean": 15138.136090469387,
+      "median": 15275.622558000032,
+      "min": -15193.331627000007,
+      "max": 63956.907530999975,
+      "first_active": "2025-12-19",
+      "last_active": "2026-03-26"
+    }
+  },
+  "strategy_summary": [
+    "Liquidity role: 78.2% of fills / 58.1% of USDC volume are MAKER (passive limit orders) - the wallet is primarily a market maker.",
+    "Market focus: BTC 5m+15m Up/Down = 56.3% of USDC volume; all crypto Up/Down (5m/15m/1h) = 100.0%.",
+    "Activity: 120,297 fills/day across 1,133 markets/day; $1,132,416 USDC/day.",
+    "Sizing: median fill $4.26, mean $9.41; median per-market buy volume $478.",
+    "Two-sided: buys BOTH Up and Down in 93.9% of markets (median combined cost 0.918).",
+    "Results (evaluated markets): win rate 50.6%, PnL $120,025, ROI on buy volume 1.71%.",
+    "Ground truth (Polymarket): all-time economic PnL $1,483,450, volume $90,149,167.",
+    "WARNING: the wallet has been inactive for 244.4 days (last dense activity 2026-03-24 12:12:57 UTC). A live copy bot would currently receive no signals."
+  ]
+}

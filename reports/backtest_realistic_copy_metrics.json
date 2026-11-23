@@ -1,0 +1,118 @@
+{
+  "name": "realistic_copy",
+  "starting_balance": 10000.0,
+  "final_equity": 6356.34,
+  "cash": 6356.34,
+  "total_pnl": -3643.66,
+  "return_pct": -36.437,
+  "n_orders": 26049,
+  "n_buys": 23329,
+  "n_sells": 2720,
+  "volume_usdc": 174273.64,
+  "fees_paid": 2450.93,
+  "open_positions": 0,
+  "open_positions_value": 0,
+  "peak_open_cost": 4476.15,
+  "min_cash": 3332.85,
+  "rejections": {
+    "daily_loss_halt": 82579,
+    "clipped_max_position": 43,
+    "below_min_order": 17,
+    "max_position": 321
+  },
+  "halted_days": [
+    "2026-03-17",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-20",
+    "2026-03-21",
+    "2026-03-22",
+    "2026-03-23",
+    "2026-03-24"
+  ],
+  "n_warnings": 12,
+  "n_stop_loss_warnings": 4,
+  "n_large_loss_warnings": 0,
+  "n_resolved_markets": 1748,
+  "realized_pnl_resolved": -3643.66,
+  "win_rate_pct": 43.31,
+  "avg_win": 18.4767,
+  "avg_loss": -17.7906,
+  "largest_win": 320.7,
+  "largest_loss": -149.08,
+  "profit_factor": 0.793,
+  "roi_on_deployed_pct": -2.192,
+  "by_category": {
+    "BTC 15m": {
+      "markets": 151.0,
+      "pnl": -905.794,
+      "win_rate": 39.073
+    },
+    "BTC 1h": {
+      "markets": 39.0,
+      "pnl": -260.25,
+      "win_rate": 33.333
+    },
+    "BTC 5m": {
+      "markets": 432.0,
+      "pnl": -2223.83,
+      "win_rate": 49.769
+    },
+    "ETH 15m": {
+      "markets": 151.0,
+      "pnl": -210.228,
+      "win_rate": 43.046
+    },
+    "ETH 1h": {
+      "markets": 37.0,
+      "pnl": -145.74,
+      "win_rate": 37.838
+    },
+    "SOL 15m": {
+      "markets": 124.0,
+      "pnl": -149.248,
+      "win_rate": 37.097
+    },
+    "SOL 5m": {
+      "markets": 351.0,
+      "pnl": 909.805,
+      "win_rate": 47.863
+    },
+    "XRP 15m": {
+      "markets": 130.0,
+      "pnl": -331.508,
+      "win_rate": 28.462
+    },
+    "XRP 5m": {
+      "markets": 333.0,
+      "pnl": -326.866,
+      "win_rate": 42.042
+    }
+  },
+  "max_drawdown_usd": 3924.77,
+  "max_drawdown_pct": 38.602,
+  "sharpe_hourly_annualized": -19.628,
+  "n_hourly_returns": 169,
+  "sharpe_daily_annualized": -104.203,
+  "n_daily_returns": 7,
+  "daily_realized_pnl": {
+    "2026-03-17": -129.72,
+    "2026-03-18": -386.7,
+    "2026-03-19": -561.89,
+    "2026-03-20": -612.89,
+    "2026-03-21": -523.59,
+    "2026-03-22": -550.4,
+    "2026-03-23": -505.79,
+    "2026-03-24": -372.68
+  },
+  "engine_stats": {
+    "buy_executed": 23329,
+    "accumulating_buy": 64661,
+    "sell_executed": 2720,
+    "fallback_price": 12037,
+    "accumulating_sell": 1369,
+    "buy_rejected": 82917,
+    "skipped_market_closed": 39
+  },
+  "runtime_seconds": 2.8
+}

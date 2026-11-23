@@ -1,0 +1,732 @@
+{
+  "generated_at_utc": "2026-11-23 21:22:37 UTC",
+  "wallet": "0xd0d6053c3c37e727402d84c14069780d360993aa",
+  "window": {
+    "start_utc": "2026-03-17 13:12:57 UTC",
+    "end_utc": "2026-03-24 12:12:57 UTC",
+    "days": 6.96,
+    "fills": 834276,
+    "markets": 7875,
+    "wallet_days_inactive": 244.4
+  },
+  "assumptions": {
+    "starting_balance": 10000.0,
+    "target_capital_usd": 69910.18,
+    "copy_ratio_at_start": 0.143041,
+    "poll_interval_seconds": 10,
+    "execution_latency_seconds": 2,
+    "slippage_bps": 30,
+    "fees": {
+      "btc_updown_short_rate": 0.05,
+      "crypto_other_rate": 0.01,
+      "default_rate": 0.0
+    },
+    "risk": {
+      "max_position_pct": 0.1,
+      "max_daily_loss": 500.0,
+      "stop_loss_pct": 0.05,
+      "stop_loss_action": "warn",
+      "min_order_shares": 5.0,
+      "min_order_usd": 1.0
+    }
+  },
+  "target_ground_truth_window": {
+    "economic_pnl": 108089.6197850001,
+    "trade_pnl": 140417.9145480001,
+    "fees_paid": 41100.279263000004,
+    "maker_rebate": 8771.984499999991,
+    "volume_usdc": 8101553.27225399,
+    "from_utc": "2026-03-17 13:00:00 UTC",
+    "to_utc": "2026-03-24 13:00:00 UTC"
+  },
+  "scenarios": {
+    "target_replica": {
+      "name": "target_replica",
+      "starting_balance": 69910.17678241506,
+      "final_equity": 190163.21,
+      "cash": 190163.21,
+      "total_pnl": 120253.03,
+      "return_pct": 172.011,
+      "n_orders": 834226,
+      "n_buys": 731262,
+      "n_sells": 102964,
+      "volume_usdc": 7848955.83,
+      "fees_paid": 0.0,
+      "open_positions": 0,
+      "open_positions_value": 0,
+      "peak_open_cost": 69910.18,
+      "min_cash": 26792.38,
+      "rejections": {},
+      "halted_days": [],
+      "n_warnings": 0,
+      "n_stop_loss_warnings": 0,
+      "n_large_loss_warnings": 0,
+      "n_resolved_markets": 7875,
+      "realized_pnl_resolved": 120253.03,
+      "win_rate_pct": 50.59,
+      "avg_win": 160.1807,
+      "avg_loss": -133.1038,
+      "largest_win": 3593.45,
+      "largest_loss": -1939.35,
+      "profit_factor": 1.232,
+      "roi_on_deployed_pct": 1.712,
+      "by_category": {
+        "BTC 15m": {
+          "markets": 646.0,
+          "pnl": 31992.756,
+          "win_rate": 57.43
+        },
+        "BTC 1h": {
+          "markets": 154.0,
+          "pnl": 9926.197,
+          "win_rate": 59.091
+        },
+        "BTC 5m": {
+          "markets": 1885.0,
+          "pnl": 45324.051,
+          "win_rate": 58.143
+        },
+        "ETH 15m": {
+          "markets": 645.0,
+          "pnl": 14216.608,
+          "win_rate": 46.667
+        },
+        "ETH 1h": {
+          "markets": 149.0,
+          "pnl": 493.933,
+          "win_rate": 42.953
+        },
+        "SOL 15m": {
+          "markets": 532.0,
+          "pnl": 9546.114,
+          "win_rate": 41.541
+        },
+        "SOL 5m": {
+          "markets": 1665.0,
+          "pnl": 15757.546,
+          "win_rate": 51.532
+        },
+        "XRP 15m": {
+          "markets": 532.0,
+          "pnl": -1330.632,
+          "win_rate": 37.03
+        },
+        "XRP 5m": {
+          "markets": 1667.0,
+          "pnl": -5673.538,
+          "win_rate": 47.091
+        }
+      },
+      "max_drawdown_usd": 14105.79,
+      "max_drawdown_pct": 9.21,
+      "sharpe_hourly_annualized": 34.116,
+      "n_hourly_returns": 169,
+      "sharpe_daily_annualized": 27.278,
+      "n_daily_returns": 7,
+      "daily_realized_pnl": {
+        "2026-03-17": 7770.63,
+        "2026-03-18": 17347.19,
+        "2026-03-19": 29508.11,
+        "2026-03-20": 20562.09,
+        "2026-03-21": 5847.15,
+        "2026-03-22": 19930.83,
+        "2026-03-23": 16035.9,
+        "2026-03-24": 3251.13
+      },
+      "engine_stats": {
+        "buy_executed": 731262,
+        "sell_executed": 102964,
+        "skipped_market_closed": 54
+      },
+      "runtime_seconds": 18.9
+    },
+    "ideal_copy": {
+      "name": "ideal_copy",
+      "starting_balance": 10000.0,
+      "final_equity": 38914.98,
+      "cash": 38914.98,
+      "total_pnl": 28914.98,
+      "return_pct": 289.15,
+      "n_orders": 338148,
+      "n_buys": 286950,
+      "n_sells": 51198,
+      "volume_usdc": 1943941.41,
+      "fees_paid": 0.0,
+      "open_positions": 0,
+      "open_positions_value": 0,
+      "peak_open_cost": 16478.09,
+      "min_cash": 4143.53,
+      "rejections": {
+        "clipped_max_position": 267,
+        "below_min_order": 102,
+        "max_position": 4079,
+        "daily_loss_halt": 80449
+      },
+      "halted_days": [
+        "2026-03-17",
+        "2026-03-21",
+        "2026-03-24"
+      ],
+      "n_warnings": 13,
+      "n_stop_loss_warnings": 10,
+      "n_large_loss_warnings": 0,
+      "n_resolved_markets": 6087,
+      "realized_pnl_resolved": 28914.98,
+      "win_rate_pct": 50.17,
+      "avg_win": 51.8752,
+      "avg_loss": -42.7009,
+      "largest_win": 933.09,
+      "largest_loss": -784.52,
+      "profit_factor": 1.223,
+      "roi_on_deployed_pct": 1.669,
+      "by_category": {
+        "BTC 15m": {
+          "markets": 502.0,
+          "pnl": 7720.302,
+          "win_rate": 57.371
+        },
+        "BTC 1h": {
+          "markets": 118.0,
+          "pnl": 1898.384,
+          "win_rate": 59.322
+        },
+        "BTC 5m": {
+          "markets": 1453.0,
+          "pnl": 14028.905,
+          "win_rate": 57.949
+        },
+        "ETH 15m": {
+          "markets": 502.0,
+          "pnl": 2881.046,
+          "win_rate": 47.61
+        },
+        "ETH 1h": {
+          "markets": 112.0,
+          "pnl": -131.752,
+          "win_rate": 41.071
+        },
+        "SOL 15m": {
+          "markets": 410.0,
+          "pnl": 971.706,
+          "win_rate": 41.22
+        },
+        "SOL 5m": {
+          "markets": 1295.0,
+          "pnl": 5312.68,
+          "win_rate": 51.042
+        },
+        "XRP 15m": {
+          "markets": 409.0,
+          "pnl": -73.066,
+          "win_rate": 35.697
+        },
+        "XRP 5m": {
+          "markets": 1286.0,
+          "pnl": -3693.225,
+          "win_rate": 46.112
+        }
+      },
+      "max_drawdown_usd": 6995.8,
+      "max_drawdown_pct": 17.488,
+      "sharpe_hourly_annualized": 30.953,
+      "n_hourly_returns": 169,
+      "sharpe_daily_annualized": 23.959,
+      "n_daily_returns": 7,
+      "daily_realized_pnl": {
+        "2026-03-17": 167.47,
+        "2026-03-18": 2398.63,
+        "2026-03-19": 6455.01,
+        "2026-03-20": 6091.73,
+        "2026-03-21": -814.18,
+        "2026-03-22": 6887.37,
+        "2026-03-23": 7133.88,
+        "2026-03-24": 595.05
+      },
+      "engine_stats": {
+        "buy_executed": 286950,
+        "accumulating_buy": 359682,
+        "sell_executed": 51198,
+        "accumulating_sell": 32629,
+        "buy_rejected": 84630,
+        "skipped_market_closed": 54
+      },
+      "runtime_seconds": 13.2
+    },
+    "realistic_copy": {
+      "name": "realistic_copy",
+      "starting_balance": 10000.0,
+      "final_equity": 6356.34,
+      "cash": 6356.34,
+      "total_pnl": -3643.66,
+      "return_pct": -36.437,
+      "n_orders": 26049,
+      "n_buys": 23329,
+      "n_sells": 2720,
+      "volume_usdc": 174273.64,
+      "fees_paid": 2450.93,
+      "open_positions": 0,
+      "open_positions_value": 0,
+      "peak_open_cost": 4476.15,
+      "min_cash": 3332.85,
+      "rejections": {
+        "daily_loss_halt": 82579,
+        "clipped_max_position": 43,
+        "below_min_order": 17,
+        "max_position": 321
+      },
+      "halted_days": [
+        "2026-03-17",
+        "2026-03-18",
+        "2026-03-19",
+        "2026-03-20",
+        "2026-03-21",
+        "2026-03-22",
+        "2026-03-23",
+        "2026-03-24"
+      ],
+      "n_warnings": 12,
+      "n_stop_loss_warnings": 4,
+      "n_large_loss_warnings": 0,
+      "n_resolved_markets": 1748,
+      "realized_pnl_resolved": -3643.66,
+      "win_rate_pct": 43.31,
+      "avg_win": 18.4767,
+      "avg_loss": -17.7906,
+      "largest_win": 320.7,
+      "largest_loss": -149.08,
+      "profit_factor": 0.793,
+      "roi_on_deployed_pct": -2.192,
+      "by_category": {
+        "BTC 15m": {
+          "markets": 151.0,
+          "pnl": -905.794,
+          "win_rate": 39.073
+        },
+        "BTC 1h": {
+          "markets": 39.0,
+          "pnl": -260.25,
+          "win_rate": 33.333
+        },
+        "BTC 5m": {
+          "markets": 432.0,
+          "pnl": -2223.83,
+          "win_rate": 49.769
+        },
+        "ETH 15m": {
+          "markets": 151.0,
+          "pnl": -210.228,
+          "win_rate": 43.046
+        },
+        "ETH 1h": {
+          "markets": 37.0,
+          "pnl": -145.74,
+          "win_rate": 37.838
+        },
+        "SOL 15m": {
+          "markets": 124.0,
+          "pnl": -149.248,
+          "win_rate": 37.097
+        },
+        "SOL 5m": {
+          "markets": 351.0,
+          "pnl": 909.805,
+          "win_rate": 47.863
+        },
+        "XRP 15m": {
+          "markets": 130.0,
+          "pnl": -331.508,
+          "win_rate": 28.462
+        },
+        "XRP 5m": {
+          "markets": 333.0,
+          "pnl": -326.866,
+          "win_rate": 42.042
+        }
+      },
+      "max_drawdown_usd": 3924.77,
+      "max_drawdown_pct": 38.602,
+      "sharpe_hourly_annualized": -19.628,
+      "n_hourly_returns": 169,
+      "sharpe_daily_annualized": -104.203,
+      "n_daily_returns": 7,
+      "daily_realized_pnl": {
+        "2026-03-17": -129.72,
+        "2026-03-18": -386.7,
+        "2026-03-19": -561.89,
+        "2026-03-20": -612.89,
+        "2026-03-21": -523.59,
+        "2026-03-22": -550.4,
+        "2026-03-23": -505.79,
+        "2026-03-24": -372.68
+      },
+      "engine_stats": {
+        "buy_executed": 23329,
+        "accumulating_buy": 64661,
+        "sell_executed": 2720,
+        "fallback_price": 12037,
+        "accumulating_sell": 1369,
+        "buy_rejected": 82917,
+        "skipped_market_closed": 39
+      },
+      "runtime_seconds": 2.8
+    },
+    "realistic_taker_only": {
+      "name": "realistic_taker_only",
+      "starting_balance": 10000.0,
+      "final_equity": 8076.92,
+      "cash": 8076.92,
+      "total_pnl": -1923.08,
+      "return_pct": -19.231,
+      "n_orders": 19868,
+      "n_buys": 16683,
+      "n_sells": 3185,
+      "volume_usdc": 130169.86,
+      "fees_paid": 1726.74,
+      "open_positions": 0,
+      "open_positions_value": 0,
+      "peak_open_cost": 3542.04,
+      "min_cash": 5155.84,
+      "rejections": {
+        "below_min_order_sell": 73,
+        "clipped_max_position": 22,
+        "below_min_order": 7,
+        "max_position": 141,
+        "daily_loss_halt": 37198
+      },
+      "halted_days": [
+        "2026-03-17",
+        "2026-03-18",
+        "2026-03-19",
+        "2026-03-20",
+        "2026-03-21",
+        "2026-03-22",
+        "2026-03-23",
+        "2026-03-24"
+      ],
+      "n_warnings": 9,
+      "n_stop_loss_warnings": 1,
+      "n_large_loss_warnings": 0,
+      "n_resolved_markets": 2104,
+      "realized_pnl_resolved": -1923.08,
+      "win_rate_pct": 46.53,
+      "avg_win": 14.3996,
+      "avg_loss": -14.2403,
+      "largest_win": 188.6,
+      "largest_loss": -138.65,
+      "profit_factor": 0.88,
+      "roi_on_deployed_pct": -1.641,
+      "by_category": {
+        "BTC 15m": {
+          "markets": 214.0,
+          "pnl": -723.543,
+          "win_rate": 41.589
+        },
+        "BTC 1h": {
+          "markets": 55.0,
+          "pnl": -1.079,
+          "win_rate": 52.727
+        },
+        "BTC 5m": {
+          "markets": 618.0,
+          "pnl": -1509.454,
+          "win_rate": 49.676
+        },
+        "ETH 15m": {
+          "markets": 212.0,
+          "pnl": -68.286,
+          "win_rate": 41.509
+        },
+        "ETH 1h": {
+          "markets": 54.0,
+          "pnl": 278.936,
+          "win_rate": 50.0
+        },
+        "SOL 15m": {
+          "markets": 158.0,
+          "pnl": 367.172,
+          "win_rate": 43.038
+        },
+        "SOL 5m": {
+          "markets": 351.0,
+          "pnl": 99.807,
+          "win_rate": 50.142
+        },
+        "XRP 15m": {
+          "markets": 146.0,
+          "pnl": -238.899,
+          "win_rate": 41.096
+        },
+        "XRP 5m": {
+          "markets": 296.0,
+          "pnl": -127.733,
+          "win_rate": 45.608
+        }
+      },
+      "max_drawdown_usd": 2606.58,
+      "max_drawdown_pct": 24.77,
+      "sharpe_hourly_annualized": -14.039,
+      "n_hourly_returns": 169,
+      "sharpe_daily_annualized": -41.913,
+      "n_daily_returns": 7,
+      "daily_realized_pnl": {
+        "2026-03-17": 127.95,
+        "2026-03-18": -176.97,
+        "2026-03-19": -186.68,
+        "2026-03-20": -520.75,
+        "2026-03-21": -296.4,
+        "2026-03-22": -430.4,
+        "2026-03-23": -254.63,
+        "2026-03-24": -185.19
+      },
+      "engine_stats": {
+        "buy_executed": 16683,
+        "accumulating_buy": 29020,
+        "sell_executed": 3185,
+        "fallback_price": 5380,
+        "accumulating_sell": 1335,
+        "sell_rejected": 73,
+        "skipped_market_closed": 8,
+        "buy_rejected": 37346
+      },
+      "runtime_seconds": 1.6
+    },
+    "diag_fill_price_with_fees": {
+      "name": "diag_fill_price_with_fees",
+      "starting_balance": 10000.0,
+      "final_equity": 7778.54,
+      "cash": 7778.54,
+      "total_pnl": -2221.46,
+      "return_pct": -22.215,
+      "n_orders": 103945,
+      "n_buys": 86900,
+      "n_sells": 17045,
+      "volume_usdc": 346150.18,
+      "fees_paid": 5742.61,
+      "open_positions": 0,
+      "open_positions_value": 0,
+      "peak_open_cost": 5002.15,
+      "min_cash": 3778.94,
+      "rejections": {
+        "daily_loss_halt": 162334,
+        "max_position": 1328,
+        "clipped_max_position": 121,
+        "below_min_order": 74,
+        "below_min_order_sell": 1
+      },
+      "halted_days": [
+        "2026-03-17",
+        "2026-03-18",
+        "2026-03-19",
+        "2026-03-20",
+        "2026-03-21",
+        "2026-03-22",
+        "2026-03-23",
+        "2026-03-24"
+      ],
+      "n_warnings": 13,
+      "n_stop_loss_warnings": 5,
+      "n_large_loss_warnings": 0,
+      "n_resolved_markets": 2877,
+      "realized_pnl_resolved": -2221.46,
+      "win_rate_pct": 46.54,
+      "avg_win": 20.7847,
+      "avg_loss": -19.5398,
+      "largest_win": 376.9,
+      "largest_loss": -214.21,
+      "profit_factor": 0.926,
+      "roi_on_deployed_pct": -0.709,
+      "by_category": {
+        "BTC 15m": {
+          "markets": 239.0,
+          "pnl": -618.711,
+          "win_rate": 49.791
+        },
+        "BTC 1h": {
+          "markets": 61.0,
+          "pnl": 326.874,
+          "win_rate": 47.541
+        },
+        "BTC 5m": {
+          "markets": 698.0,
+          "pnl": -1462.766,
+          "win_rate": 51.003
+        },
+        "ETH 15m": {
+          "markets": 239.0,
+          "pnl": 178.329,
+          "win_rate": 43.933
+        },
+        "ETH 1h": {
+          "markets": 60.0,
+          "pnl": 46.744,
+          "win_rate": 43.333
+        },
+        "SOL 15m": {
+          "markets": 197.0,
+          "pnl": -253.814,
+          "win_rate": 37.563
+        },
+        "SOL 5m": {
+          "markets": 603.0,
+          "pnl": 998.67,
+          "win_rate": 49.585
+        },
+        "XRP 15m": {
+          "markets": 197.0,
+          "pnl": -607.082,
+          "win_rate": 30.964
+        },
+        "XRP 5m": {
+          "markets": 583.0,
+          "pnl": -829.702,
+          "win_rate": 46.312
+        }
+      },
+      "max_drawdown_usd": 3158.48,
+      "max_drawdown_pct": 29.833,
+      "sharpe_hourly_annualized": -6.884,
+      "n_hourly_returns": 169,
+      "sharpe_daily_annualized": -24.603,
+      "n_daily_returns": 7,
+      "daily_realized_pnl": {
+        "2026-03-17": -256.45,
+        "2026-03-18": -159.56,
+        "2026-03-19": 81.88,
+        "2026-03-20": -342.82,
+        "2026-03-21": -529.06,
+        "2026-03-22": -480.41,
+        "2026-03-23": -408.09,
+        "2026-03-24": -126.96
+      },
+      "engine_stats": {
+        "buy_executed": 86900,
+        "accumulating_buy": 480626,
+        "sell_executed": 17045,
+        "accumulating_sell": 20442,
+        "buy_rejected": 163736,
+        "skipped_market_closed": 54,
+        "sell_rejected": 1
+      },
+      "runtime_seconds": 7.3
+    },
+    "diag_realistic_no_loss_halt": {
+      "name": "diag_realistic_no_loss_halt",
+      "starting_balance": 10000.0,
+      "final_equity": 1254.12,
+      "cash": 1254.12,
+      "total_pnl": -8745.88,
+      "return_pct": -87.459,
+      "n_orders": 78742,
+      "n_buys": 71539,
+      "n_sells": 7203,
+      "volume_usdc": 413723.52,
+      "fees_paid": 5886.6,
+      "open_positions": 0,
+      "open_positions_value": 0,
+      "peak_open_cost": 4509.28,
+      "min_cash": 688.66,
+      "rejections": {
+        "clipped_max_position": 214,
+        "below_min_order": 134,
+        "max_position": 1260
+      },
+      "halted_days": [],
+      "n_warnings": 13,
+      "n_stop_loss_warnings": 13,
+      "n_large_loss_warnings": 0,
+      "n_resolved_markets": 7198,
+      "realized_pnl_resolved": -8745.88,
+      "win_rate_pct": 43.15,
+      "avg_win": 9.514,
+      "avg_loss": -9.3588,
+      "largest_win": 257.3,
+      "largest_loss": -172.22,
+      "profit_factor": 0.772,
+      "roi_on_deployed_pct": -2.201,
+      "by_category": {
+        "BTC 15m": {
+          "markets": 645.0,
+          "pnl": -2727.803,
+          "win_rate": 40.775
+        },
+        "BTC 1h": {
+          "markets": 154.0,
+          "pnl": -209.531,
+          "win_rate": 38.961
+        },
+        "BTC 5m": {
+          "markets": 1880.0,
+          "pnl": -4204.36,
+          "win_rate": 45.426
+        },
+        "ETH 15m": {
+          "markets": 645.0,
+          "pnl": -34.811,
+          "win_rate": 42.171
+        },
+        "ETH 1h": {
+          "markets": 149.0,
+          "pnl": -369.403,
+          "win_rate": 34.228
+        },
+        "SOL 15m": {
+          "markets": 507.0,
+          "pnl": 271.653,
+          "win_rate": 41.42
+        },
+        "SOL 5m": {
+          "markets": 1434.0,
+          "pnl": -101.779,
+          "win_rate": 47.908
+        },
+        "XRP 15m": {
+          "markets": 508.0,
+          "pnl": -308.627,
+          "win_rate": 32.677
+        },
+        "XRP 5m": {
+          "markets": 1276.0,
+          "pnl": -1061.22,
+          "win_rate": 42.555
+        }
+      },
+      "max_drawdown_usd": 8916.56,
+      "max_drawdown_pct": 87.933,
+      "sharpe_hourly_annualized": -41.407,
+      "n_hourly_returns": 169,
+      "sharpe_daily_annualized": -80.63,
+      "n_daily_returns": 7,
+      "daily_realized_pnl": {
+        "2026-03-17": -1822.92,
+        "2026-03-18": -2266.39,
+        "2026-03-19": -865.44,
+        "2026-03-20": -1243.13,
+        "2026-03-21": -887.9,
+        "2026-03-22": -694.73,
+        "2026-03-23": -712.92,
+        "2026-03-24": -252.44
+      },
+      "engine_stats": {
+        "buy_executed": 71539,
+        "accumulating_buy": 97974,
+        "sell_executed": 7203,
+        "fallback_price": 12037,
+        "accumulating_sell": 9449,
+        "skipped_market_closed": 39,
+        "buy_rejected": 1394
+      },
+      "runtime_seconds": 4.6
+    }
+  },
+  "verdict": [
+    "Replay check: target PnL replayed from fills $120,253 vs Polymarket trade PnL $140,418 / economic PnL $108,090 in the same window.",
+    "Target return on its deployed capital ($69,910): 172.01% in 6.96 days.",
+    "Ideal copy (instant, same price, no fees): 289.15% (PnL $28,914.98).",
+    "Realistic copy (10 s polling, latency, slippage, taker fees): -36.44% (PnL $-3,643.66, fees $2,450.93).",
+    "The gap between ideal and realistic copy is the edge lost to latency, slippage and fees: the target earns mostly as a MAKER and at sub-second speed, which a 10-second polling follower using taker orders cannot reproduce.",
+    "Copying only the target's taker fills: -19.23% (PnL $-1,923.08).",
+    "Diagnostic - target's own prices but paying taker fees: -22.21% (fees $5,742.61) -> isolates the cost of fees alone.",
+    "Diagnostic - realistic copy WITHOUT the $500 daily-loss halt: -87.46% (PnL $-8,745.88); the halt fired on 8 of 8 days in realistic_copy.",
+    "The target wallet has been inactive for 244.4 days, so a live copy bot started today would receive no trades to copy."
+  ]
+}

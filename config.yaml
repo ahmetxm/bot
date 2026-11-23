@@ -1,0 +1,91 @@
+# Polymarket copy-trade bot configuration
+# ------------------------------------------------------------------
+# SAFETY: live trading is OFF by default. Paper trading is the default mode.
+# API keys are NEVER stored here - they are read from environment variables
+# (see live_trading.env_vars below).
+
+target:
+  wallet: "0xd0d6053c3c37e727402d84c14069780d360993aa"
+  username: "k9Q2mX4L8A7ZP3R"
+
+api:
+  data_api: "https://data-api.polymarket.com/v2"
+  gamma_api: "https://gamma-api.polymarket.com"
+  clob_api: "https://clob.polymarket.com"
+  timeout_seconds: 30
+  min_request_interval: 0.15   # global rate limit between requests (seconds)
+  max_retries: 5
+  user_agent: "polymarket-copybot/1.0 (research; paper-trading)"
+
+paths:
+  data_dir: "data"
+  reports_dir: "reports"
+  logs_dir: "logs"
+
+collect:
+  lookback_days: 7          # history window (anchored to the wallet's last active time)
+  max_trades: null          # null = whole window; set e.g. 2000 for a quick test
+  include_maker_fills: true # taker_only=false -> includes the wallet's maker fills
+  label_roles: true         # second pass over taker-only feed to tag each fill maker/taker
+  chunk_seconds: 3600       # window split for parallel pagination
+  workers: 4                # parallel HTTP workers (keep small - shared rate limits)
+  enrich_gamma: true        # question / endDate / eventStartTime from gamma API
+  fetch_ground_truth: true  # target's own PnL series + closed positions (validation)
+
+strategy:
+  # markets whose first trade lies within this buffer after data start are
+  # treated as truncated (their earlier fills may be missing) in PnL stats
+  truncation_buffer_seconds: 3600
+
+paper_trading:
+  starting_balance: 10000.0
+
+risk:
+  max_position_pct: 0.10       # max exposure per market = 10% of current equity
+  max_daily_loss: 500.0        # realized daily loss (UTC day) that halts new entries
+  stop_loss_pct: 0.05          # single-position loss > 5% of equity triggers stop-loss
+  stop_loss_action: "warn"     # "warn" (log warning) or "close" (also close position)
+  min_order_shares: 5.0        # Polymarket minimum order size (shares)
+  min_order_usd: 1.0           # minimum notional for a marketable order
+
+sizing:
+  # our_shares = target_shares * (our_equity / target_capital)
+  # "auto" = peak concurrent capital the target deployed in the analysed window
+  target_capital_usd: "auto"
+  fallback_target_capital_usd: 50000.0   # used by the live bot if no analysis exists yet
+
+fees:
+  # Polymarket taker fee: fee = shares * rate * p * (1 - p)  (makers pay 0)
+  # Source: docs.polymarket.com/trading/fees (checked Nov 2026)
+  btc_updown_short_rate: 0.05   # BTC 5m / 15m Up-or-Down markets
+  crypto_other_rate: 0.01       # other crypto markets
+  default_rate: 0.0
+
+backtest:
+  days: 7                       # last N days of the collected data
+  poll_interval_seconds: 10     # same polling cadence as the live bot
+  execution_latency_seconds: 2  # order round-trip after detection
+  slippage_bps: 30              # extra adverse slippage on every copied order
+  fallback_slippage_bps: 150    # when no later market print exists to price the fill
+  max_price_staleness_seconds: 120
+  scenarios: ["target_replica", "ideal_copy", "realistic_copy", "realistic_taker_only",
+              "diag_fill_price_with_fees", "diag_realistic_no_loss_halt"]
+
+bot:
+  poll_interval_seconds: 10
+  resolution_check_seconds: 30
+  mark_to_market_seconds: 30
+  copy_maker_fills: true        # copy all detected fills (maker+taker)
+  state_file: "data/bot_state.json"
+  max_trade_age_seconds: 60     # ignore target fills older than this when detected
+
+live_trading:
+  enabled: false                # MUST be switched to true manually by the user
+  chain_id: 137
+  signature_type: 1             # 1 = Polymarket email/magic proxy, 2 = browser wallet proxy, 0 = EOA
+  env_vars:
+    private_key: "POLY_PRIVATE_KEY"
+    funder: "POLY_FUNDER_ADDRESS"
+    api_key: "POLY_API_KEY"
+    api_secret: "POLY_API_SECRET"
+    api_passphrase: "POLY_API_PASSPHRASE"

@@ -1,0 +1,108 @@
+{
+  "name": "diag_realistic_no_loss_halt",
+  "starting_balance": 10000.0,
+  "final_equity": 1254.12,
+  "cash": 1254.12,
+  "total_pnl": -8745.88,
+  "return_pct": -87.459,
+  "n_orders": 78742,
+  "n_buys": 71539,
+  "n_sells": 7203,
+  "volume_usdc": 413723.52,
+  "fees_paid": 5886.6,
+  "open_positions": 0,
+  "open_positions_value": 0,
+  "peak_open_cost": 4509.28,
+  "min_cash": 688.66,
+  "rejections": {
+    "clipped_max_position": 214,
+    "below_min_order": 134,
+    "max_position": 1260
+  },
+  "halted_days": [],
+  "n_warnings": 13,
+  "n_stop_loss_warnings": 13,
+  "n_large_loss_warnings": 0,
+  "n_resolved_markets": 7198,
+  "realized_pnl_resolved": -8745.88,
+  "win_rate_pct": 43.15,
+  "avg_win": 9.514,
+  "avg_loss": -9.3588,
+  "largest_win": 257.3,
+  "largest_loss": -172.22,
+  "profit_factor": 0.772,
+  "roi_on_deployed_pct": -2.201,
+  "by_category": {
+    "BTC 15m": {
+      "markets": 645.0,
+      "pnl": -2727.803,
+      "win_rate": 40.775
+    },
+    "BTC 1h": {
+      "markets": 154.0,
+      "pnl": -209.531,
+      "win_rate": 38.961
+    },
+    "BTC 5m": {
+      "markets": 1880.0,
+      "pnl": -4204.36,
+      "win_rate": 45.426
+    },
+    "ETH 15m": {
+      "markets": 645.0,
+      "pnl": -34.811,
+      "win_rate": 42.171
+    },
+    "ETH 1h": {
+      "markets": 149.0,
+      "pnl": -369.403,
+      "win_rate": 34.228
+    },
+    "SOL 15m": {
+      "markets": 507.0,
+      "pnl": 271.653,
+      "win_rate": 41.42
+    },
+    "SOL 5m": {
+      "markets": 1434.0,
+      "pnl": -101.779,
+      "win_rate": 47.908
+    },
+    "XRP 15m": {
+      "markets": 508.0,
+      "pnl": -308.627,
+      "win_rate": 32.677
+    },
+    "XRP 5m": {
+      "markets": 1276.0,
+      "pnl": -1061.22,
+      "win_rate": 42.555
+    }
+  },
+  "max_drawdown_usd": 8916.56,
+  "max_drawdown_pct": 87.933,
+  "sharpe_hourly_annualized": -41.407,
+  "n_hourly_returns": 169,
+  "sharpe_daily_annualized": -80.63,
+  "n_daily_returns": 7,
+  "daily_realized_pnl": {
+    "2026-03-17": -1822.92,
+    "2026-03-18": -2266.39,
+    "2026-03-19": -865.44,
+    "2026-03-20": -1243.13,
+    "2026-03-21": -887.9,
+    "2026-03-22": -694.73,
+    "2026-03-23": -712.92,
+    "2026-03-24": -252.44
+  },
+  "engine_stats": {
+    "buy_executed": 71539,
+    "accumulating_buy": 97974,
+    "sell_executed": 7203,
+    "fallback_price": 12037,
+    "accumulating_sell": 9449,
+    "skipped_market_closed": 39,
+    "buy_rejected": 1394
+  },
+  "runtime_seconds": 4.6
+}
