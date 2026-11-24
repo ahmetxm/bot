@@ -48,6 +48,7 @@ def setup_logging(cfg: dict, name: str, level: int = logging.INFO) -> logging.Lo
     fmt = logging.Formatter("%(asctime)s | %(levelname)-7s | %(name)s | %(message)s", "%Y-%m-%d %H:%M:%S")
     sh = logging.StreamHandler()
     sh.setFormatter(fmt)
+    Path(cfg["paths"]["logs_dir"]).mkdir(parents=True, exist_ok=True)
     fh = logging.FileHandler(Path(cfg["paths"]["logs_dir"]) / f"{name}.log", encoding="utf-8")
     fh.setFormatter(fmt)
     logger.addHandler(sh)

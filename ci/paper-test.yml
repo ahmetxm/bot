@@ -1,0 +1,114 @@
+# INSTALL: GitHub only runs workflows stored in .github/workflows/. Copy this file to
+# .github/workflows/paper.yml (GitHub web: Add file -> Create new file). It cannot be pushed by the bot's
+# GitHub App because the App has no "workflows" permission.
+#
+# Continuous PAPER test of the strategy replica (no real orders, no API keys needed).
+# Each run trades all variants in variants/gha.json side by side on the same live Polymarket feed for ~5.5 h,
+# then commits its reports to the `paper-results` branch (runs/<date>_<run id>/ + SUMMARY.md) and uploads them
+# (plus the compact feed recording) as a workflow artifact.
+name: paper-test
+
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Minutes to open new markets (max ~325 because GitHub stops jobs after 6 h)"
+        default: "320"
+      record:
+        description: "Record the live feed (trades + top-5 book) as an artifact"
+        default: "true"
+  schedule:
+    - cron: "0 */6 * * *"     # back-to-back ~5.5 h runs (schedules only fire from the default branch)
+  push:
+    branches: [paper-test-v2]  # start a run as soon as this branch is pushed (before the PR is merged)
+    paths: [".github/workflows/paper.yml", "ci/paper-test.yml", "live_paper.py", "pair_strategy.py", "variants/**"]
+
+permissions:
+  contents: write              # push the results to the paper-results branch
+
+concurrency:
+  group: paper-test
+  cancel-in-progress: false
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      TAG: gha_${{ github.run_id }}
+      MINUTES: ${{ github.event.inputs.minutes || '320' }}
+      RECORD: ${{ github.event.inputs.record || 'true' }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Unit tests
+        run: python tests/test_strategy_replica.py
+
+      - name: Network check (which spot feed is reachable from this runner)
+        continue-on-error: true
+        run: |
+          for u in "https://data-api.binance.vision/api/v3/ping" "https://api.binance.com/api/v3/ping" \
+                   "https://api.exchange.coinbase.com/products/BTC-USD/ticker" \
+                   "https://gamma-api.polymarket.com/markets?limit=1" "https://clob.polymarket.com/time"; do
+            echo "$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "$u") $u"
+          done
+
+      - name: Paper trading (${{ env.MINUTES }} min + up to 15 min settlement)
+        run: |
+          REC=""; if [ "$RECORD" = "true" ]; then REC="--record"; fi
+          python live_paper.py --minutes "$MINUTES" --settle-wait 15 --variants variants/gha.json \
+            --tick 0.25 --interim-report 30 --tag "$TAG" $REC
+
+      - name: Collect results
+        if: always()
+        run: |
+          RUN_DIR="out/runs/$(date -u +%Y%m%d_%H%M)_${GITHUB_RUN_ID}"
+          mkdir -p "$RUN_DIR" out/recordings
+          cp reports/live_paper_*"$TAG"* "$RUN_DIR"/ 2>/dev/null || true
+          cp data/live_paper_fills_"$TAG"* data/live_paper_state_"$TAG"* "$RUN_DIR"/ 2>/dev/null || true
+          cp logs/live_paper_"$TAG".log "$RUN_DIR"/ 2>/dev/null || true
+          gzip -f "$RUN_DIR"/*.log "$RUN_DIR"/*.csv 2>/dev/null || true
+          mv data/recordings/*"$TAG"* out/recordings/ 2>/dev/null || true
+          echo "RUN_DIR=$RUN_DIR" >> "$GITHUB_ENV"
+          ls -la "$RUN_DIR" out/recordings
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: paper-${{ github.run_id }}
+          path: out/
+          retention-days: 90
+
+      - name: Publish to the paper-results branch
+        if: always()
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth=1 origin paper-results:paper-results 2>/dev/null; then
+            git worktree add ../results paper-results
+          else
+            git worktree add --detach ../results
+            (cd ../results && git checkout --orphan paper-results && git rm -rf -q . && git clean -fdq)
+          fi
+          mkdir -p ../results/runs
+          cp -r "$RUN_DIR" ../results/runs/
+          python tools/summarize_runs.py ../results/runs > ../results/SUMMARY.md
+          cd ../results
+          git add -A
+          git commit -q -m "paper run ${GITHUB_RUN_ID} (${GITHUB_REF_NAME})" || exit 0
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:paper-results; then exit 0; fi
+            git pull --rebase origin paper-results || true
+            sleep 5
+          done
+          exit 1

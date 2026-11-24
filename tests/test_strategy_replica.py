@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from common import load_config  # noqa: E402
 from fair_value import LiveFairValue, ewma_variance, fair_up_series  # noqa: E402
-from live_paper import LiveStrategyPaperBot, PaperMarket  # noqa: E402
+from live_paper import LiveStrategyPaperBot, PaperMarket, VariantMarket, build_variants  # noqa: E402
 from pair_strategy import Inventory, PairStrategy, StrategyParams, taker_fee_per_share  # noqa: E402
 from strategy_backtest import simulate_market  # noqa: E402
 
@@ -92,19 +92,59 @@ def test_simulator_fill_rules_and_settlement():
     assert r["two_sided"] and math.isclose(r["pair_cost"], 0.94)
 
 
+TMP = Path("/home/ubuntu/.tmp")
+META = {"slug": "btc-updown-5m-0", "tokens": ["a", "b"], "fee_rate": 0.0, "window_start": 0, "window_end": 300,
+        "category": "BTC 5m"}
+
+
 def test_live_paper_taker_consumption_mirrored():
     cfg = load_config()
     assert cfg["live_trading"]["enabled"] is False                 # live trading stays locked by default
     bot = LiveStrategyPaperBot(cfg, P, tag="unittest")
-    bot.fills_path = Path("/home/ubuntu/.tmp/unittest_fills.csv")
-    m = PaperMarket({"slug": "btc-updown-5m-0", "tokens": ["a", "b"], "fee_rate": 0.0, "window_start": 0,
-                     "window_end": 300}, PairStrategy(P, 0.0, 0.01, 5, 400))
+    TMP.mkdir(exist_ok=True)
+    v = bot.variants[0]
+    v.fills_path = TMP / "unittest_fills.csv"
+    m = PaperMarket(dict(META))
+    m.vm[v.name] = VariantMarket(PairStrategy(P, 0.0, 0.01, 5, 400))
+    vm = m.vm[v.name]
     m.books[1]["asks"] = {0.33: 30.0}                              # Down ask 0.33 (== Up bid 0.67)
     m.books[0]["bids"] = {0.67: 30.0}
-    m.inv.apply_buy(0, 0.6, 50, 0.0, True)
-    bot._exec_taker(m, {"side": "SELL", "i": 0, "limit": 0.67, "size": 25}, 1.0)
-    bot._exec_taker(m, {"side": "BUY", "i": 1, "limit": 0.33, "size": 25}, 1.0)
-    assert math.isclose(m.inv.shares[0], 25) and math.isclose(m.inv.shares[1], 5)   # only 30 sh existed
+    vm.inv.apply_buy(0, 0.6, 50, 0.0, True)
+    bot._exec_taker(m, v, {"side": "SELL", "i": 0, "limit": 0.67, "size": 25}, 1.0)
+    bot._exec_taker(m, v, {"side": "BUY", "i": 1, "limit": 0.33, "size": 25}, 1.0)
+    assert math.isclose(vm.inv.shares[0], 25) and math.isclose(vm.inv.shares[1], 5)   # only 30 sh existed
+
+
+def test_live_paper_variants_are_independent():
+    cfg = load_config()
+    spec = [{"name": "a", "set": {"half_spread": 0.03}},
+            {"name": "b", "set": {"half_spread": 1.0, "vol_multiplier": 2.0}, "latency": 0.3, "interval": 0.25}]
+    variants = build_variants(cfg, P, spec)
+    bot = LiveStrategyPaperBot(cfg, variants, tag="unittest_multi")
+    a, b = bot.variants
+    assert b.p.vol_multiplier == a.p.vol_multiplier                # shared fair value -> shared vol model
+    assert b.latency == 0.3 and b.interval == 0.25 and a.latency == float(cfg["strategy_backtest"]["latency_seconds"])
+    for v in bot.variants:
+        v.fills_path = TMP / f"unittest_fills_{v.name}.csv"
+    m = PaperMarket(dict(META))
+    for v in bot.variants:
+        m.vm[v.name] = VariantMarket(PairStrategy(v.p, 0.0, 0.01, 5, 400))
+    m.vm["a"].quotes[0] = {"price": 0.47, "rem": 20.0, "live_from": 0.0, "ahead": 0.0}
+    bot._on_print(m, 0, "SELL", 0.45, 100.0, 10.0)                  # through a's Up bid
+    assert math.isclose(m.vm["a"].inv.shares[0], 20) and m.vm["b"].inv.shares == [0.0, 0.0]
+    # one taker per variant may use the same real liquidity (separate hypothetical accounts)
+    m.books[0]["asks"] = {0.40: 25.0}
+    for v in bot.variants:
+        bot._exec_taker(m, v, {"side": "BUY", "i": 0, "limit": 0.40, "size": 25}, 11.0)
+    assert math.isclose(m.vm["b"].inv.shares[0], 25) and math.isclose(m.vm["a"].inv.shares[0], 45)
+
+
+def test_cutoff_fractions():
+    s = PairStrategy(StrategyParams(**{**P.as_dict(), "take_cutoff_frac": 0.5, "maker_cutoff_frac": 0.25}), 0.0)
+    assert s.taker_orders(100, 0, 300, 0.70, Inventory(), [None, None], [0.50, None])   # 1/3 of window: active
+    assert s.taker_orders(200, 0, 300, 0.70, Inventory(), [None, None], [0.50, None]) == []
+    assert s.quotes(60, 0, 300, 0.5, Inventory(), [None, None], [None, None])
+    assert s.quotes(100, 0, 300, 0.5, Inventory(), [None, None], [None, None]) == {}
 
 
 if __name__ == "__main__":

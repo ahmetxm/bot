@@ -10,3 +10,7 @@ data/spot/
 data/live_paper_state*.json
 data/live_paper_fills*.csv
 reports/strategy_backtest_test_markets.json
+data/recordings/
+reports/strategy_backtest_test_markets*.json
+reports/*smoke*
+.abacus.donotdelete
