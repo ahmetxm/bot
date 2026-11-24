@@ -5,3 +5,8 @@ data/*.csv.gz
 data/bot_state*.json
 reports/backtest_*_trades.csv.gz
 .env
+data/tapes/
+data/spot/
+data/live_paper_state*.json
+data/live_paper_fills*.csv
+reports/strategy_backtest_test_markets.json

@@ -79,6 +79,47 @@ bot:
   state_file: "data/bot_state.json"
   max_trade_age_seconds: 60     # ignore target fills older than this when detected
 
+# ------------------------------------------------------------------
+# STRATEGY REPLICA (pair_strategy.py) - reproduces the target's behaviour
+# (spot-informed two-sided market making on crypto Up/Down markets)
+# instead of copying its fills.
+# ------------------------------------------------------------------
+strategy_backtest:
+  days: 4                        # most recent N days of markets (current fee regime)
+  end_lag_minutes: 30            # skip markets that may not be resolved yet
+  assets: ["BTC", "ETH"]
+  timeframes: ["5m", "15m"]
+  train_fraction: 0.6            # first 60% of markets (by time) = calibration, rest = out-of-sample test
+  queue_fill_fraction: 0.0       # share of a trade AT our bid price we receive (0 = we are last in queue)
+  taker_share_of_print: 0.5      # share of an observed taker print we could also have taken
+  latency_seconds: 1             # decision -> order live
+  tape_timestamp_lag_seconds: 3  # Data API trade timestamps trail the real CLOB match (measured median 2.2 s, p90 2.7 s)
+  maker_rebate_rate: 0.0         # 0% below $200k 30-day maker volume (docs.polymarket.com/market-makers/maker-rebates)
+
+pair_strategy:
+  markets: ["BTC 5m", "BTC 15m", "ETH 15m"]   # overwritten by calibration if better
+  # fair value: P(Up) from Binance spot vs. window-start TWAP, Brownian model
+  vol_halflife_seconds: 600
+  vol_multiplier: 1.25           # fat-tail adjustment (calibrated)
+  vol_floor_bps_per_sqrt_s: 0.35
+  # maker quotes
+  half_spread: 0.03              # bid = fair - half_spread (+/- inventory skew)
+  inventory_skew: 0.02           # extra price shift per 100% imbalance
+  max_imbalance_shares: 150      # stop bidding the heavy side beyond this net share gap
+  order_shares: 20               # shares per resting bid
+  pair_cost_cap: 0.98            # never bid a side above (pair_cost_cap - avg cost of the other side) when completing pairs
+  min_price: 0.05
+  max_price: 0.95
+  start_delay_seconds: 5         # don't quote in the first seconds of the window
+  stop_before_end_seconds: 30    # pull quotes before the window closes
+  requote_threshold: 0.01        # move resting order only if target price changed by >= 1 tick
+  # taker (latency) leg - buy when the ask is below fair by more than take_edge + fee
+  take_enabled: true
+  take_edge: 0.04
+  take_shares: 20
+  # risk
+  max_market_usd: 400            # max cost basis per market (also capped by risk.max_position_pct)
+
 live_trading:
   enabled: false                # MUST be switched to true manually by the user
   chain_id: 137

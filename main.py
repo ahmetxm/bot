@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
-"""Polymarket copy-trade bot - CLI entry point.
+"""Polymarket bot - CLI entry point.
 
+Strategy replica (recommended - imitates the target's market-making logic, does not copy its trades):
+  python main.py fetch-tapes        [--days 4]       download resolved markets, trade tapes, Binance spot
+  python main.py latency-probe      [--seconds 240]  measure how late Data API trade timestamps are
+  python main.py strategy-backtest  [--days N] [--no-grid]   calibrate on train, test out-of-sample
+  python main.py paper-live         [--minutes 60] [--tag NAME] [--set key=value]   live PAPER trading
+
+Copy-trading (first attempt, kept for reference):
   python main.py collect   [--days 7] [--max-trades N]
   python main.py analyze
   python main.py backtest  [--days 7] [--balance 10000]
@@ -51,10 +58,25 @@ def cmd_run(cfg: dict, args) -> int:
     return 0
 
 
+PASSTHROUGH = {   # command -> (module, help); remaining arguments are handed to module.main()
+    "fetch-tapes": ("market_data", "download resolved markets + trade tapes + spot history"),
+    "latency-probe": ("latency_probe", "measure Data API timestamp delay vs the CLOB websocket"),
+    "strategy-backtest": ("strategy_backtest", "calibrate + backtest the strategy replica"),
+    "paper-live": ("live_paper", "live PAPER trading of the strategy replica (no real orders)"),
+}
+
+
 def main(argv=None) -> int:
-    p = argparse.ArgumentParser(description="Polymarket copy-trade bot (paper trading by default)")
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if argv and argv[0] in PASSTHROUGH:
+        import importlib
+        importlib.import_module(PASSTHROUGH[argv[0]][0]).main(argv[1:])
+        return 0
+    p = argparse.ArgumentParser(description="Polymarket bot (paper trading by default)")
     p.add_argument("--config", default=None, help="path to config.yaml")
     sub = p.add_subparsers(dest="command", required=True)
+    for name, (_, hlp) in PASSTHROUGH.items():
+        sub.add_parser(name, help=hlp + " (see: python main.py %s --help)" % name)
 
     c = sub.add_parser("collect", help="collect the target wallet's trade history")
     c.add_argument("--days", type=float, default=None, help="lookback days (default: config)")
