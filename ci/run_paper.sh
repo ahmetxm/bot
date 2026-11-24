@@ -6,6 +6,7 @@ cd "$(dirname "$0")/.."
 TAG="gha_${GITHUB_RUN_ID:-local}"
 MINUTES="${MINUTES:-320}"
 export PYTHONUNBUFFERED=1
+export TMPDIR="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"   # scratch space for the tests
 
 pip install -q -r requirements.txt
 python tests/test_strategy_replica.py
