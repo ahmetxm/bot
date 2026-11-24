@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 import sys
+import tempfile
 from pathlib import Path
 
 import numpy as np
@@ -92,7 +93,8 @@ def test_simulator_fill_rules_and_settlement():
     assert r["two_sided"] and math.isclose(r["pair_cost"], 0.94)
 
 
-TMP = Path("/home/ubuntu/.tmp")
+TMP = Path(tempfile.gettempdir()) / "polymarket_bot_tests"      # honours TMPDIR (works on CI runners too)
+TMP.mkdir(parents=True, exist_ok=True)
 META = {"slug": "btc-updown-5m-0", "tokens": ["a", "b"], "fee_rate": 0.0, "window_start": 0, "window_end": 300,
         "category": "BTC 5m"}
 
@@ -101,7 +103,6 @@ def test_live_paper_taker_consumption_mirrored():
     cfg = load_config()
     assert cfg["live_trading"]["enabled"] is False                 # live trading stays locked by default
     bot = LiveStrategyPaperBot(cfg, P, tag="unittest")
-    TMP.mkdir(exist_ok=True)
     v = bot.variants[0]
     v.fills_path = TMP / "unittest_fills.csv"
     m = PaperMarket(dict(META))
