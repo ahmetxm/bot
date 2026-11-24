@@ -1,0 +1,1339 @@
+{
+  "generated_at": "2026-11-24 16:23:26 UTC",
+  "rules": [
+    {
+      "slug": "btc-updown-5m-1774354200",
+      "twap": 0,
+      "fee": {
+        "exponent": 2,
+        "rate": 0.25,
+        "takerOnly": true,
+        "rebateRate": 0.2
+      },
+      "tick": 0.01
+    },
+    {
+      "slug": "btc-updown-15m-1774353600",
+      "twap": 0,
+      "fee": {
+        "exponent": 2,
+        "rate": 0.25,
+        "takerOnly": true,
+        "rebateRate": 0.2
+      },
+      "tick": 0.001
+    },
+    {
+      "slug": "btc-updown-5m-1795532100",
+      "twap": 60,
+      "fee": {
+        "exponent": 1,
+        "rate": 0.05,
+        "takerOnly": true,
+        "rebateRate": 0.2
+      },
+      "tick": 0.001
+    },
+    {
+      "slug": "eth-updown-5m-1795532100",
+      "twap": 60,
+      "fee": {
+        "exponent": 1,
+        "rate": 0.01,
+        "takerOnly": true,
+        "rebateRate": 0.2
+      },
+      "tick": 0.001
+    }
+  ],
+  "target_fee_compare": {
+    "march_c": 1.0791113987183818,
+    "now_c": 0.8629006250444728
+  },
+  "target_by_role": [
+    {
+      "role": "maker",
+      "fills": 468690,
+      "shares": 8347551.994219999,
+      "avg_price": 0.39424918436816814,
+      "edge_fill_c": 0.7797078569812994,
+      "edge_30s_c": 0.8101205376126009,
+      "edge_final_c": 0.5657590169711452,
+      "fee_c": 0.0,
+      "adverse_30s_c": 0.030412680631301467
+    },
+    {
+      "role": "taker",
+      "fills": 118081,
+      "shares": 5354563.996820001,
+      "avg_price": 0.3804848503617698,
+      "edge_fill_c": 1.5303469223583692,
+      "edge_30s_c": 2.074032677182438,
+      "edge_final_c": 0.880095517506831,
+      "fee_c": 1.0791113987183818,
+      "adverse_30s_c": 0.543685754824069
+    }
+  ],
+  "target_by_cat": [
+    {
+      "cat": "BTC 15m",
+      "role": "maker",
+      "fills": 118085,
+      "shares": 2566096.434637,
+      "avg_price": 0.4077467307194083,
+      "edge_fill_c": 0.5913479535244798,
+      "edge_30s_c": 0.74855015061159,
+      "edge_final_c": 0.5984162822469766,
+      "fee_c": 0.0,
+      "adverse_30s_c": 0.1572021970871103
+    },
+    {
+      "cat": "BTC 15m",
+      "role": "taker",
+      "fills": 29405,
+      "shares": 1850500.87622,
+      "avg_price": 0.3680671097206491,
+      "edge_fill_c": 1.2745816067795255,
+      "edge_30s_c": 1.6192368111649214,
+      "edge_final_c": 0.9546683852538252,
+      "fee_c": 1.0242885830601114,
+      "adverse_30s_c": 0.3446552043853959
+    },
+    {
+      "cat": "BTC 5m",
+      "role": "maker",
+      "fills": 280354,
+      "shares": 4443423.784727001,
+      "avg_price": 0.3910276591312938,
+      "edge_fill_c": 0.9586352851960203,
+      "edge_30s_c": 0.8298834066785239,
+      "edge_final_c": 0.5146647810470019,
+      "fee_c": 0.0,
+      "adverse_30s_c": -0.12875187851749648
+    },
+    {
+      "cat": "BTC 5m",
+      "role": "taker",
+      "fills": 68029,
+      "shares": 2560373.74262,
+      "avg_price": 0.39130857887750986,
+      "edge_fill_c": 1.8020046225423298,
+      "edge_30s_c": 2.5222475872228727,
+      "edge_final_c": 0.9465663593274131,
+      "fee_c": 1.1414549284205957,
+      "adverse_30s_c": 0.7202429646805428
+    },
+    {
+      "cat": "ETH 15m",
+      "role": "maker",
+      "fills": 70251,
+      "shares": 1338031.774856,
+      "avg_price": 0.379061649894387,
+      "edge_fill_c": 0.5467532146195696,
+      "edge_30s_c": 0.862571271159716,
+      "edge_final_c": 0.6728055414783088,
+      "fee_c": 0.0,
+      "adverse_30s_c": 0.31581805654014644
+    },
+    {
+      "cat": "ETH 15m",
+      "role": "taker",
+      "fills": 20647,
+      "shares": 943689.37798,
+      "avg_price": 0.3754686337312362,
+      "edge_fill_c": 1.2948337258212337,
+      "edge_30s_c": 1.7497760464607228,
+      "edge_final_c": 0.5535184018302697,
+      "fee_c": 1.0174671019648873,
+      "adverse_30s_c": 0.4549423206394893
+    }
+  ],
+  "target_by_time": [
+    {
+      "role": "maker",
+      "bucket": "son 30 sn",
+      "fills": 5028,
+      "shares": 90093.378216,
+      "avg_price": 0.27812504442838343,
+      "edge_fill_c": 2.4739299251578766,
+      "edge_30s_c": 0.052722658032824,
+      "edge_final_c": -0.4863397418470265,
+      "fee_c": 0.0,
+      "adverse_30s_c": -2.4212072671250526
+    },
+    {
+      "role": "maker",
+      "bucket": "30\u201360 sn",
+      "fills": 11052,
+      "shares": 190455.540095,
+      "avg_price": 0.3011999849698432,
+      "edge_fill_c": 0.634259509035887,
+      "edge_30s_c": 0.07746521454517238,
+      "edge_final_c": -1.4210739549375395,
+      "fee_c": 0.0,
+      "adverse_30s_c": -0.5567942944907147
+    },
+    {
+      "role": "maker",
+      "bucket": "1\u20132 dk",
+      "fills": 50217,
+      "shares": 841992.72623,
+      "avg_price": 0.318526313121301,
+      "edge_fill_c": 0.8646338773269955,
+      "edge_30s_c": 0.7752759599789539,
+      "edge_final_c": -0.00288018342907214,
+      "fee_c": 0.0,
+      "adverse_30s_c": -0.0893579173480416
+    },
+    {
+      "role": "maker",
+      "bucket": "2\u20135 dk",
+      "fills": 263222,
+      "shares": 4357318.1454610005,
+      "avg_price": 0.3981227805075722,
+      "edge_fill_c": 0.8337205495983993,
+      "edge_30s_c": 0.8241670981707842,
+      "edge_final_c": 0.5947442181313357,
+      "fee_c": 0.0,
+      "adverse_30s_c": -0.009553451427615073
+    },
+    {
+      "role": "maker",
+      "bucket": "5\u201315 dk",
+      "fills": 139171,
+      "shares": 2867692.204218,
+      "avg_price": 0.42042471587350483,
+      "edge_fill_c": 0.6291357968782042,
+      "edge_30s_c": 0.8714619697018335,
+      "edge_final_c": 0.8536848984687598,
+      "fee_c": 0.0,
+      "adverse_30s_c": 0.24232617282362928
+    },
+    {
+      "role": "taker",
+      "bucket": "son 30 sn",
+      "fills": 1267,
+      "shares": 51140.53214,
+      "avg_price": 0.23318382389038522,
+      "edge_fill_c": 4.655455117335706,
+      "edge_30s_c": -0.4476780267047123,
+      "edge_final_c": -1.13756841363724,
+      "fee_c": 0.6291912669423343,
+      "adverse_30s_c": -5.103133144040418
+    },
+    {
+      "role": "taker",
+      "bucket": "30\u201360 sn",
+      "fills": 2604,
+      "shares": 103359.21468,
+      "avg_price": 0.22830393232188176,
+      "edge_fill_c": 2.8622448660163,
+      "edge_30s_c": 3.9156935858290423,
+      "edge_final_c": 2.1012585415068035,
+      "fee_c": 0.7409767301919395,
+      "adverse_30s_c": 1.0534487198127422
+    },
+    {
+      "role": "taker",
+      "bucket": "1\u20132 dk",
+      "fills": 12578,
+      "shares": 520470.63954,
+      "avg_price": 0.2974789478889838,
+      "edge_fill_c": 1.9358198117626784,
+      "edge_30s_c": 3.0973601666860975,
+      "edge_final_c": 1.9168863379973504,
+      "fee_c": 0.9408562365067926,
+      "adverse_30s_c": 1.1615403549234193
+    },
+    {
+      "role": "taker",
+      "bucket": "2\u20135 dk",
+      "fills": 65525,
+      "shares": 2680222.96318,
+      "avg_price": 0.3937727811043573,
+      "edge_fill_c": 1.4465745720831458,
+      "edge_30s_c": 2.1360027232858325,
+      "edge_final_c": 0.6791600370336424,
+      "fee_c": 1.137385813668254,
+      "adverse_30s_c": 0.6894281512026865
+    },
+    {
+      "role": "taker",
+      "bucket": "5\u201315 dk",
+      "fills": 36107,
+      "shares": 1999370.64728,
+      "avg_price": 0.39591464129850573,
+      "edge_fill_c": 1.3883063361668417,
+      "edge_30s_c": 1.6938648216249033,
+      "edge_final_c": 0.8680410559694757,
+      "fee_c": 1.0659711719676326,
+      "adverse_30s_c": 0.30555848545806163
+    }
+  ],
+  "target_pnl": {
+    "maker": {
+      "shares": 8347551.994219999,
+      "gross": 47227.028103654295,
+      "fees": 0.0
+    },
+    "taker": {
+      "shares": 5354563.996820001,
+      "gross": 47125.277718047444,
+      "fees": 57781.71044135521
+    }
+  },
+  "replica_by_role": [
+    {
+      "role": "maker",
+      "fills": 185,
+      "shares": 2067.0748000000003,
+      "avg_price": 0.4038597064799009,
+      "edge_fill_c": 3.328959906159623,
+      "edge_30s_c": 4.870683532250009,
+      "edge_final_c": -5.27344835319941,
+      "fee_c": 0.0,
+      "adverse_30s_c": 1.5417236260903855
+    },
+    {
+      "role": "taker",
+      "fills": 1101,
+      "shares": 22655.190000000002,
+      "avg_price": 0.5060935088163021,
+      "edge_fill_c": 6.842910818030718,
+      "edge_30s_c": 2.3220655371508965,
+      "edge_final_c": 2.825241368534098,
+      "fee_c": 0.712498416477637,
+      "adverse_30s_c": -4.52084528087982
+    }
+  ],
+  "replica_by_cat": [
+    {
+      "cat": "BTC 15m",
+      "role": "maker",
+      "fills": 7,
+      "shares": 106.19830000000002,
+      "avg_price": 0.38755733378029594,
+      "edge_fill_c": 3.8562923477129427,
+      "edge_30s_c": 6.306167583012725,
+      "edge_final_c": 33.410487738504294,
+      "fee_c": 0.0,
+      "adverse_30s_c": 2.449875235299782
+    },
+    {
+      "cat": "BTC 15m",
+      "role": "taker",
+      "fills": 171,
+      "shares": 3753.02,
+      "avg_price": 0.5337258527798946,
+      "edge_fill_c": 9.079155750516938,
+      "edge_30s_c": 2.1668746464739987,
+      "edge_final_c": 17.90974202109235,
+      "fee_c": 0.868830435222834,
+      "adverse_30s_c": -6.912281104042939
+    },
+    {
+      "cat": "BTC 5m",
+      "role": "maker",
+      "fills": 145,
+      "shares": 1743.23,
+      "avg_price": 0.39819913264457363,
+      "edge_fill_c": 4.212382801229646,
+      "edge_30s_c": 6.585502942907229,
+      "edge_final_c": -5.231436700836951,
+      "fee_c": 0.0,
+      "adverse_30s_c": 2.373120141677583
+    },
+    {
+      "cat": "BTC 5m",
+      "role": "taker",
+      "fills": 623,
+      "shares": 13380.25,
+      "avg_price": 0.5057453261336672,
+      "edge_fill_c": 7.822574543078549,
+      "edge_30s_c": 3.7220252173207666,
+      "edge_final_c": 0.04410904131088735,
+      "fee_c": 0.8857429420227575,
+      "adverse_30s_c": -4.1005493257577825
+    },
+    {
+      "cat": "ETH 5m",
+      "role": "maker",
+      "fills": 33,
+      "shares": 217.6465,
+      "avg_price": 0.457152391607492,
+      "edge_fill_c": -4.004082905007697,
+      "edge_30s_c": -9.564515779974627,
+      "edge_final_c": -24.485354921857233,
+      "fee_c": 0.0,
+      "adverse_30s_c": -5.560432874966931
+    },
+    {
+      "cat": "ETH 5m",
+      "role": "taker",
+      "fills": 307,
+      "shares": 5521.92,
+      "avg_price": 0.4881566375463607,
+      "edge_fill_c": 2.9491895193536877,
+      "edge_30s_c": -0.9647216662248661,
+      "edge_final_c": -0.6880632098980062,
+      "fee_c": 0.1864545303082986,
+      "adverse_30s_c": -3.9139111855785536
+    }
+  ],
+  "replica_by_group": [
+    {
+      "group": "80 dk sadece maker",
+      "role": "maker",
+      "fills": 42,
+      "shares": 394.8113,
+      "avg_price": 0.4056616996524669,
+      "edge_fill_c": 4.310132917514876,
+      "edge_30s_c": 16.5567296765328,
+      "edge_final_c": -21.37662295886668,
+      "fee_c": 0.0,
+      "adverse_30s_c": 12.246596759017924
+    },
+    {
+      "group": "80 dk test (sabah)",
+      "role": "maker",
+      "fills": 86,
+      "shares": 827.8807,
+      "avg_price": 0.4686853721798322,
+      "edge_fill_c": 1.4787374661926649,
+      "edge_30s_c": -0.3387464368316807,
+      "edge_final_c": -8.36469240072875,
+      "fee_c": 0.0,
+      "adverse_30s_c": -1.8174839030243455
+    },
+    {
+      "group": "80 dk test (sabah)",
+      "role": "taker",
+      "fills": 320,
+      "shares": 6179.1900000000005,
+      "avg_price": 0.4957166554192378,
+      "edge_fill_c": 3.855294232014419,
+      "edge_30s_c": -1.2832173059980185,
+      "edge_final_c": 0.3914882047647025,
+      "fee_c": 0.5606556846447511,
+      "adverse_30s_c": -5.1385115380124375
+    },
+    {
+      "group": "v1_base",
+      "role": "maker",
+      "fills": 22,
+      "shares": 265.10429999999997,
+      "avg_price": 0.38742354990092587,
+      "edge_fill_c": 2.855496575470704,
+      "edge_30s_c": 12.393238443999085,
+      "edge_final_c": 12.439085673072823,
+      "fee_c": 0.0,
+      "adverse_30s_c": 9.537741868528382
+    },
+    {
+      "group": "v1_base",
+      "role": "taker",
+      "fills": 180,
+      "shares": 3770.0,
+      "avg_price": 0.4222798938992043,
+      "edge_fill_c": 5.732556745578768,
+      "edge_30s_c": 3.0080324362332265,
+      "edge_final_c": -0.4019840848806368,
+      "fee_c": 0.5947320954907162,
+      "adverse_30s_c": -2.7245243093455422
+    },
+    {
+      "group": "v1_btc",
+      "role": "maker",
+      "fills": 16,
+      "shares": 289.1907,
+      "avg_price": 0.3543939068580006,
+      "edge_fill_c": 4.345398167430754,
+      "edge_30s_c": 2.634601497046286,
+      "edge_final_c": 11.416092564525764,
+      "fee_c": 0.0,
+      "adverse_30s_c": -1.7107966703844686
+    },
+    {
+      "group": "v1_btc",
+      "role": "taker",
+      "fills": 103,
+      "shares": 2219.63,
+      "avg_price": 0.5223060149664583,
+      "edge_fill_c": 8.813005442644961,
+      "edge_30s_c": 6.331214442418129,
+      "edge_final_c": 5.439757977680965,
+      "fee_c": 0.8836684492460455,
+      "adverse_30s_c": -2.481791000226832
+    },
+    {
+      "group": "v1_btc_taker",
+      "role": "taker",
+      "fills": 84,
+      "shares": 1797.27,
+      "avg_price": 0.4418585966493626,
+      "edge_fill_c": 6.576284297968901,
+      "edge_30s_c": 1.1711141615891603,
+      "edge_final_c": 0.2896837982050552,
+      "fee_c": 0.9622733367830096,
+      "adverse_30s_c": -5.405170136379741
+    },
+    {
+      "group": "v2_multi2_base",
+      "role": "taker",
+      "fills": 1,
+      "shares": 25.0,
+      "avg_price": 0.28,
+      "edge_fill_c": 32.6681587435097,
+      "edge_30s_c": -27.900000000000002,
+      "edge_final_c": -28.000000000000004,
+      "fee_c": 0.2016,
+      "adverse_30s_c": -60.568158743509706
+    },
+    {
+      "group": "v2_multi_base",
+      "role": "maker",
+      "fills": 17,
+      "shares": 247.5439,
+      "avg_price": 0.2772998122757216,
+      "edge_fill_c": 5.874886522661535,
+      "edge_30s_c": -4.160723198125442,
+      "edge_final_c": -10.543575099204622,
+      "fee_c": 0.0,
+      "adverse_30s_c": -10.035609720786978
+    },
+    {
+      "group": "v2_multi_base",
+      "role": "taker",
+      "fills": 98,
+      "shares": 2100.42,
+      "avg_price": 0.539692966168671,
+      "edge_fill_c": 5.186811772488439,
+      "edge_30s_c": 2.2636573985271626,
+      "edge_final_c": 2.930066367678845,
+      "fee_c": 0.5705801696803496,
+      "adverse_30s_c": -2.923154373961276
+    },
+    {
+      "group": "v2_multi_btc15_taker05_fast",
+      "role": "taker",
+      "fills": 24,
+      "shares": 505.39,
+      "avg_price": 0.5032788539543719,
+      "edge_fill_c": 12.299481009902308,
+      "edge_30s_c": 1.3740193397069267,
+      "edge_final_c": 14.710995468845844,
+      "fee_c": 0.7530065889708938,
+      "adverse_30s_c": -10.925461670195382
+    },
+    {
+      "group": "v2_multi_btc5_taker05_fast",
+      "role": "taker",
+      "fills": 80,
+      "shares": 1630.6799999999998,
+      "avg_price": 0.5995034586798146,
+      "edge_fill_c": 9.304788310551103,
+      "edge_30s_c": 6.092356195450889,
+      "edge_final_c": 1.670855103392449,
+      "fee_c": 0.8907958643020089,
+      "adverse_30s_c": -3.2124321151002153
+    },
+    {
+      "group": "v2_multi_btc_mm_wide",
+      "role": "maker",
+      "fills": 2,
+      "shares": 42.5439,
+      "avg_price": 0.3007217720989378,
+      "edge_fill_c": 11.45537345613877,
+      "edge_30s_c": 18.669737656827916,
+      "edge_final_c": 11.164991925987044,
+      "fee_c": 0.0,
+      "adverse_30s_c": 7.214364200689148
+    },
+    {
+      "group": "v2_multi_btc_mm_wide",
+      "role": "taker",
+      "fills": 35,
+      "shares": 763.53,
+      "avg_price": 0.5122874019357458,
+      "edge_fill_c": 7.576217271875207,
+      "edge_30s_c": 1.7988928199682186,
+      "edge_final_c": 9.397561326994355,
+      "fee_c": 0.8005487669115817,
+      "adverse_30s_c": -5.777324451906988
+    },
+    {
+      "group": "v2_multi_btc_taker05",
+      "role": "taker",
+      "fills": 36,
+      "shares": 788.53,
+      "avg_price": 0.51855579369206,
+      "edge_fill_c": 7.669466109735066,
+      "edge_30s_c": 1.2778163128680429,
+      "edge_final_c": 8.624047277846119,
+      "fee_c": 0.7953787427238025,
+      "adverse_30s_c": -6.391649796867024
+    },
+    {
+      "group": "v2_multi_btc_taker05_fast",
+      "role": "taker",
+      "fills": 104,
+      "shares": 2136.0699999999997,
+      "avg_price": 0.5767369046894533,
+      "edge_fill_c": 10.01332676824449,
+      "edge_30s_c": 4.9760068887687865,
+      "edge_final_c": 4.756126905953457,
+      "fee_c": 0.8581951902325297,
+      "adverse_30s_c": -5.037319879475702
+    },
+    {
+      "group": "v2_multi_btc_taker08_fast",
+      "role": "taker",
+      "fills": 36,
+      "shares": 739.48,
+      "avg_price": 0.6119575918212797,
+      "edge_fill_c": 16.07933444010578,
+      "edge_30s_c": 7.223455482524317,
+      "edge_final_c": 14.549467193162762,
+      "fee_c": 0.860220695623952,
+      "adverse_30s_c": -8.855878957581464
+    }
+  ],
+  "speed_ceiling": {
+    "markets": 2686,
+    "test_markets": 1075,
+    "from": "2026-11-20 15:55:00 UTC",
+    "to": "2026-11-24 03:55:00 UTC",
+    "rows": [
+      {
+        "strategy": "v1 maker+taker (canl\u0131 testteki)",
+        "scenario": "bug\u00fcnk\u00fc varsay\u0131m (kuyruk sonu, 1 sn)",
+        "all": {
+          "pnl": -5202.006068960887,
+          "roi_on_buys_pct": -3.166947080462581,
+          "markets_traded": 2285,
+          "maker_fills": 28246,
+          "taker_fills": 16629,
+          "fees": 736.2702723755447,
+          "rebates": 0.0,
+          "win_rate_pct": 45.42669584245077
+        },
+        "test": {
+          "pnl": -3807.3096224873166,
+          "roi_on_buys_pct": -5.270085610093103,
+          "markets_traded": 919,
+          "maker_fills": 11436,
+          "taker_fills": 7165,
+          "fees": 315.9891589380222,
+          "rebates": 0.0,
+          "win_rate_pct": 46.898803046789986
+        }
+      },
+      {
+        "strategy": "v1 maker+taker (canl\u0131 testteki)",
+        "scenario": "kuyrukta ilk s\u0131ra, 1 sn",
+        "all": {
+          "pnl": -4232.9980384639875,
+          "roi_on_buys_pct": -2.187146375508619,
+          "markets_traded": 2322,
+          "maker_fills": 39061,
+          "taker_fills": 14618,
+          "fees": 642.2421317917615,
+          "rebates": 0.0,
+          "win_rate_pct": 44.78897502153316
+        },
+        "test": {
+          "pnl": -3637.936161061714,
+          "roi_on_buys_pct": -4.278095606216485,
+          "markets_traded": 933,
+          "maker_fills": 15669,
+          "taker_fills": 6414,
+          "fees": 283.64279066967543,
+          "rebates": 0.0,
+          "win_rate_pct": 46.62379421221865
+        }
+      },
+      {
+        "strategy": "v1 maker+taker (canl\u0131 testteki)",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 tepki (veri \u00e7\u00f6z\u00fcn\u00fcrl\u00fc\u011f\u00fc 1 sn)",
+        "all": {
+          "pnl": -3544.86230146184,
+          "roi_on_buys_pct": -1.908363223209599,
+          "markets_traded": 2322,
+          "maker_fills": 39602,
+          "taker_fills": 10719,
+          "fees": 477.3791756381626,
+          "rebates": 0.0,
+          "win_rate_pct": 45.43496985357451
+        },
+        "test": {
+          "pnl": -2943.9061454586595,
+          "roi_on_buys_pct": -3.5976684764402598,
+          "markets_traded": 932,
+          "maker_fills": 15956,
+          "taker_fills": 4650,
+          "fees": 207.50578887282308,
+          "rebates": 0.0,
+          "win_rate_pct": 47.532188841201716
+        }
+      },
+      {
+        "strategy": "v1 maker+taker (canl\u0131 testteki)",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + %20 maker rebate",
+        "all": {
+          "pnl": -2976.908672320042,
+          "roi_on_buys_pct": -1.6026075333776795,
+          "markets_traded": 2322,
+          "maker_fills": 39602,
+          "taker_fills": 10719,
+          "fees": 477.3791756381626,
+          "rebates": 567.9536291418002,
+          "win_rate_pct": 45.521102497846684
+        },
+        "test": {
+          "pnl": -2705.9681952019973,
+          "roi_on_buys_pct": -3.3068909106174753,
+          "markets_traded": 932,
+          "maker_fills": 15956,
+          "taker_fills": 4650,
+          "fees": 207.50578887282308,
+          "rebates": 237.93795025666293,
+          "win_rate_pct": 47.74678111587983
+        }
+      },
+      {
+        "strategy": "v1 maker+taker (canl\u0131 testteki)",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + rebate + 1 sn daha erken (iyimser)",
+        "all": {
+          "pnl": 8415.357478003043,
+          "roi_on_buys_pct": 5.403897724943988,
+          "markets_traded": 2259,
+          "maker_fills": 29506,
+          "taker_fills": 11496,
+          "fees": 554.6965022687214,
+          "rebates": 454.6478241423348,
+          "win_rate_pct": 51.43868968570164
+        },
+        "test": {
+          "pnl": 2572.3542272705645,
+          "roi_on_buys_pct": 4.017901688355052,
+          "markets_traded": 901,
+          "maker_fills": 10759,
+          "taker_fills": 4632,
+          "fees": 217.70859697304792,
+          "rebates": 174.35404824926565,
+          "win_rate_pct": 53.27413984461709
+        }
+      },
+      {
+        "strategy": "sadece taker BTC (v2)",
+        "scenario": "bug\u00fcnk\u00fc varsay\u0131m (kuyruk sonu, 1 sn)",
+        "all": {
+          "pnl": 935.8343356353117,
+          "roi_on_buys_pct": 2.3899351048902515,
+          "markets_traded": 1064,
+          "maker_fills": 0,
+          "taker_fills": 13493,
+          "fees": 795.4784455022045,
+          "rebates": 0.0,
+          "win_rate_pct": 49.62406015037594
+        },
+        "test": {
+          "pnl": -518.5509136161304,
+          "roi_on_buys_pct": -2.953917538863753,
+          "markets_traded": 415,
+          "maker_fills": 0,
+          "taker_fills": 5810,
+          "fees": 332.6189125012749,
+          "rebates": 0.0,
+          "win_rate_pct": 51.566265060240966
+        }
+      },
+      {
+        "strategy": "sadece taker BTC (v2)",
+        "scenario": "kuyrukta ilk s\u0131ra, 1 sn",
+        "all": {
+          "pnl": 935.8343356353117,
+          "roi_on_buys_pct": 2.3899351048902515,
+          "markets_traded": 1064,
+          "maker_fills": 0,
+          "taker_fills": 13493,
+          "fees": 795.4784455022045,
+          "rebates": 0.0,
+          "win_rate_pct": 49.62406015037594
+        },
+        "test": {
+          "pnl": -518.5509136161304,
+          "roi_on_buys_pct": -2.953917538863753,
+          "markets_traded": 415,
+          "maker_fills": 0,
+          "taker_fills": 5810,
+          "fees": 332.6189125012749,
+          "rebates": 0.0,
+          "win_rate_pct": 51.566265060240966
+        }
+      },
+      {
+        "strategy": "sadece taker BTC (v2)",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 tepki (veri \u00e7\u00f6z\u00fcn\u00fcrl\u00fc\u011f\u00fc 1 sn)",
+        "all": {
+          "pnl": 824.7085411935032,
+          "roi_on_buys_pct": 2.6191693229302704,
+          "markets_traded": 1004,
+          "maker_fills": 0,
+          "taker_fills": 10707,
+          "fees": 631.2710246419146,
+          "rebates": 0.0,
+          "win_rate_pct": 50.0
+        },
+        "test": {
+          "pnl": -218.96079730100584,
+          "roi_on_buys_pct": -1.6630987263239536,
+          "markets_traded": 389,
+          "maker_fills": 0,
+          "taker_fills": 4357,
+          "fees": 249.88206695970354,
+          "rebates": 0.0,
+          "win_rate_pct": 53.2133676092545
+        }
+      },
+      {
+        "strategy": "sadece taker BTC (v2)",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + %20 maker rebate",
+        "all": {
+          "pnl": 824.7085411935032,
+          "roi_on_buys_pct": 2.6191693229302704,
+          "markets_traded": 1004,
+          "maker_fills": 0,
+          "taker_fills": 10707,
+          "fees": 631.2710246419146,
+          "rebates": 0.0,
+          "win_rate_pct": 50.0
+        },
+        "test": {
+          "pnl": -218.96079730100584,
+          "roi_on_buys_pct": -1.6630987263239536,
+          "markets_traded": 389,
+          "maker_fills": 0,
+          "taker_fills": 4357,
+          "fees": 249.88206695970354,
+          "rebates": 0.0,
+          "win_rate_pct": 53.2133676092545
+        }
+      },
+      {
+        "strategy": "sadece taker BTC (v2)",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + rebate + 1 sn daha erken (iyimser)",
+        "all": {
+          "pnl": 2170.2622455393425,
+          "roi_on_buys_pct": 6.54008004092597,
+          "markets_traded": 1079,
+          "maker_fills": 0,
+          "taker_fills": 11234,
+          "fees": 663.0557733788477,
+          "rebates": 0.0,
+          "win_rate_pct": 54.49490268767377
+        },
+        "test": {
+          "pnl": 411.33467532837915,
+          "roi_on_buys_pct": 3.060972076209166,
+          "markets_traded": 425,
+          "maker_fills": 0,
+          "taker_fills": 4420,
+          "fees": 250.48045982689712,
+          "rebates": 0.0,
+          "win_rate_pct": 58.8235294117647
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.01",
+        "scenario": "bug\u00fcnk\u00fc varsay\u0131m (kuyruk sonu, 1 sn)",
+        "all": {
+          "pnl": -21319.052442007862,
+          "roi_on_buys_pct": -5.4905743360665005,
+          "markets_traded": 2683,
+          "maker_fills": 99283,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 38.650764070070814
+        },
+        "test": {
+          "pnl": -9792.754352667973,
+          "roi_on_buys_pct": -6.1547681050913,
+          "markets_traded": 1073,
+          "maker_fills": 39328,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 40.07455731593662
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.01",
+        "scenario": "kuyrukta ilk s\u0131ra, 1 sn",
+        "all": {
+          "pnl": -16210.978195102083,
+          "roi_on_buys_pct": -3.4512341731066423,
+          "markets_traded": 2685,
+          "maker_fills": 124094,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 39.40409683426443
+        },
+        "test": {
+          "pnl": -7600.649536151866,
+          "roi_on_buys_pct": -3.9322665202426337,
+          "markets_traded": 1074,
+          "maker_fills": 49099,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 39.57169459962756
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.01",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 tepki (veri \u00e7\u00f6z\u00fcn\u00fcrl\u00fc\u011f\u00fc 1 sn)",
+        "all": {
+          "pnl": -16210.978195102083,
+          "roi_on_buys_pct": -3.4512341731066423,
+          "markets_traded": 2685,
+          "maker_fills": 124094,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 39.40409683426443
+        },
+        "test": {
+          "pnl": -7600.649536151866,
+          "roi_on_buys_pct": -3.9322665202426337,
+          "markets_traded": 1074,
+          "maker_fills": 49099,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 39.57169459962756
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.01",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + %20 maker rebate",
+        "all": {
+          "pnl": -14512.408699468657,
+          "roi_on_buys_pct": -3.0896174330077772,
+          "markets_traded": 2685,
+          "maker_fills": 124094,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 1698.5694956334414,
+          "win_rate_pct": 39.70204841713222
+        },
+        "test": {
+          "pnl": -6915.822830765999,
+          "roi_on_buys_pct": -3.577965073642807,
+          "markets_traded": 1074,
+          "maker_fills": 49099,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 684.8267053858731,
+          "win_rate_pct": 39.66480446927374
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.01",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + rebate + 1 sn daha erken (iyimser)",
+        "all": {
+          "pnl": -1293.7297043165995,
+          "roi_on_buys_pct": -0.2967916442419842,
+          "markets_traded": 2685,
+          "maker_fills": 112621,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 1596.6255620436746,
+          "win_rate_pct": 44.655493482309126
+        },
+        "test": {
+          "pnl": -1196.257255114068,
+          "roi_on_buys_pct": -0.672861300353931,
+          "markets_traded": 1074,
+          "maker_fills": 43628,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 630.937404706953,
+          "win_rate_pct": 45.716945996275605
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.02",
+        "scenario": "bug\u00fcnk\u00fc varsay\u0131m (kuyruk sonu, 1 sn)",
+        "all": {
+          "pnl": -17200.999983928657,
+          "roi_on_buys_pct": -5.135947472258235,
+          "markets_traded": 2681,
+          "maker_fills": 85666,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 40.469973890339425
+        },
+        "test": {
+          "pnl": -7805.227566408066,
+          "roi_on_buys_pct": -5.519882818360135,
+          "markets_traded": 1072,
+          "maker_fills": 34610,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 42.63059701492537
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.02",
+        "scenario": "kuyrukta ilk s\u0131ra, 1 sn",
+        "all": {
+          "pnl": -12559.273691062943,
+          "roi_on_buys_pct": -3.0522865290464605,
+          "markets_traded": 2685,
+          "maker_fills": 109368,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 40.819366852886404
+        },
+        "test": {
+          "pnl": -5890.892111163211,
+          "roi_on_buys_pct": -3.448672174186801,
+          "markets_traded": 1074,
+          "maker_fills": 43285,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 42.08566108007449
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.02",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 tepki (veri \u00e7\u00f6z\u00fcn\u00fcrl\u00fc\u011f\u00fc 1 sn)",
+        "all": {
+          "pnl": -12559.273691062943,
+          "roi_on_buys_pct": -3.0522865290464605,
+          "markets_traded": 2685,
+          "maker_fills": 109368,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 40.819366852886404
+        },
+        "test": {
+          "pnl": -5890.892111163211,
+          "roi_on_buys_pct": -3.448672174186801,
+          "markets_traded": 1074,
+          "maker_fills": 43285,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 42.08566108007449
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.02",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + %20 maker rebate",
+        "all": {
+          "pnl": -11074.244692923743,
+          "roi_on_buys_pct": -2.6913791933388955,
+          "markets_traded": 2685,
+          "maker_fills": 109368,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 1485.0289981391793,
+          "win_rate_pct": 41.154562383612664
+        },
+        "test": {
+          "pnl": -5288.946199686061,
+          "roi_on_buys_pct": -3.0962783302488157,
+          "markets_traded": 1074,
+          "maker_fills": 43285,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 601.9459114771504,
+          "win_rate_pct": 42.45810055865922
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.02",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + rebate + 1 sn daha erken (iyimser)",
+        "all": {
+          "pnl": 1740.861942291375,
+          "roi_on_buys_pct": 0.4740091009770464,
+          "markets_traded": 2684,
+          "maker_fills": 94680,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 1336.7714618305943,
+          "win_rate_pct": 46.16244411326379
+        },
+        "test": {
+          "pnl": 286.73217905541776,
+          "roi_on_buys_pct": 0.19024788312565752,
+          "markets_traded": 1074,
+          "maker_fills": 36521,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 529.1057987370476,
+          "win_rate_pct": 47.95158286778398
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.03",
+        "scenario": "bug\u00fcnk\u00fc varsay\u0131m (kuyruk sonu, 1 sn)",
+        "all": {
+          "pnl": -15508.429527080014,
+          "roi_on_buys_pct": -5.48834733532391,
+          "markets_traded": 2675,
+          "maker_fills": 71972,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 40.11214953271028
+        },
+        "test": {
+          "pnl": -7622.907322429997,
+          "roi_on_buys_pct": -6.3574994125557645,
+          "markets_traded": 1072,
+          "maker_fills": 29040,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 41.791044776119406
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.03",
+        "scenario": "kuyrukta ilk s\u0131ra, 1 sn",
+        "all": {
+          "pnl": -10273.161892484719,
+          "roi_on_buys_pct": -2.930582502414063,
+          "markets_traded": 2682,
+          "maker_fills": 93347,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 41.2751677852349
+        },
+        "test": {
+          "pnl": -5010.895826503469,
+          "roi_on_buys_pct": -3.3582755811263536,
+          "markets_traded": 1073,
+          "maker_fills": 37633,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 43.05684995340168
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.03",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 tepki (veri \u00e7\u00f6z\u00fcn\u00fcrl\u00fc\u011f\u00fc 1 sn)",
+        "all": {
+          "pnl": -10273.161892484719,
+          "roi_on_buys_pct": -2.930582502414063,
+          "markets_traded": 2682,
+          "maker_fills": 93347,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 41.2751677852349
+        },
+        "test": {
+          "pnl": -5010.895826503469,
+          "roi_on_buys_pct": -3.3582755811263536,
+          "markets_traded": 1073,
+          "maker_fills": 37633,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 43.05684995340168
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.03",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + %20 maker rebate",
+        "all": {
+          "pnl": -9014.800131188893,
+          "roi_on_buys_pct": -2.5716148352094574,
+          "markets_traded": 2682,
+          "maker_fills": 93347,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 1258.361761295827,
+          "win_rate_pct": 41.722595078299776
+        },
+        "test": {
+          "pnl": -4489.212817200092,
+          "roi_on_buys_pct": -3.0086464186189916,
+          "markets_traded": 1073,
+          "maker_fills": 37633,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 521.6830093033844,
+          "win_rate_pct": 43.33643988816402
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.03",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + rebate + 1 sn daha erken (iyimser)",
+        "all": {
+          "pnl": 3665.2990195764246,
+          "roi_on_buys_pct": 1.2290209425570138,
+          "markets_traded": 2679,
+          "maker_fills": 76206,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 1072.0525605825853,
+          "win_rate_pct": 47.40574841358716
+        },
+        "test": {
+          "pnl": 920.2990921148298,
+          "roi_on_buys_pct": 0.7455148909896455,
+          "markets_traded": 1073,
+          "maker_fills": 29255,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 425.12540230098506,
+          "win_rate_pct": 49.11463187325256
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.05",
+        "scenario": "bug\u00fcnk\u00fc varsay\u0131m (kuyruk sonu, 1 sn)",
+        "all": {
+          "pnl": -9309.36593160001,
+          "roi_on_buys_pct": -4.79997609339951,
+          "markets_traded": 2612,
+          "maker_fills": 49407,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 43.300153139356816
+        },
+        "test": {
+          "pnl": -4780.009886650003,
+          "roi_on_buys_pct": -5.6347410223786705,
+          "markets_traded": 1054,
+          "maker_fills": 20224,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 45.82542694497154
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.05",
+        "scenario": "kuyrukta ilk s\u0131ra, 1 sn",
+        "all": {
+          "pnl": -7981.299127639998,
+          "roi_on_buys_pct": -3.34512566744667,
+          "markets_traded": 2659,
+          "maker_fills": 63901,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 42.68522000752162
+        },
+        "test": {
+          "pnl": -4176.44044276,
+          "roi_on_buys_pct": -3.9949513859053654,
+          "markets_traded": 1068,
+          "maker_fills": 26145,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 45.41198501872659
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.05",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 tepki (veri \u00e7\u00f6z\u00fcn\u00fcrl\u00fc\u011f\u00fc 1 sn)",
+        "all": {
+          "pnl": -7981.299127639998,
+          "roi_on_buys_pct": -3.34512566744667,
+          "markets_traded": 2659,
+          "maker_fills": 63901,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 42.68522000752162
+        },
+        "test": {
+          "pnl": -4176.44044276,
+          "roi_on_buys_pct": -3.9949513859053654,
+          "markets_traded": 1068,
+          "maker_fills": 26145,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 0.0,
+          "win_rate_pct": 45.41198501872659
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.05",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + %20 maker rebate",
+        "all": {
+          "pnl": -7143.529089664554,
+          "roi_on_buys_pct": -2.993999113657414,
+          "markets_traded": 2659,
+          "maker_fills": 63901,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 837.7700379754455,
+          "win_rate_pct": 42.79804437758556
+        },
+        "test": {
+          "pnl": -3818.8199048030187,
+          "roi_on_buys_pct": -3.652871405759564,
+          "markets_traded": 1068,
+          "maker_fills": 26145,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 357.6205379569804,
+          "win_rate_pct": 45.59925093632959
+        }
+      },
+      {
+        "strategy": "sadece maker, fiyat fark\u0131 0.05",
+        "scenario": "ilk s\u0131ra + en h\u0131zl\u0131 + rebate + 1 sn daha erken (iyimser)",
+        "all": {
+          "pnl": 5469.745024378661,
+          "roi_on_buys_pct": 2.898236138199249,
+          "markets_traded": 2588,
+          "maker_fills": 47751,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 652.114635788645,
+          "win_rate_pct": 49.84544049459042
+        },
+        "test": {
+          "pnl": 1641.801666253086,
+          "roi_on_buys_pct": 2.065014622401854,
+          "markets_traded": 1049,
+          "maker_fills": 18235,
+          "taker_fills": 0,
+          "fees": 0.0,
+          "rebates": 262.4105110230859,
+          "win_rate_pct": 51.382268827454716
+        }
+      }
+    ]
+  },
+  "conclusions": [
+    "- **Hedefin k\u00e2r\u0131n\u0131n kayna\u011f\u0131:** 17\u201324 Mart BTC/ETH i\u015flemlerinde maker taraf\u0131 +$47.227 (share ba\u015f\u0131na +0,57 sent; i\u015flemden 30 sn sonraki kayma +0,03 sent, yani ters se\u00e7im yok), taker taraf\u0131 \u00fccret sonras\u0131 \u2212$10.656. Toplam +$36.571 (maker rebate hari\u00e7).",
+    "- **Son dakika de\u011fil, pencerenin ba\u015f\u0131/ortas\u0131:** hedefin son 60 sn'deki maker i\u015flemleri zarar ettirmi\u015f (son 30 sn: -0,49, 30\u201360 sn: -1,42 sent/share); k\u00e2r 2\u201315 dk kala verilen tekliflerden. Yani yeni TWAP kural\u0131 tek ba\u015f\u0131na a\u00e7\u0131klama de\u011fil.",
+    "- **\u00dccret engel de\u011fil:** hedefin taker \u00fccreti Mart e\u011frisiyle +1,08 sent/share idi; bug\u00fcnk\u00fc e\u011friyle +0,86 olurdu (daha ucuz).",
+    "- **Bizim sinyalimiz daha g\u00fcr\u00fclt\u00fcl\u00fc/ge\u00e7:** bizim taker i\u015flemlerimizde model i\u015flem an\u0131nda +6,84 sent avantaj g\u00f6r\u00fcyor ama bu 30 sn i\u00e7inde -4,52 sent de\u011fi\u015fiyor; hedefin taker i\u015flemlerinde ayn\u0131 \u00f6l\u00e7\u00fc +0,54 sent (fiyat hedefin lehine gitmeye devam etmi\u015f). Hedef fiyat hareketini bizden \u00f6nce g\u00f6r\u00fcp i\u015flem yap\u0131yordu (hipotez).",
+    "- **Her \u015fey ~1 saniyeye ba\u011fl\u0131 (backtest, Kas\u0131m verisi):** canl\u0131 testteki strateji kuyrukta hep ilk s\u0131rada, en h\u0131zl\u0131 tepkiyle ve %20 rebate ile bile t\u00fcm d\u00f6nemde \u2212$2.977 (-1,60%); ayn\u0131 \u015fey 1 sn daha erken davranabilseydik +$8.415 (+5,40%, test +$2.572). Ge\u00e7mi\u015f veri bu 1 saniyeyi g\u00fcvenilir ay\u0131rt edemiyor; bunu ancak ger\u00e7ek emir g\u00f6sterir.",
+    "- **Sadece maker (hedefin yapt\u0131\u011f\u0131) bug\u00fcn muhafazak\u00e2r varsay\u0131mla zarar:** en iyi fiyat fark\u0131yla bile \u2212$7.144 (sadece maker, fiyat fark\u0131 0.05).",
+    "- **Bizim canl\u0131 maker \u00f6rne\u011fimiz \u00e7ok k\u00fc\u00e7\u00fck** (185 fill); sonucu (-5,27 sent/share) \u015fans pay\u0131 \u00e7ok y\u00fcksek, karar i\u00e7in yeterli de\u011fil."
+  ],
+  "runtime_seconds": 126.0
+}
