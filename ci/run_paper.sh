@@ -10,6 +10,11 @@ export TMPDIR="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"   # scratch space for the tests
 
 pip install -q -r requirements.txt
 python tests/test_strategy_replica.py
+python tests/test_order_latency.py
+
+echo "--- keyless latency probe from this runner (no orders; geoblock / REST / websocket lag)"
+pip install -q "polymarket-client>=0.20" || true
+python tools/order_latency_test.py --minutes 2 --tag "$TAG" || echo "latency probe failed (ignored)"
 
 echo "--- network check (which feeds are reachable from this runner)"
 for u in "https://data-api.binance.vision/api/v3/ping" "https://api.binance.com/api/v3/ping" \

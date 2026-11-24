@@ -3,6 +3,17 @@
 Tarih: 2026-11-24. Hedef cüzdan: `0xd0d6053c3c37e727402d84c14069780d360993aa` (k9Q2mX4L8A7ZP3R).
 Gerçek emir gönderilmedi; tüm sonuçlar paper (sanal) işlemlerdir. Başlangıç bakiyesi $10.000, market başına en fazla $400.
 
+## Güncelleme — 24 Kasım 2026, 20:15 UTC: Gerçek emir gecikmesi / dolum testi
+
+Ayrıntı: `CANLI_EMIR_TESTI.md`, `order_latency_probe_vm_probe.md`.
+- **Gerçek emirli test yapılamadı:** bu sunucu ABD'de; Polymarket ABD'den emir kabul etmiyor (geoblock: US-OR, blocked).
+  VPN/proxy ile aşılmadı. Test kullanıcının kendi bilgisayarından (Türkiye) çalıştırılmalı.
+- **Anahtarsız ölçüm (emir yok):** borsaya gidiş-dönüş ~156 ms, emir imzası ~3,8 ms (ilk emirde ~362 ms),
+  Polymarket akış gecikmesi medyan ~82 ms (p90 ~654 ms), Binance vadeli ~50 ms; tahmini karar→borsa ~163 ms (±50 ms saat hatası).
+- **Araç hazır:** `tools/order_latency_test.py --live` (bütçe $15, en fazla $50, otomatik iptal) emir/iptal gecikmesini,
+  maker dolumunu (paper kuyruk modeliyle karşılaştırmalı) ve taker dolum oranını ölçer. Sahte borsayla 10 test geçti; gerçek emirle denenmedi.
+- **Bulgu:** eski `py-clob-client` Nisan 2026 borsa güncellemesinden beri emir gönderemiyor → bot ve araç `polymarket-client`'a geçirildi.
+
 ## Güncelleme — 24 Kasım 2026, 18:55 UTC: Yöntem v3 + GitHub testi
 
 Ayrıntı: `YONTEM_V3.md`, `live_paper_compare_v3.md`, `lead_lag_v3.md`.

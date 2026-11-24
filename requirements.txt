@@ -5,5 +5,7 @@ numpy>=1.24
 matplotlib>=3.7
 scipy>=1.10
 websocket-client>=1.6
-# Optional - only needed for `run --mode live` (order signing). Install manually:
-# py-clob-client>=0.20
+# Optional - only needed for `run --mode live` and `tools/order_latency_test.py --live` (CLOB V2 order signing,
+# Python >= 3.11). Install manually:
+# polymarket-client>=0.20
+# (the old py-clob-client signs V1 orders, which the exchange rejects since the April 2026 CLOB V2 migration)

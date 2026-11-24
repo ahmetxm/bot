@@ -6,6 +6,7 @@ TAG="gha_${GITHUB_RUN_ID:-local}"
 RUN_DIR="out/runs/$(date -u +%Y%m%d_%H%M)_${GITHUB_RUN_ID:-local}"
 mkdir -p "$RUN_DIR" out/recordings
 cp reports/live_paper_*"$TAG"* "$RUN_DIR"/ 2>/dev/null
+cp reports/order_latency_probe_"$TAG"* "$RUN_DIR"/ 2>/dev/null
 cp data/live_paper_fills_"$TAG"* data/live_paper_state_"$TAG"* "$RUN_DIR"/ 2>/dev/null
 cp logs/live_paper_"$TAG".log "$RUN_DIR"/ 2>/dev/null
 gzip -f "$RUN_DIR"/*.log "$RUN_DIR"/*.csv 2>/dev/null

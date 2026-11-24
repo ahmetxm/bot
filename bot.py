@@ -141,22 +141,38 @@ class CopyEngine:
 
 # ---------------------------------------------------------------------------------------------
 class LiveExecutor:
-    """Sends real FOK market orders through the official py-clob-client (order signing).
-    NOT exercised in this project's tests - it only activates when the user explicitly sets
+    """Sends real FOK market orders.
+    Preferred backend: the official unified SDK `polymarket-client` (pip install polymarket-client, Python >= 3.11),
+    which signs CLOB V2 orders. The legacy `py-clob-client` (V1) is only a fallback: since the CLOB V2 migration
+    (April 2026) the exchange rejects V1-signed orders ("invalid order version").
+    NOT exercised with real orders in this project - it only activates when the user explicitly sets
     live_trading.enabled: true and provides credentials via environment variables."""
 
-    def __init__(self, cfg: dict):
+    def __init__(self, cfg: dict, log=None):
         lt = cfg["live_trading"]
         ev = lt["env_vars"]
         pk = env_secret(ev["private_key"])
         if not pk:
             raise LiveTradingDisabled(f"missing environment variable {ev['private_key']}")
+        self.backend = "polymarket-client"
+        try:
+            from polymarket import SecureClient
+        except ImportError:
+            SecureClient = None
+        if SecureClient is not None:
+            funder = env_secret(ev["funder"])
+            self.client = SecureClient.create(private_key=pk, wallet=funder or None)
+            return
+        self.backend = "py-clob-client"
+        if log:
+            log.warning("polymarket-client not installed - falling back to legacy py-clob-client, whose V1 orders are "
+                        "rejected by the CLOB since the V2 migration. Install: pip install polymarket-client")
         try:
             from py_clob_client.client import ClobClient
             from py_clob_client.clob_types import ApiCreds, MarketOrderArgs, OrderType
             from py_clob_client.order_builder.constants import BUY, SELL
         except ImportError as exc:
-            raise LiveTradingDisabled("py-clob-client is not installed (pip install py-clob-client)") from exc
+            raise LiveTradingDisabled("no order-signing SDK installed (pip install polymarket-client)") from exc
         self._MarketOrderArgs, self._OrderType, self._BUY, self._SELL = MarketOrderArgs, OrderType, BUY, SELL
         self.client = ClobClient(cfg["api"]["clob_api"], key=pk, chain_id=int(lt.get("chain_id", 137)),
                                  signature_type=int(lt.get("signature_type", 1)),
@@ -167,7 +183,23 @@ class LiveExecutor:
         self.client.set_api_creds(creds)
 
     def market_order(self, token_id: str, side: str, amount: float) -> dict:
-        """BUY: amount in USDC ; SELL: amount in shares. Fill-or-kill."""
+        """BUY: amount in USDC ; SELL: amount in shares. Fill-or-kill. Returns a dict with a boolean 'success'."""
+        if self.backend == "polymarket-client":
+            qty = f"{int(amount * 100 + EPS) / 100:.2f}"       # floor to cents/0.01 share: never more than we hold
+            try:
+                if side == "BUY":
+                    signed = self.client.create_market_order(asset_id=token_id, side="BUY", amount=qty,
+                                                             order_type="FOK")
+                else:
+                    signed = self.client.create_market_order(asset_id=token_id, side="SELL", shares=qty,
+                                                             order_type="FOK")
+                r = self.client.post_order(signed)
+            except Exception as exc:  # noqa: BLE001 - e.g. InsufficientLiquidityError, network errors
+                return {"success": False, "code": type(exc).__name__, "message": str(exc)}
+            if getattr(r, "ok", False):
+                return {"success": True, "order_id": r.order_id, "status": r.status,
+                        "making_amount": str(r.making_amount), "taking_amount": str(r.taking_amount)}
+            return {"success": False, "code": getattr(r, "code", None), "message": getattr(r, "message", str(r))}
         args = self._MarketOrderArgs(token_id=token_id, amount=round(amount, 2),
                                      side=self._BUY if side == "BUY" else self._SELL)
         signed = self.client.create_market_order(args)
@@ -188,8 +220,8 @@ class CopyTradeBot:
             if not cfg.get("live_trading", {}).get("enabled", False):
                 raise LiveTradingDisabled("live_trading.enabled is false in config.yaml (default). "
                                           "Validate the strategy in paper mode first, then enable it manually.")
-            self.live = LiveExecutor(cfg)
-            self.log.warning("LIVE TRADING ENABLED - real orders will be sent")
+            self.live = LiveExecutor(cfg, self.log)
+            self.log.warning("LIVE TRADING ENABLED - real orders will be sent (backend: %s)", self.live.backend)
 
         self.trader = PaperTrader(cfg["paper_trading"]["starting_balance"], cfg["risk"], cfg["fees"],
                                   name=mode, enforce_limits=True, apply_fees=True, logger=self.log,

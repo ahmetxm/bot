@@ -90,9 +90,14 @@ Live mod iki ayrı kilitle kapalıdır:
 1. `config.yaml -> live_trading.enabled: false` (varsayılan). Bu `false` iken `--mode live` reddedilir (çıkış kodu 2).
 2. Anahtarlar sadece ortam değişkenlerinden okunur, kodda/config'de tutulmaz:
    `POLY_PRIVATE_KEY`, `POLY_FUNDER_ADDRESS`, opsiyonel `POLY_API_KEY`, `POLY_API_SECRET`, `POLY_API_PASSPHRASE`.
-   Emir imzalamak için `pip install py-clob-client` gerekir.
+   Emir imzalamak için `pip install polymarket-client` gerekir (Python 3.11+). Eski `py-clob-client` Nisan 2026
+   borsa güncellemesinden (CLOB V2) beri emir gönderemez.
 
 Live modu açmadan önce paper modda en az birkaç gün sonuç toplayın. Live yürütme kodu bu projede gerçek emirle test edilmemiştir.
+
+Gerçek emir gecikmesi ve dolum oranı testi: `python tools/order_latency_test.py` (anahtarsız, emir yok) ve
+`python tools/order_latency_test.py --live --i-accept-real-money --budget 15` (gerçek para, en fazla $50).
+Ayrıntılı kılavuz: `reports/CANLI_EMIR_TESTI.md`. Polymarket'in engellediği ülkelerden (ör. ABD) çalışmaz.
 
 ## Backtest senaryoları
 
