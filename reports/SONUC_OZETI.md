@@ -3,6 +3,19 @@
 Tarih: 2026-11-24. Hedef cüzdan: `0xd0d6053c3c37e727402d84c14069780d360993aa` (k9Q2mX4L8A7ZP3R).
 Gerçek emir gönderilmedi; tüm sonuçlar paper (sanal) işlemlerdir. Başlangıç bakiyesi $10.000, market başına en fazla $400.
 
+## Güncelleme — 24 Kasım 2026, 18:55 UTC: Yöntem v3 + GitHub testi
+
+Ayrıntı: `YONTEM_V3.md`, `live_paper_compare_v3.md`, `lead_lag_v3.md`.
+- **GitHub testi başladı:** faturalandırma kilidi kalktı. İlk deneme (17:27 UTC) testlerdeki klasör yolu hatasıyla düştü, düzeltildi.
+  İkinci çalıştırma (run 45449061019) 17:29 UTC'de başladı, ~320 dk sürecek (bitiş ~23:10 UTC); sonuçlar `paper-results` dalına yazılacak.
+  Otomatik 6 saatlik tekrar için iş akışının ana dala (`main`) gelmesi gerekir → PR #1 birleştirilmeli (karar sizin).
+- **Yeni yöntem (v3):** Binance vadeli (futures) fiyatıyla hızlı adil değer, fiyat oynayınca teklifleri hemen çekme, gerçekçi iptal gecikmesi (0,2 sn),
+  pencerenin son %20'sinde pasif teklif yok. Ölçüm: Polymarket fiyatı vadeli fiyatın ~0,5–0,75 sn gerisinden geliyor.
+- **75 dk canlı paper testi (38 market):** v3_taker_fast +$775 (alımlara göre +%34, kazanma %68), v3_mm_fast +$859 (+%15,7), eski temel +$121 (+%2,4).
+  Fiyat oynayınca teklif çekme (fade) işe yaramadı; yalnız pasif varyant −$115.
+- **Temkin:** tek oturum, küçük örnek; paper taker dolumları iyimser; sonuç hedefin +%1,7'sinin ~20 katı → gerçekçi değil, tekrar şart.
+  API anahtarı girmeyin; önce GitHub ve yerel testlerin 3–5 tekrarı.
+
 ## Güncelleme — 24 Kasım 2026, 16:25 UTC: "Aynı performansı alamaz mıyız?"
 
 Ayrıntı ve tüm tablolar: `performance_gap.md`. Kısa cevap: **şu an hayır, garanti edilemez.**
@@ -16,7 +29,7 @@ Ayrıntı ve tüm tablolar: `performance_gap.md`. Kısa cevap: **şu an hayır, 
   Çoklu varyant testi 16:18 UTC'de `v2_multi2` adıyla yeniden başlatıldı.
 - GitHub iş akışı (`.github/workflows/paper.yml`) depo sahibi tarafından eklendi, ancak ilk çalıştırma (16:10 UTC) hiç başlamadı:
   GitHub'ın mesajı "hesap faturalandırma sorunu nedeniyle kilitli" (account is locked due to a billing issue).
-  Bu düzelmeden GitHub'da kesintisiz test çalışmaz.
+  Bu düzelmeden GitHub'da kesintisiz test çalışmaz. (18:55 UTC notu: kilit kalktı, test çalışıyor — yukarıya bakın.)
 
 ## Güncelleme — 24 Kasım 2026, 15:40 UTC
 

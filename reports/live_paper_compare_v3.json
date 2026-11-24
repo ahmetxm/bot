@@ -1,0 +1,576 @@
+[
+  {
+    "generated_at": "2026-11-24 18:49:20 UTC",
+    "variant": "base",
+    "params": {
+      "markets": [
+        "BTC 5m",
+        "ETH 5m",
+        "BTC 15m"
+      ],
+      "vol_halflife_seconds": 600,
+      "vol_multiplier": 1.0,
+      "vol_floor_bps_per_sqrt_s": 0.35,
+      "half_spread": 0.05,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "pair_cost_cap": 0.98,
+      "min_price": 0.05,
+      "max_price": 0.95,
+      "start_delay_seconds": 5,
+      "stop_before_end_seconds": 30,
+      "requote_threshold": 0.01,
+      "guard_seconds": 3,
+      "guard_move": 0.02,
+      "take_enabled": true,
+      "take_edge": 0.04,
+      "take_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "maker_cutoff_frac": 1.0,
+      "max_market_usd": 400
+    },
+    "latency_seconds": 1.0,
+    "decision_interval_seconds": 1.0,
+    "cancel_latency_seconds": 1.0,
+    "fast_signal": false,
+    "fade": 0.0,
+    "fades": 0,
+    "late_maker_fills": 574,
+    "logloss_fair_vs_market_mid": {
+      "fair_value": 0.5228677304486172,
+      "market_mid": 0.5199256540430347,
+      "samples": 1189,
+      "fast_vs_spot_same_samples": {
+        "spot": 0.5228677304486172,
+        "fast": 0.521807792792264,
+        "samples": 1189
+      }
+    },
+    "starting_balance": 10000.0,
+    "final_equity": 10120.70336729,
+    "realized_pnl": 120.70336728999999,
+    "markets_settled": 38,
+    "markets_traded": 38,
+    "markets_unsettled": [],
+    "unsettled_cost_basis": 0,
+    "win_rate_pct": 52.63157894736842,
+    "buy_usdc": 5045.93720598,
+    "pnl_per_buy_pct": 2.3920901581365897,
+    "fills": 915,
+    "maker_fills": 622,
+    "taker_fills": 293,
+    "fees": 34.614661729999995,
+    "by_category": {
+      "BTC 15m": {
+        "markets": 6,
+        "pnl": -126.37908397999993,
+        "buy_usdc": 717.92618598,
+        "wins": 2
+      },
+      "BTC 5m": {
+        "markets": 16,
+        "pnl": -13.55202877000017,
+        "buy_usdc": 2496.5349672700004,
+        "wins": 9
+      },
+      "ETH 5m": {
+        "markets": 16,
+        "pnl": 260.6344800400001,
+        "buy_usdc": 1831.47605273,
+        "wins": 9
+      }
+    },
+    "halted_day": null
+  },
+  {
+    "generated_at": "2026-11-24 18:49:20 UTC",
+    "variant": "btc_taker05_fast",
+    "params": {
+      "markets": [
+        "BTC 5m",
+        "BTC 15m"
+      ],
+      "vol_halflife_seconds": 600,
+      "vol_multiplier": 1.0,
+      "vol_floor_bps_per_sqrt_s": 0.35,
+      "half_spread": 1.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "pair_cost_cap": 0.98,
+      "min_price": 0.05,
+      "max_price": 0.95,
+      "start_delay_seconds": 5,
+      "stop_before_end_seconds": 30,
+      "requote_threshold": 0.01,
+      "guard_seconds": 3,
+      "guard_move": 0.0,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "take_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "maker_cutoff_frac": 1.0,
+      "max_market_usd": 400
+    },
+    "latency_seconds": 0.3,
+    "decision_interval_seconds": 0.25,
+    "cancel_latency_seconds": 0.3,
+    "fast_signal": false,
+    "fade": 0.0,
+    "fades": 0,
+    "late_maker_fills": 0,
+    "logloss_fair_vs_market_mid": {
+      "fair_value": 0.5228677304486172,
+      "market_mid": 0.5199256540430347,
+      "samples": 1189,
+      "fast_vs_spot_same_samples": {
+        "spot": 0.5228677304486172,
+        "fast": 0.521807792792264,
+        "samples": 1189
+      }
+    },
+    "starting_balance": 10000.0,
+    "final_equity": 10420.1289713,
+    "realized_pnl": 420.1289713000001,
+    "markets_settled": 22,
+    "markets_traded": 22,
+    "markets_unsettled": [],
+    "unsettled_cost_basis": 0,
+    "win_rate_pct": 54.54545454545455,
+    "buy_usdc": 2142.2353,
+    "pnl_per_buy_pct": 19.611709848119865,
+    "fills": 303,
+    "maker_fills": 0,
+    "taker_fills": 303,
+    "fees": 63.477628700000004,
+    "by_category": {
+      "BTC 15m": {
+        "markets": 6,
+        "pnl": 146.90632905000004,
+        "buy_usdc": 495.1366,
+        "wins": 3
+      },
+      "BTC 5m": {
+        "markets": 16,
+        "pnl": 273.22264225000004,
+        "buy_usdc": 1647.0987,
+        "wins": 9
+      }
+    },
+    "halted_day": null
+  },
+  {
+    "generated_at": "2026-11-24 18:49:20 UTC",
+    "variant": "v3_taker_fast",
+    "params": {
+      "markets": [
+        "BTC 5m",
+        "BTC 15m"
+      ],
+      "vol_halflife_seconds": 600,
+      "vol_multiplier": 1.0,
+      "vol_floor_bps_per_sqrt_s": 0.35,
+      "half_spread": 1.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "pair_cost_cap": 0.98,
+      "min_price": 0.05,
+      "max_price": 0.95,
+      "start_delay_seconds": 5,
+      "stop_before_end_seconds": 30,
+      "requote_threshold": 0.01,
+      "guard_seconds": 3,
+      "guard_move": 0.0,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "take_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "maker_cutoff_frac": 1.0,
+      "max_market_usd": 400
+    },
+    "latency_seconds": 0.3,
+    "decision_interval_seconds": 0.25,
+    "cancel_latency_seconds": 0.3,
+    "fast_signal": true,
+    "fade": 0.0,
+    "fades": 0,
+    "late_maker_fills": 0,
+    "logloss_fair_vs_market_mid": {
+      "fair_value": 0.5228677304486172,
+      "market_mid": 0.5199256540430347,
+      "samples": 1189,
+      "fast_vs_spot_same_samples": {
+        "spot": 0.5228677304486172,
+        "fast": 0.521807792792264,
+        "samples": 1189
+      }
+    },
+    "starting_balance": 10000.0,
+    "final_equity": 10775.2061104,
+    "realized_pnl": 775.2061104000001,
+    "markets_settled": 22,
+    "markets_traded": 22,
+    "markets_unsettled": [],
+    "unsettled_cost_basis": 0,
+    "win_rate_pct": 68.18181818181819,
+    "buy_usdc": 2283.4253,
+    "pnl_per_buy_pct": 33.94926518507087,
+    "fills": 329,
+    "maker_fills": 0,
+    "taker_fills": 329,
+    "fees": 70.0834896,
+    "by_category": {
+      "BTC 15m": {
+        "markets": 6,
+        "pnl": 171.86214094999997,
+        "buy_usdc": 535.9266,
+        "wins": 3
+      },
+      "BTC 5m": {
+        "markets": 16,
+        "pnl": 603.3439694499999,
+        "buy_usdc": 1747.4987,
+        "wins": 12
+      }
+    },
+    "halted_day": null
+  },
+  {
+    "generated_at": "2026-11-24 18:49:20 UTC",
+    "variant": "v3_mm_fast",
+    "params": {
+      "markets": [
+        "BTC 5m",
+        "ETH 5m",
+        "BTC 15m"
+      ],
+      "vol_halflife_seconds": 600,
+      "vol_multiplier": 1.0,
+      "vol_floor_bps_per_sqrt_s": 0.35,
+      "half_spread": 0.05,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "pair_cost_cap": 0.98,
+      "min_price": 0.05,
+      "max_price": 0.95,
+      "start_delay_seconds": 5,
+      "stop_before_end_seconds": 30,
+      "requote_threshold": 0.01,
+      "guard_seconds": 3,
+      "guard_move": 0.02,
+      "take_enabled": true,
+      "take_edge": 0.04,
+      "take_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "maker_cutoff_frac": 0.8,
+      "max_market_usd": 400
+    },
+    "latency_seconds": 0.3,
+    "decision_interval_seconds": 0.25,
+    "cancel_latency_seconds": 0.2,
+    "fast_signal": true,
+    "fade": 0.0,
+    "fades": 0,
+    "late_maker_fills": 100,
+    "logloss_fair_vs_market_mid": {
+      "fair_value": 0.5228677304486172,
+      "market_mid": 0.5199256540430347,
+      "samples": 1189,
+      "fast_vs_spot_same_samples": {
+        "spot": 0.5228677304486172,
+        "fast": 0.521807792792264,
+        "samples": 1189
+      }
+    },
+    "starting_balance": 10000.0,
+    "final_equity": 10858.67822882,
+    "realized_pnl": 858.6782288200001,
+    "markets_settled": 38,
+    "markets_traded": 37,
+    "markets_unsettled": [],
+    "unsettled_cost_basis": 0,
+    "win_rate_pct": 64.86486486486487,
+    "buy_usdc": 5454.47688037,
+    "pnl_per_buy_pct": 15.74263211033635,
+    "fills": 864,
+    "maker_fills": 141,
+    "taker_fills": 723,
+    "fees": 103.87373880999999,
+    "by_category": {
+      "BTC 15m": {
+        "markets": 6,
+        "pnl": 202.1143298,
+        "buy_usdc": 731.6596,
+        "wins": 4
+      },
+      "BTC 5m": {
+        "markets": 16,
+        "pnl": 550.04547072,
+        "buy_usdc": 2549.37407913,
+        "wins": 12
+      },
+      "ETH 5m": {
+        "markets": 15,
+        "pnl": 106.51842830000004,
+        "buy_usdc": 2173.4432012400002,
+        "wins": 8
+      }
+    },
+    "halted_day": null
+  },
+  {
+    "generated_at": "2026-11-24 18:49:20 UTC",
+    "variant": "v3_mm_fade",
+    "params": {
+      "markets": [
+        "BTC 5m",
+        "ETH 5m",
+        "BTC 15m"
+      ],
+      "vol_halflife_seconds": 600,
+      "vol_multiplier": 1.0,
+      "vol_floor_bps_per_sqrt_s": 0.35,
+      "half_spread": 0.05,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "pair_cost_cap": 0.98,
+      "min_price": 0.05,
+      "max_price": 0.95,
+      "start_delay_seconds": 5,
+      "stop_before_end_seconds": 30,
+      "requote_threshold": 0.01,
+      "guard_seconds": 3,
+      "guard_move": 0.02,
+      "take_enabled": true,
+      "take_edge": 0.04,
+      "take_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "maker_cutoff_frac": 0.8,
+      "max_market_usd": 400
+    },
+    "latency_seconds": 0.3,
+    "decision_interval_seconds": 0.25,
+    "cancel_latency_seconds": 0.2,
+    "fast_signal": true,
+    "fade": 0.01,
+    "fades": 3054,
+    "late_maker_fills": 62,
+    "logloss_fair_vs_market_mid": {
+      "fair_value": 0.5228677304486172,
+      "market_mid": 0.5199256540430347,
+      "samples": 1189,
+      "fast_vs_spot_same_samples": {
+        "spot": 0.5228677304486172,
+        "fast": 0.521807792792264,
+        "samples": 1189
+      }
+    },
+    "starting_balance": 10000.0,
+    "final_equity": 10805.85309326,
+    "realized_pnl": 805.8530932600002,
+    "markets_settled": 38,
+    "markets_traded": 37,
+    "markets_unsettled": [],
+    "unsettled_cost_basis": 0,
+    "win_rate_pct": 64.86486486486487,
+    "buy_usdc": 5263.29878326,
+    "pnl_per_buy_pct": 15.310798919928846,
+    "fills": 823,
+    "maker_fills": 103,
+    "taker_fills": 720,
+    "fees": 102.34016947999999,
+    "by_category": {
+      "BTC 15m": {
+        "markets": 6,
+        "pnl": 186.47510480000003,
+        "buy_usdc": 707.7565999999999,
+        "wins": 4
+      },
+      "BTC 5m": {
+        "markets": 16,
+        "pnl": 538.3017991800001,
+        "buy_usdc": 2435.4334951700002,
+        "wins": 12
+      },
+      "ETH 5m": {
+        "markets": 15,
+        "pnl": 81.07618928000002,
+        "buy_usdc": 2120.1086880899998,
+        "wins": 8
+      }
+    },
+    "halted_day": null
+  },
+  {
+    "generated_at": "2026-11-24 18:49:20 UTC",
+    "variant": "v3_mm_fade_tight",
+    "params": {
+      "markets": [
+        "BTC 5m",
+        "ETH 5m",
+        "BTC 15m"
+      ],
+      "vol_halflife_seconds": 600,
+      "vol_multiplier": 1.0,
+      "vol_floor_bps_per_sqrt_s": 0.35,
+      "half_spread": 0.03,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "pair_cost_cap": 0.98,
+      "min_price": 0.05,
+      "max_price": 0.95,
+      "start_delay_seconds": 5,
+      "stop_before_end_seconds": 30,
+      "requote_threshold": 0.01,
+      "guard_seconds": 3,
+      "guard_move": 0.02,
+      "take_enabled": true,
+      "take_edge": 0.04,
+      "take_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "maker_cutoff_frac": 0.8,
+      "max_market_usd": 400
+    },
+    "latency_seconds": 0.3,
+    "decision_interval_seconds": 0.25,
+    "cancel_latency_seconds": 0.2,
+    "fast_signal": true,
+    "fade": 0.01,
+    "fades": 3080,
+    "late_maker_fills": 151,
+    "logloss_fair_vs_market_mid": {
+      "fair_value": 0.5228677304486172,
+      "market_mid": 0.5199256540430347,
+      "samples": 1189,
+      "fast_vs_spot_same_samples": {
+        "spot": 0.5228677304486172,
+        "fast": 0.521807792792264,
+        "samples": 1189
+      }
+    },
+    "starting_balance": 10000.0,
+    "final_equity": 10786.35915263,
+    "realized_pnl": 786.35915263,
+    "markets_settled": 38,
+    "markets_traded": 37,
+    "markets_unsettled": [],
+    "unsettled_cost_basis": 0,
+    "win_rate_pct": 62.16216216216216,
+    "buy_usdc": 6062.1736945699995,
+    "pnl_per_buy_pct": 12.971570797028736,
+    "fills": 965,
+    "maker_fills": 253,
+    "taker_fills": 712,
+    "fees": 100.69323479999998,
+    "by_category": {
+      "BTC 15m": {
+        "markets": 6,
+        "pnl": 195.69830734,
+        "buy_usdc": 687.91440846,
+        "wins": 4
+      },
+      "BTC 5m": {
+        "markets": 16,
+        "pnl": 545.9510160500001,
+        "buy_usdc": 3074.2653395999996,
+        "wins": 11
+      },
+      "ETH 5m": {
+        "markets": 15,
+        "pnl": 44.70982924,
+        "buy_usdc": 2299.9939465099997,
+        "wins": 8
+      }
+    },
+    "halted_day": null
+  },
+  {
+    "generated_at": "2026-11-24 18:49:20 UTC",
+    "variant": "v3_maker_only_fade",
+    "params": {
+      "markets": [
+        "BTC 5m",
+        "ETH 5m",
+        "BTC 15m"
+      ],
+      "vol_halflife_seconds": 600,
+      "vol_multiplier": 1.0,
+      "vol_floor_bps_per_sqrt_s": 0.35,
+      "half_spread": 0.05,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "pair_cost_cap": 0.98,
+      "min_price": 0.05,
+      "max_price": 0.95,
+      "start_delay_seconds": 5,
+      "stop_before_end_seconds": 30,
+      "requote_threshold": 0.01,
+      "guard_seconds": 3,
+      "guard_move": 0.02,
+      "take_enabled": false,
+      "take_edge": 0.04,
+      "take_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "maker_cutoff_frac": 0.8,
+      "max_market_usd": 400
+    },
+    "latency_seconds": 0.3,
+    "decision_interval_seconds": 0.25,
+    "cancel_latency_seconds": 0.2,
+    "fast_signal": true,
+    "fade": 0.01,
+    "fades": 3744,
+    "late_maker_fills": 98,
+    "logloss_fair_vs_market_mid": {
+      "fair_value": 0.5228677304486172,
+      "market_mid": 0.5199256540430347,
+      "samples": 1189,
+      "fast_vs_spot_same_samples": {
+        "spot": 0.5228677304486172,
+        "fast": 0.521807792792264,
+        "samples": 1189
+      }
+    },
+    "starting_balance": 10000.0,
+    "final_equity": 9884.70422616,
+    "realized_pnl": -115.29577383999998,
+    "markets_settled": 38,
+    "markets_traded": 28,
+    "markets_unsettled": [],
+    "unsettled_cost_basis": 0,
+    "win_rate_pct": 50.0,
+    "buy_usdc": 939.3566688399998,
+    "pnl_per_buy_pct": -12.273908054794282,
+    "fills": 148,
+    "maker_fills": 148,
+    "taker_fills": 0,
+    "fees": 0.0,
+    "by_category": {
+      "BTC 5m": {
+        "markets": 13,
+        "pnl": -160.23518842,
+        "buy_usdc": 541.4123094199999,
+        "wins": 4
+      },
+      "ETH 5m": {
+        "markets": 12,
+        "pnl": 94.47941458000001,
+        "buy_usdc": 317.40435941999993,
+        "wins": 8
+      },
+      "BTC 15m": {
+        "markets": 3,
+        "pnl": -49.54000000000001,
+        "buy_usdc": 80.54,
+        "wins": 2
+      }
+    },
+    "halted_day": null
+  }
+]
