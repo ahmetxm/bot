@@ -3,5 +3,7 @@ PyYAML>=6.0
 pandas>=2.0
 numpy>=1.24
 matplotlib>=3.7
+scipy>=1.10
+websocket-client>=1.6
 # Optional - only needed for `run --mode live` (order signing). Install manually:
 # py-clob-client>=0.20
