@@ -1,0 +1,34 @@
+{
+  "params": {
+    "markets": [
+      "BTC 5m",
+      "ETH 5m",
+      "BTC 15m"
+    ],
+    "vol_halflife_seconds": 600,
+    "vol_multiplier": 1.0,
+    "vol_floor_bps_per_sqrt_s": 0.35,
+    "half_spread": 0.05,
+    "inventory_skew": 0.02,
+    "max_imbalance_shares": 150,
+    "order_shares": 25,
+    "pair_cost_cap": 0.98,
+    "min_price": 0.05,
+    "max_price": 0.95,
+    "start_delay_seconds": 5,
+    "stop_before_end_seconds": 30,
+    "requote_threshold": 0.01,
+    "guard_seconds": 3,
+    "guard_move": 0.02,
+    "take_enabled": true,
+    "take_edge": 0.04,
+    "take_shares": 25,
+    "max_market_usd": 400
+  },
+  "calibrated_at": "2026-11-24 04:57:44 UTC",
+  "train_window": [
+    "2026-11-20 04:30:00 UTC",
+    "2026-11-22 13:45:00 UTC"
+  ],
+  "test_pnl": 5175.2044338205615
+}

@@ -1,6 +1,45 @@
-# Polymarket Copy-Trade Bot (Python, paper trading)
+# Polymarket Bot (Python, paper trading)
 
 Hedef cüzdan: `0xd0d6053c3c37e727402d84c14069780d360993aa` (k9Q2mX4L8A7ZP3R)
+
+Projede iki yaklaşım var:
+1. **Strateji kopyası (önerilen, `pair_strategy.py`)** — hedefin işlemlerini kopyalamaz; hedefin *mantığını*
+   (spot fiyata dayalı adil değer + iki taraflı market-making) kendi başına uygular. Aşağıdaki ilk bölüm.
+2. **Copy-trade (ilk deneme)** — hedefin işlemlerini takip edip kopyalar. Backtestte zarar etti; cüzdan da 244 gündür pasif.
+
+## Strateji kopyası
+
+### Nasıl çalışır
+- Hedefin 842 bin fill'inin analizi: %78 maker, marketlerin %94'ünde iki taraf (Up + Down) alınıyor,
+  fiyatlar spot fiyattan hesaplanan adil değerin biraz altında; kalan pozisyon çözüme kadar tutuluyor.
+- `fair_value.py`: Binance spot (anlık) + Chainlink (çözüm kaynağı, Polymarket RTDS üzerinden) ile
+  "Up" olasılığı; 60 sn TWAP kuralı ve EWMA volatilite modeli.
+- `pair_strategy.py`: her iki tarafa adil değer − `half_spread` fiyatından post-only alış emirleri, envanter
+  dengesizlik limiti, Up+Down maliyet tavanı (`pair_cost_cap`), ani ters harekette emri çekme (`guard_move`),
+  isteğe bağlı taker bacağı (fiyat adil değerden `take_edge` + ücret kadar uzaksa).
+- Backtest ve paper bot aynı karar kodunu kullanır.
+
+### Komutlar
+```bash
+python main.py fetch-tapes --days 4         # çözülmüş marketler + tüm trade kayıtları + Binance 1 sn spot
+python main.py latency-probe --seconds 240  # Data API zaman damgası gecikmesini canlı ölç
+python main.py strategy-backtest            # train'de parametre seç, test döneminde dışarıdan doğrula
+python main.py paper-live --minutes 80      # canlı order book + canlı fiyatlarla PAPER trading (gerçek emir yok)
+python main.py paper-live --minutes 80 --tag makeronly --set take_enabled=false --set half_spread=0.08
+python tests/test_strategy_replica.py       # ağ gerektirmeyen testler
+```
+Çıktılar: `reports/strategy_backtest.md`, `reports/charts/strategy_equity.png`,
+`reports/live_paper_report_<tag>.md`, `data/calibrated_params.json` (paper bot bu parametreleri kullanır).
+
+### Sonuçlar ve uyarılar
+- Backtest, işlem zaman damgalarının ne kadar geciktiğine çok duyarlı (ayrıntı `reports/strategy_backtest.md` →
+  *Robustness*): ölçülen gecikmeyle test dönemi +$5.175, ileriye bakma (look-ahead) tamamen kaldırılınca −$1.646.
+  Bu yüzden backtest **kesin bir sonuç vermiyor**; asıl ölçüt canlı paper testi.
+- Kuyruk konumu muhafazakâr modellendi (aynı fiyattaki emirlerin arkasındayız); maker rebate'i 0 varsayıldı.
+- "Aynı performans" garanti edilemez: hedefin avantajı muhtemelen hız, kuyruk önceliği ve ölçekti.
+- Live mod hâlâ kilitli (aşağıdaki *Live mod güvenliği*); strateji kopyası için gerçek emir gönderimi henüz yazılmadı/test edilmedi.
+
+## Copy-trade (ilk deneme)
 
 Bot, hedef cüzdanın işlemlerini Polymarket Data API v2 üzerinden 10 saniyede bir yoklar ve aynı pozisyonları
 orantılı ölçekle sanal bir portföyde açar. Ayrıca geçmiş veriyi toplar, stratejiyi analiz eder ve backtest yapar.
