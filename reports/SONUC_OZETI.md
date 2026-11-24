@@ -14,6 +14,9 @@ Ayrıntı ve tüm tablolar: `performance_gap.md`. Kısa cevap: **şu an hayır, 
   1 sn daha erken davranabilsek +$8.415 (+%5,4, test +$2.572). Sonuç ~1 saniyeye bağlı ve geçmiş veri bunu kesin ayıramıyor.
 - Canlı testler 15:49 UTC'de beklenmedik şekilde durdu (hata kaydı yok; muhtemel sebep sanal makinenin arka plan süreçlerini kapatması).
   Çoklu varyant testi 16:18 UTC'de `v2_multi2` adıyla yeniden başlatıldı.
+- GitHub iş akışı (`.github/workflows/paper.yml`) depo sahibi tarafından eklendi, ancak ilk çalıştırma (16:10 UTC) hiç başlamadı:
+  GitHub'ın mesajı "hesap faturalandırma sorunu nedeniyle kilitli" (account is locked due to a billing issue).
+  Bu düzelmeden GitHub'da kesintisiz test çalışmaz.
 
 ## Güncelleme — 24 Kasım 2026, 15:40 UTC
 
