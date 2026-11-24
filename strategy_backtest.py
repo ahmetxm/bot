@@ -341,7 +341,13 @@ def main(argv: Optional[list[str]] = None) -> dict:
     ap = argparse.ArgumentParser(description="Calibrate + backtest the strategy replica")
     ap.add_argument("--days", type=float, default=None)
     ap.add_argument("--no-grid", action="store_true", help="only evaluate config parameters")
+    ap.add_argument("--select-delay", choices=("measured", "fixed3"), default="measured",
+                    help="tape delay used to SELECT parameters on train (fixed3 = no look-ahead, conservative)")
+    ap.add_argument("--grid", choices=("v1", "v2"), default="v1", help="v2 adds taker-edge levels and cut-offs")
+    ap.add_argument("--tag", default="", help="suffix for output files (keeps the main results untouched)")
     args = ap.parse_args(argv)
+    sel_over = ({"_lag_samples": None, "tape_timestamp_lag_seconds": 3} if args.select_delay == "fixed3" else None)
+    sfx = f"_{args.tag}" if args.tag else ""
     cfg = load_config()
     setup_logging(cfg, "strategy_backtest")
     _BT = dict(cfg["strategy_backtest"])
@@ -383,6 +389,21 @@ def main(argv: Optional[list[str]] = None) -> dict:
         cfg_params = StrategyParams(**{**base.as_dict()})
         if args.no_grid:
             candidates = [cfg_params.as_dict()]
+        elif args.grid == "v2":
+            candidates = []
+            for hs, te, gm, tc in itertools.product([0.03, 0.05, 0.08, None],   # half_spread (None = no maker)
+                                                    [None, 0.03, 0.05, 0.08],   # take_edge (None = no taker)
+                                                    [0.0, 0.02],                # adverse-move guard
+                                                    [1.0, 0.75]):               # taker cut-off (window fraction)
+                if hs is None and te is None:
+                    continue
+                if te is None and tc != 1.0:
+                    continue
+                d = base.as_dict()
+                d.update(half_spread=hs if hs is not None else 1.0, take_enabled=te is not None,
+                         take_edge=te or 0.0, guard_move=gm, take_cutoff_frac=tc, inventory_skew=0.02,
+                         max_imbalance_shares=150, order_shares=25, take_shares=25)
+                candidates.append(d)
         else:
             grid = itertools.product([0.02, 0.03, 0.05, 0.08],          # half_spread
                                      [None, 0.04],                       # take_edge (None = off)
@@ -398,10 +419,10 @@ def main(argv: Optional[list[str]] = None) -> dict:
         log.info("grid: %d parameter sets on %d training markets", len(candidates), len(train))
         for d in candidates:
             p = StrategyParams(**d)
-            res = run_params(pool, train, p, budget)
+            res = run_params(pool, train, p, budget, sel_over)
             sm = summarize(res, start_balance, None)
             row = {k: d[k] for k in ("half_spread", "take_enabled", "take_edge", "guard_move",
-                                     "inventory_skew", "max_imbalance_shares", "order_shares")}
+                                     "inventory_skew", "max_imbalance_shares", "order_shares", "take_cutoff_frac")}
             row.update(pnl=sm["pnl"], roi_on_buys_pct=sm["roi_on_buys_pct"], markets=sm["markets_traded"],
                        buy_usdc=sm["buy_usdc"], by_category={c: v["pnl"] for c, v in sm["by_category"].items()})
             grid_rows.append((row, d))
@@ -417,13 +438,13 @@ def main(argv: Optional[list[str]] = None) -> dict:
                                                if k in ("markets", "half_spread", "take_enabled", "take_edge",
                                                         "guard_move", "inventory_skew", "max_imbalance_shares",
                                                         "order_shares")})
-        train_sum = summarize(run_params(pool, train, chosen, budget), start_balance, max_daily_loss)
-        test_res = run_params(pool, test, chosen, budget)
+        train_sum = summarize(run_params(pool, train, chosen, budget, sel_over), start_balance, max_daily_loss)
+        test_res = run_params(pool, test, chosen, budget, sel_over)
         test_sum = summarize(test_res, start_balance, max_daily_loss)
-        test_all_cats = summarize(run_params(pool, test, StrategyParams(**best), budget),
+        test_all_cats = summarize(run_params(pool, test, StrategyParams(**best), budget, sel_over),
                                   start_balance, max_daily_loss)
         cfg_default = summarize(run_params(pool, test, StrategyParams.from_cfg(
-            cfg, {"vol_multiplier": best_vm}), budget), start_balance, max_daily_loss)
+            cfg, {"vol_multiplier": best_vm}), budget, sel_over), start_balance, max_daily_loss)
         # 3) robustness: the edge depends on how late the Data API timestamps really are. A fixed
         #    shift >= the true delay removes all look-ahead (pessimistic for maker quotes, which in
         #    reality use fresher spot data); a random draw from the measured delays can be optimistic
@@ -462,21 +483,23 @@ def main(argv: Optional[list[str]] = None) -> dict:
                                 for kk, vv in v.items()} for k, v in robustness.items()},
         "runtime_seconds": round(time.time() - t_start, 1),
     }
+    out["selection_delay"] = args.select_delay
+    out["grid_version"] = args.grid
     rep = Path(cfg["paths"]["reports_dir"])
-    save_json(out, rep / "strategy_backtest.json")
+    save_json(out, rep / f"strategy_backtest{sfx}.json")
     save_json({"params": chosen.as_dict(), "calibrated_at": out["generated_at"],
                "train_window": [out["data"]["from"], out["data"]["train_until"]],
-               "test_pnl": test_sum["pnl"]},
-              Path(cfg["paths"]["data_dir"]) / "calibrated_params.json")
-    save_json(test_res, rep / "strategy_backtest_test_markets.json")
-    write_report(out, rep)
+               "selection_delay": args.select_delay, "test_pnl": test_sum["pnl"]},
+              Path(cfg["paths"]["data_dir"]) / f"calibrated_params{sfx}.json")
+    save_json(test_res, rep / f"strategy_backtest_test_markets{sfx}.json")
+    write_report(out, rep, sfx)
     log.info("TEST (out-of-sample): PnL %+.2f | ROI %.2f%% | win %.1f%% | markets %d | maxDD %.0f",
              test_sum["pnl"], test_sum["roi_pct"], test_sum["win_rate_pct"], test_sum["markets_traded"],
              test_sum["max_drawdown"])
     return out
 
 
-def write_report(out: dict, rep: Path) -> None:
+def write_report(out: dict, rep: Path, sfx: str = "") -> None:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -492,7 +515,7 @@ def write_report(out: dict, rep: Path) -> None:
     ax.set_ylabel("USDC"); ax.legend(); ax.grid(alpha=.3)
     ax.set_xticks(ax.get_xticks()[:: max(1, len(ax.get_xticks()) // 8)])
     plt.xticks(rotation=30, fontsize=7); plt.tight_layout()
-    fig.savefig(rep / "charts" / "strategy_equity.png", dpi=110); plt.close(fig)
+    fig.savefig(rep / "charts" / f"strategy_equity{sfx}.png", dpi=110); plt.close(fig)
 
     def row(name, s):
         sh = s["sharpe_daily_annualized"]
@@ -509,6 +532,8 @@ def write_report(out: dict, rep: Path) -> None:
         f"(until {out['data']['train_until']}), out-of-sample test on the last {out['data']['test_markets']}.", "",
         f"Starting balance ${out['starting_balance']:,.0f}, budget per market ${out['budget_per_market']:,.0f}, "
         f"daily loss halt applied. Fill assumptions: {out['assumptions']}.", "",
+        f"Parameter selection and train/test rows use tape delay model: **{out.get('selection_delay', 'measured')}** "
+        f"(fixed3 = every print shifted 3 s earlier, no look-ahead). Grid: {out.get('grid_version', 'v1')}.", "",
         "## Results", "",
         "| run | markets | PnL | ROI | win rate | PnL / buys | max DD | Sharpe | maker/taker fills | fees |",
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
@@ -536,9 +561,9 @@ def write_report(out: dict, rep: Path) -> None:
          for c, v in sorted(out["test_all_categories_best_params"]["by_category"].items())] + [
         "", "## Daily PnL (test)", "", "| day | PnL |", "|---|---:|",
     ] + [f"| {d} | ${v:,.2f} |" for d, v in out["test"]["daily_pnl"].items()] + [
-        "", "Chart: `charts/strategy_equity.png`. Grid results: `strategy_backtest.json`.",
+        "", f"Chart: `charts/strategy_equity{sfx}.png`. Grid results: `strategy_backtest{sfx}.json`.",
     ]
-    (rep / "strategy_backtest.md").write_text("\n".join(L) + "\n", encoding="utf-8")
+    (rep / f"strategy_backtest{sfx}.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

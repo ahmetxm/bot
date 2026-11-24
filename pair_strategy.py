@@ -39,6 +39,8 @@ class StrategyParams:
     take_enabled: bool = True
     take_edge: float = 0.04
     take_shares: float = 20
+    take_cutoff_frac: float = 1.0    # taker leg only in the first X of the window (1.0 = whole window)
+    maker_cutoff_frac: float = 1.0   # resting quotes only in the first X of the window
     max_market_usd: float = 400
 
     @classmethod
@@ -146,8 +148,10 @@ class PairStrategy:
         self.min_size = min_size
         self.budget = min(params.max_market_usd, budget_usd) if budget_usd else params.max_market_usd
 
-    def active(self, t: int, ws: int, we: int) -> bool:
-        return ws + self.p.start_delay_seconds <= t <= we - self.p.stop_before_end_seconds
+    def active(self, t: int, ws: int, we: int, cutoff_frac: float = 1.0) -> bool:
+        if not ws + self.p.start_delay_seconds <= t <= we - self.p.stop_before_end_seconds:
+            return False
+        return cutoff_frac >= 1.0 or (t - ws) <= cutoff_frac * (we - ws)
 
     def _room(self, inv: Inventory, price: float) -> float:
         left = self.budget - inv.cost_basis
@@ -159,7 +163,7 @@ class PairStrategy:
 
         fair_up_prev = fair value `guard_seconds` ago (for the adverse-move guard)."""
         p = self.p
-        if fair_up is None or not self.active(t, ws, we):
+        if fair_up is None or not self.active(t, ws, we, p.maker_cutoff_frac):
             return {}
         fair = (fair_up, 1.0 - fair_up)
         move_up = (fair_up - fair_up_prev) if fair_up_prev is not None else 0.0
@@ -192,7 +196,7 @@ class PairStrategy:
                      best_bid: list, best_ask: list) -> list:
         """Marketable orders [(side, outcome, limit_price, shares)] for the latency leg."""
         p = self.p
-        if not p.take_enabled or fair_up is None or not self.active(t, ws, we):
+        if not p.take_enabled or fair_up is None or not self.active(t, ws, we, p.take_cutoff_frac):
             return []
         fair = (fair_up, 1.0 - fair_up)
         orders = []

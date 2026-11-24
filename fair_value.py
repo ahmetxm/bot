@@ -116,14 +116,34 @@ class LiveFairValue:
         return (self.t0 or 0) + len(self.logs) - 1
 
     def p_up(self, t: int, ws: int, we: int, twap_s: int,
-             shift: "Callable[[int, int], np.ndarray] | None" = None) -> float | None:
-        """shift(t0, n) -> per-second log offsets added to the series (e.g. Chainlink-Binance basis)."""
+             shift: "Callable[[int, int], np.ndarray] | None" = None,
+             now_logs: "tuple[float, ...] | None" = None) -> "float | tuple[float, ...] | None":
+        """shift(t0, n) -> per-second log offsets added to the series (e.g. Chainlink-Binance basis).
+
+        now_logs: log prices (on the spot feed's scale) to use for second t instead of the last spot print,
+        e.g. from a faster feed. Returns one P(Up) per entry (a tuple) when given."""
         if self.t0 is None or len(self.logs) < 120 or ws - twap_s < self.t0:
             return None
         arr = np.asarray(self.logs)
         ev = ewma_variance(arr, self.halflife)
-        if shift is not None:
-            arr = arr + shift(self.t0, len(arr))
-        t = min(t, self.last_t)
-        return float(fair_up_series(arr, ev, self.t0, ws, we, t, t, twap_s,
-                                    self.vol_mult, self.vol_floor)[0])
+        if now_logs is None:
+            if shift is not None:
+                arr = arr + shift(self.t0, len(arr))
+            t = min(t, self.last_t)
+            return float(fair_up_series(arr, ev, self.t0, ws, we, t, t, twap_s,
+                                        self.vol_mult, self.vol_floor)[0])
+        if t > self.last_t:                       # no spot print yet this second: carry the series forward
+            pad = t - self.last_t
+            arr = np.concatenate([arr, np.full(pad, arr[-1])])
+            ev = np.concatenate([ev, np.full(pad, ev[-1])])
+        t = min(t, self.t0 + len(arr) - 1)
+        sh = shift(self.t0, len(arr)) if shift is not None else None
+        out = []
+        for lg in now_logs:
+            a = arr.copy()
+            a[t - self.t0] = lg
+            if sh is not None:
+                a = a + sh
+            out.append(float(fair_up_series(a, ev, self.t0, ws, we, t, t, twap_s,
+                                            self.vol_mult, self.vol_floor)[0]))
+        return tuple(out)

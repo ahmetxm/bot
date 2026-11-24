@@ -1,0 +1,21 @@
+[
+  {"name": "base",
+   "_note": "reference: v1 calibration (maker + taker, BTC 5m / ETH 5m / BTC 15m), 1 s latency, spot fair value"},
+  {"name": "btc_taker05_fast", "params_file": "data/calibrated_params_v2_fixed3.json", "latency": 0.3, "interval": 0.25,
+   "_note": "reference: best earlier live variant (v2 taker only, BTC 5m + 15m, edge 5c), spot fair value"},
+  {"name": "v3_taker_fast", "params_file": "data/calibrated_params_v2_fixed3.json", "latency": 0.3, "interval": 0.25,
+   "fast_signal": true,
+   "_note": "same taker, fair value from the Binance futures bookTicker (ms) -> isolates the fast signal"},
+  {"name": "v3_mm_fast", "set": {"maker_cutoff_frac": 0.8}, "latency": 0.3, "interval": 0.25, "cancel_latency": 0.2,
+   "fast_signal": true,
+   "_note": "control: v1 maker+taker on the fast signal, no maker in the last 20% of the window, no fading"},
+  {"name": "v3_mm_fade", "set": {"maker_cutoff_frac": 0.8}, "latency": 0.3, "interval": 0.25, "cancel_latency": 0.2,
+   "fade": 0.01,
+   "_note": "v3: as v3_mm_fast + cancel a bid within 0.2 s once its fair value fell 1c (adverse-selection shield)"},
+  {"name": "v3_mm_fade_tight", "set": {"maker_cutoff_frac": 0.8, "half_spread": 0.03}, "latency": 0.3,
+   "interval": 0.25, "cancel_latency": 0.2, "fade": 0.01,
+   "_note": "v3 closer to the target's pair cost (~0.92-0.94): bids 3c under fair, more fills"},
+  {"name": "v3_maker_only_fade", "set": {"maker_cutoff_frac": 0.8, "take_enabled": false}, "latency": 0.3,
+   "interval": 0.25, "cancel_latency": 0.2, "fade": 0.01,
+   "_note": "v3 maker only (the target was ~78% maker)"}
+]

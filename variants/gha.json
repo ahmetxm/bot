@@ -1,0 +1,20 @@
+[
+  {"name": "base",
+   "_note": "v1 calibration (measured tape delay): maker + taker, BTC 5m / ETH 5m / BTC 15m, 1 s latency"},
+  {"name": "btc_taker05", "params_file": "data/calibrated_params_v2_fixed3.json",
+   "_note": "v2 calibration with the conservative 3 s tape delay: taker only, BTC 5m + 15m, edge 5c"},
+  {"name": "btc_taker05_fast", "params_file": "data/calibrated_params_v2_fixed3.json", "latency": 0.3, "interval": 0.25,
+   "_note": "same as btc_taker05 but decides every 0.25 s and assumes 0.3 s order latency (needs a fast host)"},
+  {"name": "btc_taker08_fast", "params_file": "data/calibrated_params_v2_fixed3.json", "set": {"take_edge": 0.08},
+   "latency": 0.3, "interval": 0.25,
+   "_note": "pickier taker: edge 8c"},
+  {"name": "btc5_taker05_fast", "params_file": "data/calibrated_params_v2_fixed3.json",
+   "set": {"markets": ["BTC 5m"]}, "latency": 0.3, "interval": 0.25,
+   "_note": "BTC 5m only (the only category positive out-of-sample in the v2 backtest)"},
+  {"name": "btc15_taker05_fast", "params_file": "data/calibrated_params_v2_fixed3.json",
+   "set": {"markets": ["BTC 15m"]}, "latency": 0.3, "interval": 0.25,
+   "_note": "BTC 15m only (the category positive in the 80-minute live paper run)"},
+  {"name": "btc_mm_wide", "params_file": "data/calibrated_params_v2_fixed3.json",
+   "set": {"half_spread": 0.08, "guard_move": 0.02},
+   "_note": "best maker+taker combination under the conservative delay: wide quotes, adverse-move guard"}
+]

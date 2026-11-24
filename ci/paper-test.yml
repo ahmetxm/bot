@@ -1,0 +1,43 @@
+# Copy to .github/workflows/paper.yml (the bot's GitHub App may not write workflow files).
+# Continuous PAPER test (no real orders, no keys): variants/v3.json (fast futures signal + quote fading vs references) side by side on the live feed for ~5.5 h;
+# results -> paper-results branch (SUMMARY.md + runs/) and a workflow artifact. Logic lives in ci/*.sh.
+name: paper-test
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Minutes (max ~325)"
+        default: "320"
+  schedule:
+    - cron: "0 */6 * * *"
+  push:
+    branches: [paper-test-v2]
+    paths: [".github/workflows/**", "ci/**", "variants/**", "live_paper.py", "pair_strategy.py", "fair_value.py"]
+permissions:
+  contents: write
+concurrency:
+  group: paper-test
+  cancel-in-progress: false
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      MINUTES: ${{ github.event.inputs.minutes || '320' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: bash ci/run_paper.sh
+      - if: always()
+        run: bash ci/collect_results.sh
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-${{ github.run_id }}
+          path: out/
+          retention-days: 90
+      - if: always()
+        run: bash ci/publish_results.sh

@@ -1,0 +1,10154 @@
+{
+  "generated_at": "2026-11-24 14:49:48 UTC",
+  "data": {
+    "markets": 2736,
+    "train_markets": 1641,
+    "test_markets": 1095,
+    "from": "2026-11-20 14:20:00 UTC",
+    "to": "2026-11-24 03:55:00 UTC",
+    "train_until": "2026-11-22 17:40:00 UTC"
+  },
+  "assumptions": {
+    "queue_fill_fraction": 0.0,
+    "taker_share_of_print": 0.5,
+    "latency_seconds": 1,
+    "maker_rebate_rate": 0.0,
+    "tape_timestamp_lag": "measured distribution, 202 samples"
+  },
+  "budget_per_market": 400.0,
+  "starting_balance": 10000.0,
+  "fair_value_logloss": {
+    "0.8": 0.3776594404954925,
+    "1.0": 0.3774840317264624,
+    "1.25": 0.3843367735012114,
+    "1.5": 0.39533891976437413,
+    "2.0": 0.4190418346575016,
+    "market_last_print": 0.3871185834587717
+  },
+  "chosen_params": {
+    "markets": [
+      "BTC 5m",
+      "BTC 15m"
+    ],
+    "vol_halflife_seconds": 600,
+    "vol_multiplier": 1.0,
+    "vol_floor_bps_per_sqrt_s": 0.35,
+    "half_spread": 1.0,
+    "inventory_skew": 0.02,
+    "max_imbalance_shares": 150,
+    "order_shares": 25,
+    "pair_cost_cap": 0.98,
+    "min_price": 0.05,
+    "max_price": 0.95,
+    "start_delay_seconds": 5,
+    "stop_before_end_seconds": 30,
+    "requote_threshold": 0.01,
+    "guard_seconds": 3,
+    "guard_move": 0.0,
+    "take_enabled": true,
+    "take_edge": 0.05,
+    "take_shares": 25,
+    "take_cutoff_frac": 1.0,
+    "maker_cutoff_frac": 1.0,
+    "max_market_usd": 400
+  },
+  "grid": [
+    {
+      "half_spread": 0.03,
+      "take_enabled": false,
+      "take_edge": 0.0,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -6960.507307210003,
+      "roi_on_buys_pct": -4.211602665931087,
+      "markets": 1633,
+      "buy_usdc": 165269.80010521002,
+      "by_category": {
+        "BTC 5m": -1583.2436274100005,
+        "ETH 5m": -3471.6886303100005,
+        "BTC 15m": -696.6470154,
+        "ETH 15m": -1208.928034090001
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": false,
+      "take_edge": 0.0,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -3690.4028670100015,
+      "roi_on_buys_pct": -3.1088632661742936,
+      "markets": 1626,
+      "buy_usdc": 118705.85970000988,
+      "by_category": {
+        "BTC 5m": -554.9986956000007,
+        "ETH 5m": -1487.1209143299986,
+        "BTC 15m": -738.9398545799996,
+        "ETH 15m": -909.3434025000001
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -7093.550379610061,
+      "roi_on_buys_pct": -3.767430589254162,
+      "markets": 1635,
+      "buy_usdc": 188286.15979928037,
+      "by_category": {
+        "BTC 5m": -1809.621789105172,
+        "ETH 5m": -3404.084894264705,
+        "BTC 15m": -773.7930524454548,
+        "ETH 15m": -1106.050643794729
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -7081.713359939692,
+      "roi_on_buys_pct": -3.838562159749823,
+      "markets": 1635,
+      "buy_usdc": 184488.69824739898,
+      "by_category": {
+        "BTC 5m": -2024.6582101447232,
+        "ETH 5m": -3327.2276109802565,
+        "BTC 15m": -668.8853844651844,
+        "ETH 15m": -1060.9421543495396
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -3118.975462636652,
+      "roi_on_buys_pct": -2.133584322485033,
+      "markets": 1630,
+      "buy_usdc": 146184.77600191176,
+      "by_category": {
+        "BTC 5m": -527.2006856473489,
+        "ETH 5m": -1129.4559357759451,
+        "BTC 15m": -646.6016182044727,
+        "ETH 15m": -815.7172230088883
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -3423.132798824479,
+      "roi_on_buys_pct": -2.4181895974288166,
+      "markets": 1630,
+      "buy_usdc": 141557.66787121186,
+      "by_category": {
+        "BTC 5m": -828.8250862642826,
+        "ETH 5m": -1021.2529938648537,
+        "BTC 15m": -817.9016638225614,
+        "ETH 15m": -755.1530548727796
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -6747.984868817201,
+      "roi_on_buys_pct": -3.8190197815503115,
+      "markets": 1633,
+      "buy_usdc": 176694.15857484483,
+      "by_category": {
+        "BTC 5m": -1327.5520306947587,
+        "ETH 5m": -3663.7940514258835,
+        "BTC 15m": -481.84835627785316,
+        "ETH 15m": -1274.790430418707
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -6875.931321017306,
+      "roi_on_buys_pct": -3.9515516060003475,
+      "markets": 1633,
+      "buy_usdc": 174005.85913078673,
+      "by_category": {
+        "BTC 5m": -1531.9056791512512,
+        "ETH 5m": -3552.3775616901494,
+        "BTC 15m": -570.4121125097066,
+        "ETH 15m": -1221.2359676662022
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -3122.7566273103653,
+      "roi_on_buys_pct": -2.357385143459396,
+      "markets": 1627,
+      "buy_usdc": 132466.96815641283,
+      "by_category": {
+        "BTC 5m": 95.4080634071519,
+        "ETH 5m": -1781.920211441454,
+        "BTC 15m": -522.8931717382665,
+        "ETH 15m": -913.3513075378
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -3343.865384436543,
+      "roi_on_buys_pct": -2.585361831148449,
+      "markets": 1627,
+      "buy_usdc": 129338.39063258536,
+      "by_category": {
+        "BTC 5m": -94.2682878401067,
+        "ETH 5m": -1616.632020888287,
+        "BTC 15m": -751.6066759695635,
+        "ETH 15m": -881.3583997385923
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -6311.0328092044865,
+      "roi_on_buys_pct": -3.7112877438260745,
+      "markets": 1633,
+      "buy_usdc": 170049.67668441302,
+      "by_category": {
+        "BTC 5m": -852.4816884264919,
+        "ETH 5m": -3676.651030882211,
+        "BTC 15m": -468.0418091341734,
+        "ETH 15m": -1313.8582807616035
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -6513.300263629638,
+      "roi_on_buys_pct": -3.8608775132839095,
+      "markets": 1633,
+      "buy_usdc": 168699.99737675395,
+      "by_category": {
+        "BTC 5m": -994.4371883658371,
+        "ETH 5m": -3594.0066013979203,
+        "BTC 15m": -638.5585096512901,
+        "ETH 15m": -1286.2979642145863
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -2854.996263141435,
+      "roi_on_buys_pct": -2.2974810250236652,
+      "markets": 1626,
+      "buy_usdc": 124266.36964768957,
+      "by_category": {
+        "BTC 5m": 230.78221235244715,
+        "ETH 5m": -1678.9336126200817,
+        "BTC 15m": -501.22847552417113,
+        "ETH 15m": -905.6163873496274
+      }
+    },
+    {
+      "half_spread": 0.03,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -3251.5802141063305,
+      "roi_on_buys_pct": -2.652921984606984,
+      "markets": 1626,
+      "buy_usdc": 122565.9945137073,
+      "by_category": {
+        "BTC 5m": 51.34728127431401,
+        "ETH 5m": -1574.0758003938201,
+        "BTC 15m": -814.893488880418,
+        "ETH 15m": -913.9582061064032
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": false,
+      "take_edge": 0.0,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -3801.9497428799964,
+      "roi_on_buys_pct": -3.451000726972535,
+      "markets": 1583,
+      "buy_usdc": 110169.48542387989,
+      "by_category": {
+        "BTC 5m": -177.52764075999988,
+        "ETH 5m": -2271.368578810002,
+        "BTC 15m": -420.0026016999998,
+        "ETH 15m": -933.05092161
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": false,
+      "take_edge": 0.0,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -1690.24692983,
+      "roi_on_buys_pct": -2.089987782438273,
+      "markets": 1562,
+      "buy_usdc": 80873.5316078299,
+      "by_category": {
+        "BTC 5m": 129.19850414999976,
+        "ETH 5m": -1060.6977343999997,
+        "BTC 15m": -252.12490518999994,
+        "ETH 15m": -506.6227943900001
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -3546.5328119029164,
+      "roi_on_buys_pct": -2.604456114915429,
+      "markets": 1611,
+      "buy_usdc": 136171.72474484477,
+      "by_category": {
+        "BTC 5m": -285.0797995123726,
+        "ETH 5m": -2065.3229190152774,
+        "BTC 15m": -288.6237514295212,
+        "ETH 15m": -907.5063419457402
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -3577.2827692760543,
+      "roi_on_buys_pct": -2.715864007516343,
+      "markets": 1611,
+      "buy_usdc": 131718.03740451197,
+      "by_category": {
+        "BTC 5m": -645.6442310738895,
+        "ETH 5m": -1953.4304487082309,
+        "BTC 15m": -221.5816502262357,
+        "ETH 15m": -756.6264392676921
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -1087.195447215196,
+      "roi_on_buys_pct": -0.9849111325037029,
+      "markets": 1601,
+      "buy_usdc": 110385.13134189887,
+      "by_category": {
+        "BTC 5m": 271.41291751659844,
+        "ETH 5m": -938.0110007914312,
+        "BTC 15m": 97.54934627039623,
+        "ETH 15m": -518.1467102107564
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -1527.0034546129245,
+      "roi_on_buys_pct": -1.4479560527782103,
+      "markets": 1601,
+      "buy_usdc": 105459.24040187857,
+      "by_category": {
+        "BTC 5m": -80.97525121517678,
+        "ETH 5m": -814.382883215826,
+        "BTC 15m": -216.80997806571514,
+        "ETH 15m": -414.8353421162036
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -3716.2943886473795,
+      "roi_on_buys_pct": -3.028750445166323,
+      "markets": 1591,
+      "buy_usdc": 122700.58084773306,
+      "by_category": {
+        "BTC 5m": -155.1019623373353,
+        "ETH 5m": -2217.8769849420064,
+        "BTC 15m": -392.36753542218565,
+        "ETH 15m": -950.9479059458527
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -3704.247422590207,
+      "roi_on_buys_pct": -3.090931678742689,
+      "markets": 1591,
+      "buy_usdc": 119842.42317827609,
+      "by_category": {
+        "BTC 5m": -249.7237273931819,
+        "ETH 5m": -2186.342122154584,
+        "BTC 15m": -406.63879452507257,
+        "ETH 15m": -861.5427785173677
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -1091.029213426434,
+      "roi_on_buys_pct": -1.1397299239950893,
+      "markets": 1574,
+      "buy_usdc": 95726.99553259555,
+      "by_category": {
+        "BTC 5m": 752.5477432426914,
+        "ETH 5m": -1223.4483366454476,
+        "BTC 15m": -59.948394404746935,
+        "ETH 15m": -560.1802256189301
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -1349.45349951699,
+      "roi_on_buys_pct": -1.4598472873102453,
+      "markets": 1574,
+      "buy_usdc": 92437.99068896756,
+      "by_category": {
+        "BTC 5m": 493.79193476038563,
+        "ETH 5m": -1086.475249229381,
+        "BTC 15m": -249.45912530580375,
+        "ETH 15m": -507.3110597421922
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -3132.7480082947454,
+      "roi_on_buys_pct": -2.728598238143285,
+      "markets": 1584,
+      "buy_usdc": 114811.6261493473,
+      "by_category": {
+        "BTC 5m": 321.118051134707,
+        "ETH 5m": -2109.5461593889777,
+        "BTC 15m": -356.7810180929175,
+        "ETH 15m": -987.5388819475567
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -3246.673043822893,
+      "roi_on_buys_pct": -2.8631208013789102,
+      "markets": 1584,
+      "buy_usdc": 113396.29966920221,
+      "by_category": {
+        "BTC 5m": 225.04795561899732,
+        "ETH 5m": -2135.039819268653,
+        "BTC 15m": -412.64348241289133,
+        "ETH 15m": -924.0376977603464
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -987.8351399569341,
+      "roi_on_buys_pct": -1.1437521749571609,
+      "markets": 1563,
+      "buy_usdc": 86367.93543093663,
+      "by_category": {
+        "BTC 5m": 614.1539756001865,
+        "ETH 5m": -1059.1897792648554,
+        "BTC 15m": 37.0195271655907,
+        "ETH 15m": -579.8188634578514
+      }
+    },
+    {
+      "half_spread": 0.05,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -1228.7553206043028,
+      "roi_on_buys_pct": -1.4529359020571735,
+      "markets": 1563,
+      "buy_usdc": 84570.51125686555,
+      "by_category": {
+        "BTC 5m": 458.3278556679412,
+        "ETH 5m": -981.94413690067,
+        "BTC 15m": -166.67220007118988,
+        "ETH 15m": -538.4668393003817
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": false,
+      "take_edge": 0.0,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -1421.334782860001,
+      "roi_on_buys_pct": -2.4442108172586487,
+      "markets": 1380,
+      "buy_usdc": 58151.07161886004,
+      "by_category": {
+        "BTC 5m": 246.36515276000085,
+        "ETH 5m": -1497.741185749999,
+        "BTC 15m": 66.60830386000005,
+        "ETH 15m": -236.56705373000025
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": false,
+      "take_edge": 0.0,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -208.42855094000046,
+      "roi_on_buys_pct": -0.48373557089627356,
+      "markets": 1307,
+      "buy_usdc": 43087.29055294,
+      "by_category": {
+        "BTC 5m": 578.2576620700003,
+        "ETH 5m": -607.9077817300001,
+        "BTC 15m": 90.69051523000014,
+        "ETH 15m": -269.4689465100003
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -1076.6593391257395,
+      "roi_on_buys_pct": -1.1665239617828853,
+      "markets": 1573,
+      "buy_usdc": 92296.37576241477,
+      "by_category": {
+        "BTC 5m": 560.6390955849682,
+        "ETH 5m": -1197.939305314004,
+        "BTC 15m": -56.99496925416112,
+        "ETH 15m": -382.3641601425415
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -1074.8661834564393,
+      "roi_on_buys_pct": -1.2294777769559004,
+      "markets": 1571,
+      "buy_usdc": 87424.61259590487,
+      "by_category": {
+        "BTC 5m": 442.34792304463866,
+        "ETH 5m": -1099.9236835643148,
+        "BTC 15m": -21.01892558104153,
+        "ETH 15m": -396.2714973557163
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -84.01036082342635,
+      "roi_on_buys_pct": -0.10495002942178995,
+      "markets": 1562,
+      "buy_usdc": 80047.9630985067,
+      "by_category": {
+        "BTC 5m": 503.7552221663837,
+        "ETH 5m": -229.6362575065074,
+        "BTC 15m": 37.07156286759161,
+        "ETH 15m": -395.20088835089723
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -203.05438932995983,
+      "roi_on_buys_pct": -0.27407867225729793,
+      "markets": 1558,
+      "buy_usdc": 74086.16936794618,
+      "by_category": {
+        "BTC 5m": 430.75276700339447,
+        "ETH 5m": -64.36651006013541,
+        "BTC 15m": -260.3296528860644,
+        "ETH 15m": -309.1109933871586
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -479.0608274559391,
+      "roi_on_buys_pct": -0.643916200281018,
+      "markets": 1468,
+      "buy_usdc": 74398.00819530046,
+      "by_category": {
+        "BTC 5m": 1056.8829552523525,
+        "ETH 5m": -1312.7498308798288,
+        "BTC 15m": 148.26326155886983,
+        "ETH 15m": -371.4572133873317
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -739.8147460039411,
+      "roi_on_buys_pct": -1.0414246151887518,
+      "markets": 1465,
+      "buy_usdc": 71038.72284311758,
+      "by_category": {
+        "BTC 5m": 830.8823784413767,
+        "ETH 5m": -1345.5311072261222,
+        "BTC 15m": 121.0175520321026,
+        "ETH 15m": -346.18356925129683
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": 526.1638372076851,
+      "roi_on_buys_pct": 0.8629653790665969,
+      "markets": 1429,
+      "buy_usdc": 60971.604420190764,
+      "by_category": {
+        "BTC 5m": 1265.7087093257092,
+        "ETH 5m": -514.427907231244,
+        "BTC 15m": 167.25811993551315,
+        "ETH 15m": -392.3750848222916
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": 264.4839026970038,
+      "roi_on_buys_pct": 0.4634989068916687,
+      "markets": 1425,
+      "buy_usdc": 57062.4652538437,
+      "by_category": {
+        "BTC 5m": 982.8842935216533,
+        "ETH 5m": -444.987028904284,
+        "BTC 15m": 76.50743557545991,
+        "ETH 15m": -349.9207974958241
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": -779.1680817890363,
+      "roi_on_buys_pct": -1.2250818236576446,
+      "markets": 1401,
+      "buy_usdc": 63601.30945888384,
+      "by_category": {
+        "BTC 5m": 877.9447893208653,
+        "ETH 5m": -1412.1246977109204,
+        "BTC 15m": 135.84339104066123,
+        "ETH 15m": -380.83156443964276
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -976.1149979655713,
+      "roi_on_buys_pct": -1.5738531740167605,
+      "markets": 1399,
+      "buy_usdc": 62020.7154060215,
+      "by_category": {
+        "BTC 5m": 664.3228783246698,
+        "ETH 5m": -1413.4967394391217,
+        "BTC 15m": 133.5098873794298,
+        "ETH 15m": -360.45102423055044
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": 291.9691229741145,
+      "roi_on_buys_pct": 0.5943279945568658,
+      "markets": 1338,
+      "buy_usdc": 49125.924682684396,
+      "by_category": {
+        "BTC 5m": 1023.6288735390151,
+        "ETH 5m": -579.7324589191301,
+        "BTC 15m": 239.2676218463206,
+        "ETH 15m": -391.1949134920911
+      }
+    },
+    {
+      "half_spread": 0.08,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": -16.611569083071803,
+      "roi_on_buys_pct": -0.035378171769213186,
+      "markets": 1334,
+      "buy_usdc": 46954.289191188596,
+      "by_category": {
+        "BTC 5m": 749.7024688595083,
+        "ETH 5m": -498.24107508346503,
+        "BTC 15m": 66.696026568413,
+        "ETH 15m": -334.76898942752905
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": 836.6438781887089,
+      "roi_on_buys_pct": 1.5530788536628213,
+      "markets": 1516,
+      "buy_usdc": 53870.019298475825,
+      "by_category": {
+        "BTC 5m": 571.0013366820353,
+        "ETH 5m": 200.33943978654207,
+        "BTC 15m": 284.6131856598353,
+        "ETH 15m": -219.3100839397028
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": 246.72350447591967,
+      "roi_on_buys_pct": 0.5374494209698741,
+      "markets": 1480,
+      "buy_usdc": 45906.36715743142,
+      "by_category": {
+        "BTC 5m": 192.2910687644214,
+        "ETH 5m": 264.4961645463863,
+        "BTC 15m": -35.22814779049108,
+        "ETH 15m": -174.8355810443965
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": 836.6438781887089,
+      "roi_on_buys_pct": 1.5530788536628213,
+      "markets": 1516,
+      "buy_usdc": 53870.019298475825,
+      "by_category": {
+        "BTC 5m": 571.0013366820353,
+        "ETH 5m": 200.33943978654207,
+        "BTC 15m": 284.6131856598353,
+        "ETH 15m": -219.3100839397028
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.03,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": 246.72350447591967,
+      "roi_on_buys_pct": 0.5374494209698741,
+      "markets": 1480,
+      "buy_usdc": 45906.36715743142,
+      "by_category": {
+        "BTC 5m": 192.2910687644214,
+        "ETH 5m": 264.4961645463863,
+        "BTC 15m": -35.22814779049108,
+        "ETH 15m": -174.8355810443965
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": 1510.0119359662785,
+      "roi_on_buys_pct": 4.991566182619993,
+      "markets": 1250,
+      "buy_usdc": 30251.26544898775,
+      "by_category": {
+        "BTC 5m": 1118.600713997412,
+        "ETH 5m": -125.01595667402091,
+        "BTC 15m": 617.030971255725,
+        "ETH 15m": -100.60379261283597
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": 789.1881644039178,
+      "roi_on_buys_pct": 3.31480675307954,
+      "markets": 1166,
+      "buy_usdc": 23807.969006662057,
+      "by_category": {
+        "BTC 5m": 600.3566076283173,
+        "ETH 5m": 14.39216011896776,
+        "BTC 15m": 281.8045035837709,
+        "ETH 15m": -107.36510692713838
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": 1510.0119359662785,
+      "roi_on_buys_pct": 4.991566182619993,
+      "markets": 1250,
+      "buy_usdc": 30251.26544898775,
+      "by_category": {
+        "BTC 5m": 1118.600713997412,
+        "ETH 5m": -125.01595667402091,
+        "BTC 15m": 617.030971255725,
+        "ETH 15m": -100.60379261283597
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.05,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": 789.1881644039178,
+      "roi_on_buys_pct": 3.31480675307954,
+      "markets": 1166,
+      "buy_usdc": 23807.969006662057,
+      "by_category": {
+        "BTC 5m": 600.3566076283173,
+        "ETH 5m": 14.39216011896776,
+        "BTC 15m": 281.8045035837709,
+        "ETH 15m": -107.36510692713838
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": 759.0373181759484,
+      "roi_on_buys_pct": 6.102613832115661,
+      "markets": 774,
+      "buy_usdc": 12437.905118318857,
+      "by_category": {
+        "BTC 5m": 475.88579121574566,
+        "ETH 5m": -50.15373967020301,
+        "BTC 15m": 388.0491774643821,
+        "ETH 15m": -54.743910833976784
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.0,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": 204.95151677243766,
+      "roi_on_buys_pct": 2.5473056344207032,
+      "markets": 632,
+      "buy_usdc": 8045.815704366657,
+      "by_category": {
+        "BTC 5m": 190.84908709561887,
+        "ETH 5m": -17.49154950912952,
+        "BTC 15m": 108.07051450567194,
+        "ETH 15m": -76.47653531972364
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 1.0,
+      "pnl": 759.0373181759484,
+      "roi_on_buys_pct": 6.102613832115661,
+      "markets": 774,
+      "buy_usdc": 12437.905118318857,
+      "by_category": {
+        "BTC 5m": 475.88579121574566,
+        "ETH 5m": -50.15373967020301,
+        "BTC 15m": 388.0491774643821,
+        "ETH 15m": -54.743910833976784
+      }
+    },
+    {
+      "half_spread": 1.0,
+      "take_enabled": true,
+      "take_edge": 0.08,
+      "guard_move": 0.02,
+      "inventory_skew": 0.02,
+      "max_imbalance_shares": 150,
+      "order_shares": 25,
+      "take_cutoff_frac": 0.75,
+      "pnl": 204.95151677243766,
+      "roi_on_buys_pct": 2.5473056344207032,
+      "markets": 632,
+      "buy_usdc": 8045.815704366657,
+      "by_category": {
+        "BTC 5m": 190.84908709561887,
+        "ETH 5m": -17.49154950912952,
+        "BTC 15m": 108.07051450567194,
+        "ETH 15m": -76.47653531972364
+      }
+    }
+  ],
+  "train": {
+    "markets_considered": 821,
+    "markets_traded": 660,
+    "pnl": 1735.631685253136,
+    "roi_pct": 17.35631685253136,
+    "final_equity": 11735.631685253136,
+    "win_rate_pct": 49.09090909090909,
+    "buy_usdc": 22362.923959548025,
+    "roi_on_buys_pct": 7.761201926870992,
+    "fees": 461.3969717209336,
+    "rebates": 0.0,
+    "maker_fills": 0,
+    "taker_fills": 7858,
+    "max_drawdown": 593.2084573690045,
+    "sharpe_daily_annualized": 15.206839526919397,
+    "daily_pnl": {
+      "2026-11-20": -38.248210029783145,
+      "2026-11-21": 1599.0763958159253,
+      "2026-11-22": 174.80349946699192
+    },
+    "daily_loss_halts": 0,
+    "peak_concurrent_capital": 273.6698526312388,
+    "median_pair_cost": 0.7983595917122421,
+    "two_sided_pct": 22.87878787878788,
+    "median_balance": 0.0,
+    "by_category": {
+      "BTC 5m": {
+        "markets": 517,
+        "pnl": 1118.600713997412,
+        "wins": 239,
+        "buy_usdc": 16459.44669892798,
+        "win_rate_pct": 46.22823984526112,
+        "roi_on_buys_pct": 6.796101560754576
+      },
+      "BTC 15m": {
+        "markets": 143,
+        "pnl": 617.030971255725,
+        "wins": 85,
+        "buy_usdc": 5903.477260620025,
+        "win_rate_pct": 59.44055944055944,
+        "roi_on_buys_pct": 10.45199200430087
+      }
+    },
+    "equity_curve": [
+      [
+        1795184700,
+        10000.0
+      ],
+      [
+        1795185000,
+        10005.115693919312
+      ],
+      [
+        1795185300,
+        10049.91538888048
+      ],
+      [
+        1795185600,
+        9982.581696202527
+      ],
+      [
+        1795185900,
+        9993.733283706872
+      ],
+      [
+        1795185900,
+        10001.109517814308
+      ],
+      [
+        1795186200,
+        9981.640006175272
+      ],
+      [
+        1795186500,
+        10111.78747995247
+      ],
+      [
+        1795186800,
+        10111.78747995247
+      ],
+      [
+        1795186800,
+        10068.291609361975
+      ],
+      [
+        1795187100,
+        10056.57980917924
+      ],
+      [
+        1795187400,
+        10055.491385179324
+      ],
+      [
+        1795187700,
+        10055.491385179324
+      ],
+      [
+        1795187700,
+        10063.844914430225
+      ],
+      [
+        1795188000,
+        10070.376917743484
+      ],
+      [
+        1795188300,
+        10088.561225659914
+      ],
+      [
+        1795188600,
+        10088.561225659914
+      ],
+      [
+        1795188600,
+        10071.540103927407
+      ],
+      [
+        1795188900,
+        10096.58423688607
+      ],
+      [
+        1795189200,
+        10134.204931268554
+      ],
+      [
+        1795189500,
+        10134.204931268554
+      ],
+      [
+        1795189500,
+        10160.155308463432
+      ],
+      [
+        1795189800,
+        10173.085801534078
+      ],
+      [
+        1795190100,
+        10175.417585535075
+      ],
+      [
+        1795190400,
+        10182.062053695076
+      ],
+      [
+        1795190400,
+        10180.82810619498
+      ],
+      [
+        1795190700,
+        10184.250543192618
+      ],
+      [
+        1795191000,
+        10184.250543192618
+      ],
+      [
+        1795191300,
+        10177.588513110803
+      ],
+      [
+        1795191300,
+        10177.588513110803
+      ],
+      [
+        1795191600,
+        10177.588513110803
+      ],
+      [
+        1795191900,
+        10138.335602647896
+      ],
+      [
+        1795192200,
+        10138.335602647896
+      ],
+      [
+        1795192200,
+        10135.862765145781
+      ],
+      [
+        1795192500,
+        10113.092195503235
+      ],
+      [
+        1795192800,
+        10113.092195503235
+      ],
+      [
+        1795193100,
+        10113.092195503235
+      ],
+      [
+        1795193100,
+        10096.390290478217
+      ],
+      [
+        1795193400,
+        10102.032139878216
+      ],
+      [
+        1795193700,
+        10138.705307590615
+      ],
+      [
+        1795194000,
+        10106.817771775772
+      ],
+      [
+        1795194000,
+        10096.34637961764
+      ],
+      [
+        1795194300,
+        10108.53387961764
+      ],
+      [
+        1795194600,
+        10106.182934615914
+      ],
+      [
+        1795194900,
+        10106.182934615914
+      ],
+      [
+        1795194900,
+        10096.936841781648
+      ],
+      [
+        1795195200,
+        10076.963182948683
+      ],
+      [
+        1795195500,
+        10076.963182948683
+      ],
+      [
+        1795195800,
+        10073.8266032606
+      ],
+      [
+        1795195800,
+        10073.8266032606
+      ],
+      [
+        1795196100,
+        10070.700823106874
+      ],
+      [
+        1795196400,
+        10070.700823106874
+      ],
+      [
+        1795196700,
+        10070.700823106874
+      ],
+      [
+        1795196700,
+        10060.007016158585
+      ],
+      [
+        1795197000,
+        10051.580491202489
+      ],
+      [
+        1795197300,
+        10049.109728702226
+      ],
+      [
+        1795197600,
+        10059.142200372384
+      ],
+      [
+        1795197600,
+        10046.365850495255
+      ],
+      [
+        1795197900,
+        10050.69086899116
+      ],
+      [
+        1795198200,
+        10044.77182568826
+      ],
+      [
+        1795198500,
+        10044.77182568826
+      ],
+      [
+        1795198500,
+        10044.77182568826
+      ],
+      [
+        1795198800,
+        10055.62299068826
+      ],
+      [
+        1795199100,
+        10048.579265687446
+      ],
+      [
+        1795199400,
+        10048.579265687446
+      ],
+      [
+        1795199400,
+        10048.579265687446
+      ],
+      [
+        1795199700,
+        10047.024921423492
+      ],
+      [
+        1795200000,
+        10021.203691063105
+      ],
+      [
+        1795200300,
+        10021.203691063105
+      ],
+      [
+        1795200300,
+        10021.203691063105
+      ],
+      [
+        1795200600,
+        10039.155633828019
+      ],
+      [
+        1795200900,
+        10002.020348868899
+      ],
+      [
+        1795201200,
+        10022.722612791727
+      ],
+      [
+        1795201200,
+        10167.14016102853
+      ],
+      [
+        1795201500,
+        10164.154473528532
+      ],
+      [
+        1795201800,
+        10190.981265612318
+      ],
+      [
+        1795202100,
+        10190.981265612318
+      ],
+      [
+        1795202100,
+        10190.981265612318
+      ],
+      [
+        1795202400,
+        10186.038890617474
+      ],
+      [
+        1795202700,
+        10183.733070617474
+      ],
+      [
+        1795203000,
+        10201.1112482381
+      ],
+      [
+        1795203000,
+        10230.62823896749
+      ],
+      [
+        1795203300,
+        10189.028796830145
+      ],
+      [
+        1795203600,
+        10189.028796830145
+      ],
+      [
+        1795203900,
+        10189.028796830145
+      ],
+      [
+        1795203900,
+        10169.847534424436
+      ],
+      [
+        1795204200,
+        10166.236899849226
+      ],
+      [
+        1795204500,
+        10149.743261430995
+      ],
+      [
+        1795204800,
+        10140.46575618054
+      ],
+      [
+        1795204800,
+        10121.72103112026
+      ],
+      [
+        1795205100,
+        10077.118745511165
+      ],
+      [
+        1795205400,
+        10072.886163562429
+      ],
+      [
+        1795205700,
+        10067.336588560072
+      ],
+      [
+        1795205700,
+        10066.817338558865
+      ],
+      [
+        1795206000,
+        10005.895185717078
+      ],
+      [
+        1795206300,
+        10005.895185717078
+      ],
+      [
+        1795206600,
+        10005.895185717078
+      ],
+      [
+        1795206600,
+        10004.199498217078
+      ],
+      [
+        1795206900,
+        10004.199498217078
+      ],
+      [
+        1795207200,
+        10000.001458217079
+      ],
+      [
+        1795207500,
+        9995.23239221658
+      ],
+      [
+        1795207500,
+        10042.818855568397
+      ],
+      [
+        1795207800,
+        9952.622007453103
+      ],
+      [
+        1795208100,
+        9955.302129537586
+      ],
+      [
+        1795208400,
+        9946.108749534484
+      ],
+      [
+        1795208400,
+        9903.429898744682
+      ],
+      [
+        1795208700,
+        9903.429898744682
+      ],
+      [
+        1795209000,
+        9873.027881722437
+      ],
+      [
+        1795209300,
+        9867.667863172386
+      ],
+      [
+        1795209300,
+        9876.096333370262
+      ],
+      [
+        1795209600,
+        9899.159716836797
+      ],
+      [
+        1795209900,
+        9898.485341836797
+      ],
+      [
+        1795210200,
+        9858.945179866614
+      ],
+      [
+        1795210200,
+        9842.090045487115
+      ],
+      [
+        1795210500,
+        9961.091246526128
+      ],
+      [
+        1795210800,
+        9961.091246526128
+      ],
+      [
+        1795211100,
+        9961.091246526128
+      ],
+      [
+        1795211100,
+        9962.457605451127
+      ],
+      [
+        1795211400,
+        9969.450230490287
+      ],
+      [
+        1795211700,
+        9969.450230490287
+      ],
+      [
+        1795212000,
+        9969.450230490287
+      ],
+      [
+        1795212000,
+        9905.516034874212
+      ],
+      [
+        1795212300,
+        9895.371245939012
+      ],
+      [
+        1795212600,
+        9883.965725963506
+      ],
+      [
+        1795212900,
+        9883.965725963506
+      ],
+      [
+        1795212900,
+        9867.87884760354
+      ],
+      [
+        1795213200,
+        9823.410540708172
+      ],
+      [
+        1795213500,
+        9858.34285070762
+      ],
+      [
+        1795213800,
+        9861.120072200423
+      ],
+      [
+        1795213800,
+        9853.95149559039
+      ],
+      [
+        1795214100,
+        9853.95149559039
+      ],
+      [
+        1795214400,
+        9870.057034133946
+      ],
+      [
+        1795214700,
+        9881.31269536629
+      ],
+      [
+        1795214700,
+        9843.517905521358
+      ],
+      [
+        1795215000,
+        9843.949455521359
+      ],
+      [
+        1795215300,
+        9860.510556002455
+      ],
+      [
+        1795215600,
+        9872.872880103692
+      ],
+      [
+        1795215600,
+        9952.440435295643
+      ],
+      [
+        1795215900,
+        9927.096704484547
+      ],
+      [
+        1795216200,
+        9938.09130017308
+      ],
+      [
+        1795216500,
+        9957.44322023155
+      ],
+      [
+        1795216500,
+        9957.77493773155
+      ],
+      [
+        1795216800,
+        9958.944527230802
+      ],
+      [
+        1795217100,
+        9966.826070661002
+      ],
+      [
+        1795217400,
+        9976.928310661002
+      ],
+      [
+        1795217400,
+        9976.928310661002
+      ],
+      [
+        1795217700,
+        9976.298729765414
+      ],
+      [
+        1795218000,
+        9976.298729765414
+      ],
+      [
+        1795218300,
+        9998.732771010535
+      ],
+      [
+        1795218300,
+        9992.950774720897
+      ],
+      [
+        1795218600,
+        9959.522385464365
+      ],
+      [
+        1795218900,
+        9961.751789970216
+      ],
+      [
+        1795219200,
+        9977.757088418437
+      ],
+      [
+        1795219200,
+        9962.235054238725
+      ],
+      [
+        1795219500,
+        9858.280866833302
+      ],
+      [
+        1795219800,
+        9852.956066833302
+      ],
+      [
+        1795220100,
+        9860.728322827268
+      ],
+      [
+        1795220100,
+        9848.103429673478
+      ],
+      [
+        1795220400,
+        9741.43102890373
+      ],
+      [
+        1795220700,
+        9697.860146388713
+      ],
+      [
+        1795221000,
+        9704.8071638876
+      ],
+      [
+        1795221000,
+        9703.922774162602
+      ],
+      [
+        1795221300,
+        9703.922774162602
+      ],
+      [
+        1795221600,
+        9723.014917644392
+      ],
+      [
+        1795221900,
+        9796.951034051164
+      ],
+      [
+        1795221900,
+        9676.007790388283
+      ],
+      [
+        1795222200,
+        9683.490415572815
+      ],
+      [
+        1795222500,
+        9637.419781598486
+      ],
+      [
+        1795222800,
+        9722.954670543968
+      ],
+      [
+        1795222800,
+        9721.972370543968
+      ],
+      [
+        1795223100,
+        9735.602367663098
+      ],
+      [
+        1795223400,
+        9737.953195676764
+      ],
+      [
+        1795223700,
+        9709.843657115392
+      ],
+      [
+        1795223700,
+        9707.991017015393
+      ],
+      [
+        1795224000,
+        9717.37656436125
+      ],
+      [
+        1795224300,
+        9717.37656436125
+      ],
+      [
+        1795224600,
+        9713.597894805647
+      ],
+      [
+        1795224600,
+        9729.344134082814
+      ],
+      [
+        1795224900,
+        9739.922033597595
+      ],
+      [
+        1795225200,
+        9791.016107248572
+      ],
+      [
+        1795225500,
+        9867.666131525822
+      ],
+      [
+        1795225500,
+        9837.297521012679
+      ],
+      [
+        1795225800,
+        9963.1273333449
+      ],
+      [
+        1795226100,
+        10052.836737142143
+      ],
+      [
+        1795226400,
+        9971.036228896266
+      ],
+      [
+        1795226400,
+        9963.98810988217
+      ],
+      [
+        1795226700,
+        9886.650190120794
+      ],
+      [
+        1795227000,
+        9991.47751584451
+      ],
+      [
+        1795227300,
+        9944.91451679582
+      ],
+      [
+        1795227300,
+        9944.221303517774
+      ],
+      [
+        1795227600,
+        9944.221303517774
+      ],
+      [
+        1795227900,
+        9964.03523403513
+      ],
+      [
+        1795228200,
+        9980.542984611573
+      ],
+      [
+        1795228200,
+        10007.587802024475
+      ],
+      [
+        1795228500,
+        10024.067887443387
+      ],
+      [
+        1795228800,
+        9930.953793755072
+      ],
+      [
+        1795229100,
+        9939.948625787974
+      ],
+      [
+        1795229100,
+        9940.37156479647
+      ],
+      [
+        1795229400,
+        9940.18167879737
+      ],
+      [
+        1795229700,
+        9967.593896621793
+      ],
+      [
+        1795230000,
+        9990.561283624505
+      ],
+      [
+        1795230000,
+        10022.466153395777
+      ],
+      [
+        1795230300,
+        10026.20341494719
+      ],
+      [
+        1795230600,
+        10044.715366561459
+      ],
+      [
+        1795230900,
+        10049.532938071427
+      ],
+      [
+        1795230900,
+        10048.884188070413
+      ],
+      [
+        1795231200,
+        10048.884188070413
+      ],
+      [
+        1795231500,
+        9999.843009920844
+      ],
+      [
+        1795231800,
+        10003.702924422068
+      ],
+      [
+        1795231800,
+        10056.123712875567
+      ],
+      [
+        1795232100,
+        10056.123712875567
+      ],
+      [
+        1795232400,
+        10028.623406829389
+      ],
+      [
+        1795232700,
+        10047.021031722505
+      ],
+      [
+        1795232700,
+        10166.591518638428
+      ],
+      [
+        1795233000,
+        10178.779018638428
+      ],
+      [
+        1795233300,
+        10150.368738195999
+      ],
+      [
+        1795233600,
+        10238.013839191439
+      ],
+      [
+        1795233600,
+        10212.815085532056
+      ],
+      [
+        1795233900,
+        10232.616249828952
+      ],
+      [
+        1795234200,
+        10221.429064915734
+      ],
+      [
+        1795234500,
+        10250.665909915733
+      ],
+      [
+        1795234500,
+        10245.519267414784
+      ],
+      [
+        1795234800,
+        10211.938154162548
+      ],
+      [
+        1795235100,
+        10212.040957659752
+      ],
+      [
+        1795235400,
+        10212.040957659752
+      ],
+      [
+        1795235400,
+        10207.303664762041
+      ],
+      [
+        1795235700,
+        10189.39115548494
+      ],
+      [
+        1795236000,
+        10152.6457282167
+      ],
+      [
+        1795236300,
+        10142.684439312321
+      ],
+      [
+        1795236300,
+        10106.905757641445
+      ],
+      [
+        1795236600,
+        10089.145376392942
+      ],
+      [
+        1795236900,
+        10078.064848913167
+      ],
+      [
+        1795237200,
+        10078.064848913167
+      ],
+      [
+        1795237200,
+        10050.344241604247
+      ],
+      [
+        1795237500,
+        10047.39017909806
+      ],
+      [
+        1795237800,
+        10044.330136452953
+      ],
+      [
+        1795238100,
+        10055.583423684417
+      ],
+      [
+        1795238100,
+        10090.117901184527
+      ],
+      [
+        1795238400,
+        10081.215991183435
+      ],
+      [
+        1795238700,
+        10046.685171719746
+      ],
+      [
+        1795239000,
+        10030.315694467587
+      ],
+      [
+        1795239000,
+        10013.401716386443
+      ],
+      [
+        1795239300,
+        10013.401716386443
+      ],
+      [
+        1795239600,
+        10097.942474759306
+      ],
+      [
+        1795239900,
+        10097.942474759306
+      ],
+      [
+        1795239900,
+        10099.220520754114
+      ],
+      [
+        1795240200,
+        10099.220520754114
+      ],
+      [
+        1795240500,
+        10088.043085775975
+      ],
+      [
+        1795240800,
+        10059.866128418413
+      ],
+      [
+        1795240800,
+        10048.374692852256
+      ],
+      [
+        1795241100,
+        10032.310705448748
+      ],
+      [
+        1795241400,
+        9983.510490102284
+      ],
+      [
+        1795241700,
+        9982.434509038665
+      ],
+      [
+        1795241700,
+        9979.627800514645
+      ],
+      [
+        1795242000,
+        9857.144255914247
+      ],
+      [
+        1795242300,
+        9872.153142267864
+      ],
+      [
+        1795242600,
+        9814.005010031677
+      ],
+      [
+        1795242600,
+        9778.572630253339
+      ],
+      [
+        1795242900,
+        9765.742355063818
+      ],
+      [
+        1795243200,
+        9836.559529241813
+      ],
+      [
+        1795243500,
+        9836.559529241813
+      ],
+      [
+        1795243500,
+        9841.675449257258
+      ],
+      [
+        1795243800,
+        9833.258131892466
+      ],
+      [
+        1795244100,
+        9829.08729612688
+      ],
+      [
+        1795244400,
+        9829.08729612688
+      ],
+      [
+        1795244400,
+        9825.142175919944
+      ],
+      [
+        1795244700,
+        9821.354113443322
+      ],
+      [
+        1795245000,
+        9814.600735942713
+      ],
+      [
+        1795245300,
+        9838.524898858084
+      ],
+      [
+        1795245300,
+        9840.889366980795
+      ],
+      [
+        1795245600,
+        9857.174054907675
+      ],
+      [
+        1795245900,
+        9836.053852410596
+      ],
+      [
+        1795246200,
+        9828.853646412663
+      ],
+      [
+        1795246200,
+        9794.128411990772
+      ],
+      [
+        1795246500,
+        9788.93203297026
+      ],
+      [
+        1795246800,
+        9746.526458369277
+      ],
+      [
+        1795247100,
+        9795.650138369278
+      ],
+      [
+        1795247100,
+        9774.621265420403
+      ],
+      [
+        1795247400,
+        9747.834495437799
+      ],
+      [
+        1795247700,
+        9747.834495437799
+      ],
+      [
+        1795248000,
+        9747.834495437799
+      ],
+      [
+        1795248000,
+        9798.342846212943
+      ],
+      [
+        1795248300,
+        9798.342846212943
+      ],
+      [
+        1795248600,
+        9796.615646212944
+      ],
+      [
+        1795248900,
+        9796.615646212944
+      ],
+      [
+        1795248900,
+        9795.417826312943
+      ],
+      [
+        1795249200,
+        9803.084826312943
+      ],
+      [
+        1795249500,
+        9803.084826312943
+      ],
+      [
+        1795249800,
+        9803.084826312943
+      ],
+      [
+        1795249800,
+        9797.860485369849
+      ],
+      [
+        1795250100,
+        9794.38679536563
+      ],
+      [
+        1795250400,
+        9794.38679536563
+      ],
+      [
+        1795250700,
+        9799.42671468647
+      ],
+      [
+        1795250700,
+        9799.42671468647
+      ],
+      [
+        1795251000,
+        9798.34521468647
+      ],
+      [
+        1795251300,
+        9856.28080192132
+      ],
+      [
+        1795251600,
+        9927.594522102201
+      ],
+      [
+        1795251600,
+        9927.594522102201
+      ],
+      [
+        1795251900,
+        9927.594522102201
+      ],
+      [
+        1795252200,
+        9936.37496196858
+      ],
+      [
+        1795252500,
+        9936.37496196858
+      ],
+      [
+        1795252500,
+        10025.718632414879
+      ],
+      [
+        1795252800,
+        10046.414100565757
+      ],
+      [
+        1795253100,
+        10046.414100565757
+      ],
+      [
+        1795253400,
+        10038.449099365756
+      ],
+      [
+        1795253400,
+        10036.357099365756
+      ],
+      [
+        1795253700,
+        10027.524099436881
+      ],
+      [
+        1795254000,
+        10027.524099436881
+      ],
+      [
+        1795254300,
+        10102.530178153527
+      ],
+      [
+        1795254300,
+        10102.530178153527
+      ],
+      [
+        1795254600,
+        10097.881613153017
+      ],
+      [
+        1795254900,
+        10188.245527221554
+      ],
+      [
+        1795255200,
+        10188.245527221554
+      ],
+      [
+        1795255200,
+        10188.245527221554
+      ],
+      [
+        1795255500,
+        10226.249104619452
+      ],
+      [
+        1795255800,
+        10272.235392188099
+      ],
+      [
+        1795256100,
+        10249.092542274577
+      ],
+      [
+        1795256100,
+        10298.045896160162
+      ],
+      [
+        1795256400,
+        10307.120782370012
+      ],
+      [
+        1795256700,
+        10307.120782370012
+      ],
+      [
+        1795257000,
+        10307.120782370012
+      ],
+      [
+        1795257000,
+        10295.514504908251
+      ],
+      [
+        1795257300,
+        10295.514504908251
+      ],
+      [
+        1795257600,
+        10324.66514623232
+      ],
+      [
+        1795257900,
+        10324.83200873232
+      ],
+      [
+        1795257900,
+        10306.294908810509
+      ],
+      [
+        1795258200,
+        10324.81490891151
+      ],
+      [
+        1795258500,
+        10314.814769929728
+      ],
+      [
+        1795258800,
+        10314.814769929728
+      ],
+      [
+        1795258800,
+        10314.814769929728
+      ],
+      [
+        1795259100,
+        10337.927691291852
+      ],
+      [
+        1795259400,
+        10337.927691291852
+      ],
+      [
+        1795259700,
+        10347.09523818027
+      ],
+      [
+        1795259700,
+        10387.574268714678
+      ],
+      [
+        1795260000,
+        10398.825896961076
+      ],
+      [
+        1795260300,
+        10410.12344497596
+      ],
+      [
+        1795260600,
+        10438.831849591697
+      ],
+      [
+        1795260600,
+        10437.284599588646
+      ],
+      [
+        1795260900,
+        10450.132114857868
+      ],
+      [
+        1795261200,
+        10450.132114857868
+      ],
+      [
+        1795261500,
+        10456.641977364214
+      ],
+      [
+        1795261500,
+        10588.558889621168
+      ],
+      [
+        1795261800,
+        10671.26207051013
+      ],
+      [
+        1795262100,
+        10612.920989816304
+      ],
+      [
+        1795262400,
+        10614.521568815924
+      ],
+      [
+        1795262400,
+        10586.255434111761
+      ],
+      [
+        1795262700,
+        10564.568601391607
+      ],
+      [
+        1795263000,
+        10527.343643003087
+      ],
+      [
+        1795263300,
+        10527.343643003087
+      ],
+      [
+        1795263300,
+        10521.132023459668
+      ],
+      [
+        1795263600,
+        10522.45363194409
+      ],
+      [
+        1795263900,
+        10507.47964448328
+      ],
+      [
+        1795264200,
+        10528.529390478592
+      ],
+      [
+        1795264200,
+        10614.92502731231
+      ],
+      [
+        1795264500,
+        10614.92502731231
+      ],
+      [
+        1795264800,
+        10614.92502731231
+      ],
+      [
+        1795265100,
+        10628.38132731231
+      ],
+      [
+        1795265100,
+        10778.893927277255
+      ],
+      [
+        1795265400,
+        10770.522811098997
+      ],
+      [
+        1795265700,
+        10717.61603441335
+      ],
+      [
+        1795266000,
+        10713.61187941335
+      ],
+      [
+        1795266000,
+        10675.954609310473
+      ],
+      [
+        1795266300,
+        10667.743274987935
+      ],
+      [
+        1795266600,
+        10667.743274987935
+      ],
+      [
+        1795266900,
+        10667.743274987935
+      ],
+      [
+        1795266900,
+        10643.28810729711
+      ],
+      [
+        1795267200,
+        10643.28810729711
+      ],
+      [
+        1795267500,
+        10642.29963229711
+      ],
+      [
+        1795267800,
+        10644.44725729711
+      ],
+      [
+        1795267800,
+        10649.251610815676
+      ],
+      [
+        1795268100,
+        10649.251610815676
+      ],
+      [
+        1795268400,
+        10664.029423540676
+      ],
+      [
+        1795268700,
+        10675.967048540677
+      ],
+      [
+        1795268700,
+        10675.967048540677
+      ],
+      [
+        1795269000,
+        10660.763672470892
+      ],
+      [
+        1795269300,
+        10641.383504255089
+      ],
+      [
+        1795269600,
+        10618.310224082627
+      ],
+      [
+        1795269600,
+        10735.211086093736
+      ],
+      [
+        1795269900,
+        10729.935279243513
+      ],
+      [
+        1795270200,
+        10722.708154243513
+      ],
+      [
+        1795270500,
+        10722.079954243512
+      ],
+      [
+        1795270500,
+        10667.976133045358
+      ],
+      [
+        1795270800,
+        10654.174656965068
+      ],
+      [
+        1795271100,
+        10654.174656965068
+      ],
+      [
+        1795271400,
+        10638.0257971798
+      ],
+      [
+        1795271400,
+        10729.034824055328
+      ],
+      [
+        1795271700,
+        10735.764637776572
+      ],
+      [
+        1795272000,
+        10746.958216045776
+      ],
+      [
+        1795272300,
+        10741.532171037961
+      ],
+      [
+        1795272300,
+        10718.427882297729
+      ],
+      [
+        1795272600,
+        10711.8357717185
+      ],
+      [
+        1795272900,
+        10682.800321855204
+      ],
+      [
+        1795273200,
+        10719.688484083143
+      ],
+      [
+        1795273200,
+        10680.871077531086
+      ],
+      [
+        1795273500,
+        10694.30858675337
+      ],
+      [
+        1795273800,
+        10748.15798926889
+      ],
+      [
+        1795274100,
+        10869.081973700619
+      ],
+      [
+        1795274100,
+        10982.36568556075
+      ],
+      [
+        1795274400,
+        10982.582808062058
+      ],
+      [
+        1795274700,
+        10977.611433082
+      ],
+      [
+        1795275000,
+        10975.3058962562
+      ],
+      [
+        1795275000,
+        10936.660325728682
+      ],
+      [
+        1795275300,
+        10928.141763224408
+      ],
+      [
+        1795275600,
+        10899.148231484936
+      ],
+      [
+        1795275900,
+        11027.57778021939
+      ],
+      [
+        1795275900,
+        11001.965900213454
+      ],
+      [
+        1795276200,
+        11029.907750199685
+      ],
+      [
+        1795276500,
+        11025.469892222925
+      ],
+      [
+        1795276800,
+        11025.469892222925
+      ],
+      [
+        1795276800,
+        11019.711312523645
+      ],
+      [
+        1795277100,
+        11040.48197703971
+      ],
+      [
+        1795277400,
+        10991.152305789468
+      ],
+      [
+        1795277700,
+        10984.640477277379
+      ],
+      [
+        1795277700,
+        10976.597970694602
+      ],
+      [
+        1795278000,
+        10976.597970694602
+      ],
+      [
+        1795278300,
+        11031.011181768483
+      ],
+      [
+        1795278600,
+        11034.990971779567
+      ],
+      [
+        1795278600,
+        11019.855794338946
+      ],
+      [
+        1795278900,
+        11007.959879634176
+      ],
+      [
+        1795279200,
+        11007.959879634176
+      ],
+      [
+        1795279500,
+        11007.959879634176
+      ],
+      [
+        1795279500,
+        11003.971968348626
+      ],
+      [
+        1795279800,
+        11006.658621844841
+      ],
+      [
+        1795280100,
+        10983.179385622112
+      ],
+      [
+        1795280400,
+        10977.115448122113
+      ],
+      [
+        1795280400,
+        10973.724073207097
+      ],
+      [
+        1795280700,
+        10973.724073207097
+      ],
+      [
+        1795281000,
+        10964.374033229726
+      ],
+      [
+        1795281300,
+        10966.785087773438
+      ],
+      [
+        1795281300,
+        10955.435087804111
+      ],
+      [
+        1795281600,
+        10956.560427305336
+      ],
+      [
+        1795281900,
+        10925.822961784954
+      ],
+      [
+        1795282200,
+        11016.743423708667
+      ],
+      [
+        1795282200,
+        11015.250363183666
+      ],
+      [
+        1795282500,
+        11015.250363183666
+      ],
+      [
+        1795282800,
+        11028.266286166707
+      ],
+      [
+        1795283100,
+        11029.379191169071
+      ],
+      [
+        1795283100,
+        11029.379191169071
+      ],
+      [
+        1795283400,
+        11029.379191169071
+      ],
+      [
+        1795283700,
+        11027.691961168755
+      ],
+      [
+        1795284000,
+        11034.100018768755
+      ],
+      [
+        1795284000,
+        11034.100018768755
+      ],
+      [
+        1795284300,
+        11033.094306266175
+      ],
+      [
+        1795284600,
+        11034.92062954323
+      ],
+      [
+        1795284900,
+        11043.91916859597
+      ],
+      [
+        1795284900,
+        11107.420896423557
+      ],
+      [
+        1795285200,
+        11113.12322695528
+      ],
+      [
+        1795285500,
+        11109.293074623543
+      ],
+      [
+        1795285800,
+        11136.09396247112
+      ],
+      [
+        1795285800,
+        11176.940452883071
+      ],
+      [
+        1795286100,
+        11177.323131378915
+      ],
+      [
+        1795286400,
+        11182.226983855282
+      ],
+      [
+        1795286700,
+        11177.729563854675
+      ],
+      [
+        1795286700,
+        11177.729563854675
+      ],
+      [
+        1795287000,
+        11192.071555083368
+      ],
+      [
+        1795287300,
+        11192.924758071083
+      ],
+      [
+        1795287600,
+        11168.864395882334
+      ],
+      [
+        1795287600,
+        11200.187916485855
+      ],
+      [
+        1795287900,
+        11111.613313522295
+      ],
+      [
+        1795288200,
+        11228.70570508498
+      ],
+      [
+        1795288500,
+        11223.533508227592
+      ],
+      [
+        1795288500,
+        11223.009045959872
+      ],
+      [
+        1795288800,
+        11210.53181320667
+      ],
+      [
+        1795289100,
+        11208.151256212504
+      ],
+      [
+        1795289400,
+        11129.34278151343
+      ],
+      [
+        1795289400,
+        11108.989355313668
+      ],
+      [
+        1795289700,
+        11160.798519335494
+      ],
+      [
+        1795290000,
+        11247.757663150589
+      ],
+      [
+        1795290300,
+        11263.85253876253
+      ],
+      [
+        1795290300,
+        11278.9887638299
+      ],
+      [
+        1795290600,
+        11357.041756919612
+      ],
+      [
+        1795290900,
+        11407.67679074158
+      ],
+      [
+        1795291200,
+        11407.839745243728
+      ],
+      [
+        1795291200,
+        11392.60724522942
+      ],
+      [
+        1795291500,
+        11485.519573751732
+      ],
+      [
+        1795291800,
+        11493.228018284311
+      ],
+      [
+        1795292100,
+        11451.169164800594
+      ],
+      [
+        1795292100,
+        11491.20884078584
+      ],
+      [
+        1795292400,
+        11540.615899527147
+      ],
+      [
+        1795292700,
+        11552.570616554338
+      ],
+      [
+        1795293000,
+        11551.114979054339
+      ],
+      [
+        1795293000,
+        11555.252440240047
+      ],
+      [
+        1795293300,
+        11587.137591327311
+      ],
+      [
+        1795293600,
+        11642.242197715488
+      ],
+      [
+        1795293900,
+        11566.695494855754
+      ],
+      [
+        1795293900,
+        11574.318060610336
+      ],
+      [
+        1795294200,
+        11588.865890600417
+      ],
+      [
+        1795294500,
+        11591.013515600416
+      ],
+      [
+        1795294800,
+        11487.556260009946
+      ],
+      [
+        1795294800,
+        11482.04020320411
+      ],
+      [
+        1795295100,
+        11356.441527867106
+      ],
+      [
+        1795295400,
+        11376.021678929475
+      ],
+      [
+        1795295700,
+        11420.81252283304
+      ],
+      [
+        1795295700,
+        11439.888562510183
+      ],
+      [
+        1795296000,
+        11455.044718074376
+      ],
+      [
+        1795296300,
+        11381.07956725479
+      ],
+      [
+        1795296600,
+        11455.262292383832
+      ],
+      [
+        1795296600,
+        11445.17927879584
+      ],
+      [
+        1795296900,
+        11460.380805772058
+      ],
+      [
+        1795297200,
+        11464.396955772057
+      ],
+      [
+        1795297500,
+        11484.219167209507
+      ],
+      [
+        1795297500,
+        11382.984393441773
+      ],
+      [
+        1795297800,
+        11323.263423641502
+      ],
+      [
+        1795298100,
+        11323.263423641502
+      ],
+      [
+        1795298400,
+        11418.946167730575
+      ],
+      [
+        1795298400,
+        11423.283885073111
+      ],
+      [
+        1795298700,
+        11442.268946841737
+      ],
+      [
+        1795299000,
+        11444.174744331216
+      ],
+      [
+        1795299300,
+        11460.275493218232
+      ],
+      [
+        1795299300,
+        11495.861641943402
+      ],
+      [
+        1795299600,
+        11551.582278909294
+      ],
+      [
+        1795299900,
+        11559.632866533944
+      ],
+      [
+        1795300200,
+        11552.908129898293
+      ],
+      [
+        1795300200,
+        11526.495631411743
+      ],
+      [
+        1795300500,
+        11542.701738460635
+      ],
+      [
+        1795300800,
+        11516.332728468979
+      ],
+      [
+        1795301100,
+        11533.488159421142
+      ],
+      [
+        1795301100,
+        11551.30056307596
+      ],
+      [
+        1795301400,
+        11624.630692640087
+      ],
+      [
+        1795301700,
+        11599.128858651173
+      ],
+      [
+        1795302000,
+        11669.419880170444
+      ],
+      [
+        1795302000,
+        11701.260526197519
+      ],
+      [
+        1795302300,
+        11727.255875082907
+      ],
+      [
+        1795302600,
+        11745.144575007655
+      ],
+      [
+        1795302900,
+        11678.965519015113
+      ],
+      [
+        1795302900,
+        11679.443019015112
+      ],
+      [
+        1795303200,
+        11670.513206511652
+      ],
+      [
+        1795303500,
+        11690.570831511652
+      ],
+      [
+        1795303800,
+        11799.265173944226
+      ],
+      [
+        1795303800,
+        11746.268699098582
+      ],
+      [
+        1795304100,
+        11693.071822201247
+      ],
+      [
+        1795304400,
+        11677.099747184246
+      ],
+      [
+        1795304700,
+        11616.333079959575
+      ],
+      [
+        1795304700,
+        11571.408730179151
+      ],
+      [
+        1795305000,
+        11570.888980178888
+      ],
+      [
+        1795305300,
+        11560.828185786142
+      ],
+      [
+        1795305600,
+        11454.780200636013
+      ],
+      [
+        1795305600,
+        11436.502512082749
+      ],
+      [
+        1795305900,
+        11374.443221813428
+      ],
+      [
+        1795306200,
+        11415.727072748063
+      ],
+      [
+        1795306500,
+        11416.43751406397
+      ],
+      [
+        1795306500,
+        11375.297192714821
+      ],
+      [
+        1795306800,
+        11373.4848288577
+      ],
+      [
+        1795307100,
+        11447.091654933887
+      ],
+      [
+        1795307400,
+        11402.341061366023
+      ],
+      [
+        1795307400,
+        11404.95981923911
+      ],
+      [
+        1795307700,
+        11408.279434224763
+      ],
+      [
+        1795308000,
+        11448.383249910228
+      ],
+      [
+        1795308300,
+        11448.838933919124
+      ],
+      [
+        1795308300,
+        11495.55568842535
+      ],
+      [
+        1795308600,
+        11527.589359429583
+      ],
+      [
+        1795308900,
+        11527.589359429583
+      ],
+      [
+        1795309200,
+        11536.006998973362
+      ],
+      [
+        1795309200,
+        11630.901301476784
+      ],
+      [
+        1795309500,
+        11629.448276105948
+      ],
+      [
+        1795309800,
+        11644.142820628635
+      ],
+      [
+        1795310100,
+        11644.178604838231
+      ],
+      [
+        1795310100,
+        11601.143450363263
+      ],
+      [
+        1795310400,
+        11651.584853687604
+      ],
+      [
+        1795310700,
+        11646.30542178281
+      ],
+      [
+        1795311000,
+        11635.134533700359
+      ],
+      [
+        1795311000,
+        11681.5647223857
+      ],
+      [
+        1795311300,
+        11710.931622194377
+      ],
+      [
+        1795311600,
+        11646.285860907466
+      ],
+      [
+        1795311900,
+        11663.97309546755
+      ],
+      [
+        1795311900,
+        11679.47420298239
+      ],
+      [
+        1795312200,
+        11680.67732798239
+      ],
+      [
+        1795312500,
+        11700.344274963401
+      ],
+      [
+        1795312800,
+        11708.353253009729
+      ],
+      [
+        1795312800,
+        11709.47220300973
+      ],
+      [
+        1795313100,
+        11719.399932312186
+      ],
+      [
+        1795313400,
+        11703.852557312186
+      ],
+      [
+        1795313700,
+        11660.208611177248
+      ],
+      [
+        1795313700,
+        11660.522470661232
+      ],
+      [
+        1795314000,
+        11667.38037377981
+      ],
+      [
+        1795314300,
+        11646.167715206759
+      ],
+      [
+        1795314600,
+        11696.194791410226
+      ],
+      [
+        1795314600,
+        11696.194791410226
+      ],
+      [
+        1795314900,
+        11718.762684258061
+      ],
+      [
+        1795315200,
+        11704.913605734153
+      ],
+      [
+        1795315500,
+        11712.894164317207
+      ],
+      [
+        1795315500,
+        11715.379827861078
+      ],
+      [
+        1795315800,
+        11710.899239035725
+      ],
+      [
+        1795316100,
+        11709.870239030264
+      ],
+      [
+        1795316400,
+        11708.305601530003
+      ],
+      [
+        1795316400,
+        11698.920039023182
+      ],
+      [
+        1795316700,
+        11698.920039023182
+      ],
+      [
+        1795317000,
+        11673.755043128354
+      ],
+      [
+        1795317300,
+        11674.687890625197
+      ],
+      [
+        1795317300,
+        11674.687890625197
+      ],
+      [
+        1795317600,
+        11712.410754383376
+      ],
+      [
+        1795317900,
+        11712.410754383376
+      ],
+      [
+        1795318200,
+        11720.638737290968
+      ],
+      [
+        1795318200,
+        11720.638737290968
+      ],
+      [
+        1795318500,
+        11725.902688273683
+      ],
+      [
+        1795318800,
+        11738.092298398105
+      ],
+      [
+        1795319100,
+        11738.092298398105
+      ],
+      [
+        1795319100,
+        11725.792567084944
+      ],
+      [
+        1795319400,
+        11725.792567084944
+      ],
+      [
+        1795319700,
+        11725.792567084944
+      ],
+      [
+        1795320000,
+        11725.792567084944
+      ],
+      [
+        1795320000,
+        11725.792567084944
+      ],
+      [
+        1795320300,
+        11727.685447084945
+      ],
+      [
+        1795320600,
+        11723.403147084944
+      ],
+      [
+        1795320900,
+        11728.002011106395
+      ],
+      [
+        1795320900,
+        11823.821987659603
+      ],
+      [
+        1795321200,
+        11771.753178941532
+      ],
+      [
+        1795321500,
+        11771.753178941532
+      ],
+      [
+        1795321800,
+        11771.753178941532
+      ],
+      [
+        1795321800,
+        11789.247517034564
+      ],
+      [
+        1795322100,
+        11789.247517034564
+      ],
+      [
+        1795322400,
+        11741.67475467328
+      ],
+      [
+        1795322700,
+        11741.67475467328
+      ],
+      [
+        1795322700,
+        11734.742779681028
+      ],
+      [
+        1795323000,
+        11725.351338064162
+      ],
+      [
+        1795323300,
+        11671.34384844721
+      ],
+      [
+        1795323600,
+        11664.09687844721
+      ],
+      [
+        1795323600,
+        11664.09687844721
+      ],
+      [
+        1795323900,
+        11673.509453447208
+      ],
+      [
+        1795324200,
+        11700.502184100085
+      ],
+      [
+        1795324500,
+        11702.889684100084
+      ],
+      [
+        1795324500,
+        11737.308474984517
+      ],
+      [
+        1795324800,
+        11740.159867269836
+      ],
+      [
+        1795325100,
+        11740.159867269836
+      ],
+      [
+        1795325400,
+        11716.22762862107
+      ],
+      [
+        1795325400,
+        11696.721847443516
+      ],
+      [
+        1795325700,
+        11755.868974021498
+      ],
+      [
+        1795326000,
+        11757.254254021498
+      ],
+      [
+        1795326300,
+        11757.254254021498
+      ],
+      [
+        1795326300,
+        11753.979829021499
+      ],
+      [
+        1795326600,
+        11763.258319022225
+      ],
+      [
+        1795326900,
+        11763.258319022225
+      ],
+      [
+        1795327200,
+        11763.258319022225
+      ],
+      [
+        1795327200,
+        11763.258319022225
+      ],
+      [
+        1795327500,
+        11763.735819022226
+      ],
+      [
+        1795327800,
+        11760.074001800842
+      ],
+      [
+        1795328100,
+        11760.074001800842
+      ],
+      [
+        1795328100,
+        11747.335443025842
+      ],
+      [
+        1795328400,
+        11732.608207710227
+      ],
+      [
+        1795328700,
+        11732.608207710227
+      ],
+      [
+        1795329000,
+        11732.608207710227
+      ],
+      [
+        1795329000,
+        11744.276865210228
+      ],
+      [
+        1795329300,
+        11770.764265073247
+      ],
+      [
+        1795329600,
+        11770.764265073247
+      ],
+      [
+        1795329900,
+        11770.764265073247
+      ],
+      [
+        1795329900,
+        11770.764265073247
+      ],
+      [
+        1795330200,
+        11757.513503309361
+      ],
+      [
+        1795330500,
+        11757.513503309361
+      ],
+      [
+        1795330800,
+        11767.965283343296
+      ],
+      [
+        1795330800,
+        11765.226845843295
+      ],
+      [
+        1795331100,
+        11765.226845843295
+      ],
+      [
+        1795331400,
+        11756.633770837718
+      ],
+      [
+        1795331700,
+        11770.586660646872
+      ],
+      [
+        1795331700,
+        11770.062640847254
+      ],
+      [
+        1795332000,
+        11779.491254078373
+      ],
+      [
+        1795332300,
+        11802.844665768831
+      ],
+      [
+        1795332600,
+        11803.497427272845
+      ],
+      [
+        1795332600,
+        11803.835367324344
+      ],
+      [
+        1795332900,
+        11829.039999221211
+      ],
+      [
+        1795333200,
+        11838.585895681004
+      ],
+      [
+        1795333500,
+        11840.191874195174
+      ],
+      [
+        1795333500,
+        11805.849501695175
+      ],
+      [
+        1795333800,
+        11805.849501695175
+      ],
+      [
+        1795334100,
+        11792.419231871643
+      ],
+      [
+        1795334400,
+        11790.983044371642
+      ],
+      [
+        1795334400,
+        11868.546381488204
+      ],
+      [
+        1795334700,
+        11822.62246034319
+      ],
+      [
+        1795335000,
+        11852.26690780451
+      ],
+      [
+        1795335300,
+        11839.449743943927
+      ],
+      [
+        1795335300,
+        11862.311066169204
+      ],
+      [
+        1795335600,
+        11870.780624736413
+      ],
+      [
+        1795335900,
+        11870.780624736413
+      ],
+      [
+        1795336200,
+        11870.780624736413
+      ],
+      [
+        1795336200,
+        11846.672157709892
+      ],
+      [
+        1795336500,
+        11839.783407392615
+      ],
+      [
+        1795336800,
+        11839.783407392615
+      ],
+      [
+        1795337100,
+        11839.783407392615
+      ],
+      [
+        1795337100,
+        11809.47122035465
+      ],
+      [
+        1795337400,
+        11809.47122035465
+      ],
+      [
+        1795337700,
+        11790.57632314145
+      ],
+      [
+        1795338000,
+        11753.21287847251
+      ],
+      [
+        1795338000,
+        11728.383107388729
+      ],
+      [
+        1795338300,
+        11759.652127885973
+      ],
+      [
+        1795338600,
+        11753.757507893615
+      ],
+      [
+        1795338900,
+        11753.757507893615
+      ],
+      [
+        1795338900,
+        11734.31591709342
+      ],
+      [
+        1795339200,
+        11723.754642111677
+      ],
+      [
+        1795339500,
+        11728.651823633438
+      ],
+      [
+        1795339800,
+        11728.651823633438
+      ],
+      [
+        1795339800,
+        11721.21473634379
+      ],
+      [
+        1795340100,
+        11698.092185850173
+      ],
+      [
+        1795340400,
+        11698.092185850173
+      ],
+      [
+        1795340700,
+        11698.092185850173
+      ],
+      [
+        1795340700,
+        11696.000185850173
+      ],
+      [
+        1795341000,
+        11841.218192846252
+      ],
+      [
+        1795341300,
+        11843.532486843034
+      ],
+      [
+        1795341600,
+        11843.532486843034
+      ],
+      [
+        1795341600,
+        11850.272539888101
+      ],
+      [
+        1795341900,
+        11850.272539888101
+      ],
+      [
+        1795342200,
+        11819.124170163826
+      ],
+      [
+        1795342500,
+        11792.049212655214
+      ],
+      [
+        1795342500,
+        11780.655617654813
+      ],
+      [
+        1795342800,
+        11744.920532685106
+      ],
+      [
+        1795343100,
+        11782.57012608136
+      ],
+      [
+        1795343400,
+        11776.75541183097
+      ],
+      [
+        1795343400,
+        11751.076764803207
+      ],
+      [
+        1795343700,
+        11751.076764803207
+      ],
+      [
+        1795344000,
+        11741.335937400261
+      ],
+      [
+        1795344300,
+        11741.335937400261
+      ],
+      [
+        1795344300,
+        11759.718059485169
+      ],
+      [
+        1795344600,
+        11759.718059485169
+      ],
+      [
+        1795344900,
+        11755.20178508477
+      ],
+      [
+        1795345200,
+        11755.20178508477
+      ],
+      [
+        1795345200,
+        11728.127585083157
+      ],
+      [
+        1795345500,
+        11797.353778395305
+      ],
+      [
+        1795345800,
+        11797.353778395305
+      ],
+      [
+        1795346100,
+        11797.353778395305
+      ],
+      [
+        1795346100,
+        11809.79140341132
+      ],
+      [
+        1795346400,
+        11801.68766841024
+      ],
+      [
+        1795346700,
+        11774.571681067451
+      ],
+      [
+        1795347000,
+        11774.571681067451
+      ],
+      [
+        1795347000,
+        11774.571681067451
+      ],
+      [
+        1795347300,
+        11828.181096004999
+      ],
+      [
+        1795347600,
+        11801.581636001749
+      ],
+      [
+        1795347900,
+        11767.521454789117
+      ],
+      [
+        1795347900,
+        11767.521454789117
+      ],
+      [
+        1795348200,
+        11809.60673183866
+      ],
+      [
+        1795348500,
+        11792.358788936383
+      ],
+      [
+        1795348800,
+        11792.358788936383
+      ],
+      [
+        1795348800,
+        11803.216760984902
+      ],
+      [
+        1795349100,
+        11828.027509477437
+      ],
+      [
+        1795349400,
+        11811.440097696897
+      ],
+      [
+        1795349700,
+        11820.147941313515
+      ],
+      [
+        1795349700,
+        11814.59274567683
+      ],
+      [
+        1795350000,
+        11833.621641829035
+      ],
+      [
+        1795350300,
+        11830.003557919577
+      ],
+      [
+        1795350600,
+        11877.289927419008
+      ],
+      [
+        1795350600,
+        11833.924245724587
+      ],
+      [
+        1795350900,
+        11815.741935325448
+      ],
+      [
+        1795351200,
+        11813.201021765311
+      ],
+      [
+        1795351500,
+        11779.643570940381
+      ],
+      [
+        1795351500,
+        11752.769050664348
+      ],
+      [
+        1795351800,
+        11731.293005894651
+      ],
+      [
+        1795352100,
+        11705.297067038653
+      ],
+      [
+        1795352400,
+        11685.106209748286
+      ],
+      [
+        1795352400,
+        11642.15188684732
+      ],
+      [
+        1795352700,
+        11632.159989346732
+      ],
+      [
+        1795353000,
+        11571.442831899969
+      ],
+      [
+        1795353300,
+        11571.442831899969
+      ],
+      [
+        1795353300,
+        11568.997545083299
+      ],
+      [
+        1795353600,
+        11526.860043733916
+      ],
+      [
+        1795353900,
+        11500.247114707981
+      ],
+      [
+        1795354200,
+        11500.247114707981
+      ],
+      [
+        1795354200,
+        11507.03481898547
+      ],
+      [
+        1795354500,
+        11513.269590023121
+      ],
+      [
+        1795354800,
+        11513.269590023121
+      ],
+      [
+        1795355100,
+        11513.269590023121
+      ],
+      [
+        1795355100,
+        11513.269590023121
+      ],
+      [
+        1795355400,
+        11520.339663390394
+      ],
+      [
+        1795355700,
+        11520.339663390394
+      ],
+      [
+        1795356000,
+        11479.316236321016
+      ],
+      [
+        1795356000,
+        11520.06241748725
+      ],
+      [
+        1795356300,
+        11518.17227998461
+      ],
+      [
+        1795356600,
+        11511.392323934746
+      ],
+      [
+        1795356900,
+        11513.711420134745
+      ],
+      [
+        1795356900,
+        11490.611253561965
+      ],
+      [
+        1795357200,
+        11461.394523626568
+      ],
+      [
+        1795357500,
+        11431.807435620387
+      ],
+      [
+        1795357800,
+        11432.550091124196
+      ],
+      [
+        1795357800,
+        11440.405511885532
+      ],
+      [
+        1795358100,
+        11458.615238987057
+      ],
+      [
+        1795358400,
+        11446.553864012665
+      ],
+      [
+        1795358700,
+        11446.935477018777
+      ],
+      [
+        1795358700,
+        11427.14390851905
+      ],
+      [
+        1795359000,
+        11495.967021692402
+      ],
+      [
+        1795359300,
+        11560.989605328545
+      ],
+      [
+        1795359600,
+        11553.670292828425
+      ],
+      [
+        1795359600,
+        11540.412270324898
+      ],
+      [
+        1795359900,
+        11555.1887930297
+      ],
+      [
+        1795360200,
+        11540.091618023589
+      ],
+      [
+        1795360500,
+        11540.091618023589
+      ],
+      [
+        1795360500,
+        11540.091618023589
+      ],
+      [
+        1795360800,
+        11540.091618023589
+      ],
+      [
+        1795361100,
+        11540.091618023589
+      ],
+      [
+        1795361400,
+        11530.936676623589
+      ],
+      [
+        1795361400,
+        11538.885050356532
+      ],
+      [
+        1795361700,
+        11535.765050356531
+      ],
+      [
+        1795362000,
+        11531.77700035572
+      ],
+      [
+        1795362300,
+        11532.847650876367
+      ],
+      [
+        1795362300,
+        11538.560621762239
+      ],
+      [
+        1795362600,
+        11537.720651760943
+      ],
+      [
+        1795362900,
+        11544.408439266965
+      ],
+      [
+        1795363200,
+        11550.505086283372
+      ],
+      [
+        1795363200,
+        11546.321336283372
+      ],
+      [
+        1795363500,
+        11560.998906287372
+      ],
+      [
+        1795363800,
+        11571.968946157931
+      ],
+      [
+        1795364100,
+        11583.85162016655
+      ],
+      [
+        1795364100,
+        11601.365292989061
+      ],
+      [
+        1795364400,
+        11625.142417594776
+      ],
+      [
+        1795364700,
+        11635.664927093607
+      ],
+      [
+        1795365000,
+        11643.079218123607
+      ],
+      [
+        1795365000,
+        11644.424227617586
+      ],
+      [
+        1795365300,
+        11651.441348658143
+      ],
+      [
+        1795365600,
+        11689.192473774869
+      ],
+      [
+        1795365900,
+        11689.192473774869
+      ],
+      [
+        1795365900,
+        11705.199699805618
+      ],
+      [
+        1795366200,
+        11685.562250122832
+      ],
+      [
+        1795366500,
+        11657.477531517578
+      ],
+      [
+        1795366800,
+        11657.477531517578
+      ],
+      [
+        1795366800,
+        11641.217206588253
+      ],
+      [
+        1795367100,
+        11641.217206588253
+      ],
+      [
+        1795367400,
+        11639.519361586212
+      ],
+      [
+        1795367700,
+        11639.519361586212
+      ],
+      [
+        1795367700,
+        11643.859380090329
+      ],
+      [
+        1795368000,
+        11625.480899417851
+      ],
+      [
+        1795368300,
+        11636.136624967154
+      ],
+      [
+        1795368600,
+        11636.136624967154
+      ],
+      [
+        1795368600,
+        11743.865263084086
+      ],
+      [
+        1795368900,
+        11735.631685253136
+      ],
+      [
+        1795369200,
+        11735.631685253136
+      ],
+      [
+        1795369500,
+        11735.631685253136
+      ]
+    ]
+  },
+  "test": {
+    "markets_considered": 547,
+    "markets_traded": 365,
+    "pnl": -359.5410515822741,
+    "roi_pct": -3.5954105158227407,
+    "final_equity": 9640.458948417727,
+    "win_rate_pct": 50.136986301369866,
+    "buy_usdc": 15453.03983208007,
+    "roi_on_buys_pct": -2.3266687686643834,
+    "fees": 297.61814449325755,
+    "rebates": 0.0,
+    "maker_fills": 0,
+    "taker_fills": 5164,
+    "max_drawdown": 905.3702102417283,
+    "sharpe_daily_annualized": -7.36665883066798,
+    "daily_pnl": {
+      "2026-11-22": 267.80557089357796,
+      "2026-11-23": -493.12750314879094,
+      "2026-11-24": -134.21911932706135
+    },
+    "daily_loss_halts": 1,
+    "peak_concurrent_capital": 289.38262013124995,
+    "median_pair_cost": 0.8804936804801948,
+    "two_sided_pct": 31.506849315068493,
+    "median_balance": 0.0,
+    "by_category": {
+      "BTC 5m": {
+        "markets": 282,
+        "pnl": 112.07633977661986,
+        "wins": 133,
+        "buy_usdc": 12090.621756679991,
+        "win_rate_pct": 47.163120567375884,
+        "roi_on_buys_pct": 0.9269692000305807
+      },
+      "BTC 15m": {
+        "markets": 83,
+        "pnl": -471.6173913588939,
+        "wins": 50,
+        "buy_usdc": 3362.418075400081,
+        "win_rate_pct": 60.24096385542169,
+        "roi_on_buys_pct": -14.026137761074757
+      }
+    },
+    "equity_curve": [
+      [
+        1795369500,
+        9971.483613254122
+      ],
+      [
+        1795369800,
+        9971.578014258623
+      ],
+      [
+        1795370100,
+        9943.658481865637
+      ],
+      [
+        1795370400,
+        9943.658481865637
+      ],
+      [
+        1795370400,
+        9944.159592215638
+      ],
+      [
+        1795370700,
+        9895.204035798513
+      ],
+      [
+        1795371000,
+        9901.080057651481
+      ],
+      [
+        1795371300,
+        9913.000331067282
+      ],
+      [
+        1795371300,
+        9911.32029051654
+      ],
+      [
+        1795371600,
+        9900.81561769338
+      ],
+      [
+        1795371900,
+        9895.680782692545
+      ],
+      [
+        1795372200,
+        9895.680782692545
+      ],
+      [
+        1795372200,
+        9897.014384692005
+      ],
+      [
+        1795372500,
+        9894.775083851182
+      ],
+      [
+        1795372800,
+        9892.818915641927
+      ],
+      [
+        1795373100,
+        9885.778415739178
+      ],
+      [
+        1795373100,
+        9852.344600672845
+      ],
+      [
+        1795373400,
+        9835.796455914242
+      ],
+      [
+        1795373700,
+        9856.105074896912
+      ],
+      [
+        1795374000,
+        9860.976148090022
+      ],
+      [
+        1795374000,
+        9817.554347180441
+      ],
+      [
+        1795374300,
+        9765.534232395588
+      ],
+      [
+        1795374600,
+        9757.53860739027
+      ],
+      [
+        1795374900,
+        9761.721141343807
+      ],
+      [
+        1795374900,
+        9778.344712902874
+      ],
+      [
+        1795375200,
+        9808.74070346691
+      ],
+      [
+        1795375500,
+        9812.0780138634
+      ],
+      [
+        1795375800,
+        9815.3602013634
+      ],
+      [
+        1795375800,
+        9810.691125828815
+      ],
+      [
+        1795376100,
+        9810.691125828815
+      ],
+      [
+        1795376400,
+        9718.34783788182
+      ],
+      [
+        1795376700,
+        9727.14068440023
+      ],
+      [
+        1795376700,
+        9749.174040842756
+      ],
+      [
+        1795377000,
+        9845.7026554065
+      ],
+      [
+        1795377300,
+        9821.41991713075
+      ],
+      [
+        1795377600,
+        9814.96251262321
+      ],
+      [
+        1795377600,
+        9882.230549448039
+      ],
+      [
+        1795377900,
+        9875.358913947199
+      ],
+      [
+        1795378200,
+        9917.166408739788
+      ],
+      [
+        1795378500,
+        9892.914158221312
+      ],
+      [
+        1795378500,
+        9866.307255265165
+      ],
+      [
+        1795378800,
+        9881.874745013065
+      ],
+      [
+        1795379100,
+        9905.78550232771
+      ],
+      [
+        1795379400,
+        9908.603466852515
+      ],
+      [
+        1795379400,
+        9956.600923839162
+      ],
+      [
+        1795379700,
+        10018.728603259964
+      ],
+      [
+        1795380000,
+        10011.015941737525
+      ],
+      [
+        1795380300,
+        10011.909570770753
+      ],
+      [
+        1795380300,
+        10013.275472413807
+      ],
+      [
+        1795380600,
+        10014.538655511542
+      ],
+      [
+        1795380900,
+        10014.538655511542
+      ],
+      [
+        1795381200,
+        10028.020921536541
+      ],
+      [
+        1795381200,
+        9998.53660248008
+      ],
+      [
+        1795381500,
+        10045.573142186833
+      ],
+      [
+        1795381800,
+        10019.507258419027
+      ],
+      [
+        1795382100,
+        9999.32808844365
+      ],
+      [
+        1795382100,
+        10063.952261070013
+      ],
+      [
+        1795382400,
+        10070.601235067876
+      ],
+      [
+        1795382700,
+        10082.57181456774
+      ],
+      [
+        1795383000,
+        10082.57181456774
+      ],
+      [
+        1795383000,
+        10082.57181456774
+      ],
+      [
+        1795383300,
+        10073.48004206389
+      ],
+      [
+        1795383600,
+        10041.07944108815
+      ],
+      [
+        1795383900,
+        10127.114551136146
+      ],
+      [
+        1795383900,
+        10192.567552290771
+      ],
+      [
+        1795384200,
+        10201.685101769275
+      ],
+      [
+        1795384500,
+        10210.572601769276
+      ],
+      [
+        1795384800,
+        10212.777704852353
+      ],
+      [
+        1795384800,
+        10207.8127175012
+      ],
+      [
+        1795385100,
+        10187.305212970832
+      ],
+      [
+        1795385400,
+        10161.392829201868
+      ],
+      [
+        1795385700,
+        10089.674867452986
+      ],
+      [
+        1795385700,
+        10089.674867452986
+      ],
+      [
+        1795386000,
+        10193.847570526585
+      ],
+      [
+        1795386300,
+        10193.847570526585
+      ],
+      [
+        1795386600,
+        10194.217141540585
+      ],
+      [
+        1795386600,
+        10198.285364013398
+      ],
+      [
+        1795386900,
+        10169.907920886577
+      ],
+      [
+        1795387200,
+        10160.241424271124
+      ],
+      [
+        1795387500,
+        10166.537892574986
+      ],
+      [
+        1795387500,
+        10154.706197573621
+      ],
+      [
+        1795387800,
+        10139.979802457714
+      ],
+      [
+        1795388100,
+        10139.979802457714
+      ],
+      [
+        1795388400,
+        10139.979802457714
+      ],
+      [
+        1795388400,
+        10191.949427457716
+      ],
+      [
+        1795388700,
+        10223.156016814492
+      ],
+      [
+        1795389000,
+        10223.156016814492
+      ],
+      [
+        1795389300,
+        10212.2462673113
+      ],
+      [
+        1795389300,
+        10162.262958719823
+      ],
+      [
+        1795389600,
+        10162.262958719823
+      ],
+      [
+        1795389900,
+        10292.10697043252
+      ],
+      [
+        1795390200,
+        10291.688570432521
+      ],
+      [
+        1795390200,
+        10274.328424890135
+      ],
+      [
+        1795390500,
+        10279.790212103333
+      ],
+      [
+        1795390800,
+        10279.790212103333
+      ],
+      [
+        1795391100,
+        10279.790212103333
+      ],
+      [
+        1795391100,
+        10279.270462103072
+      ],
+      [
+        1795391400,
+        10275.331187143845
+      ],
+      [
+        1795391700,
+        10267.805570893577
+      ],
+      [
+        1795392000,
+        10267.805570893577
+      ],
+      [
+        1795392000,
+        10267.805570893577
+      ],
+      [
+        1795392300,
+        10328.226751361912
+      ],
+      [
+        1795392600,
+        10261.438720392529
+      ],
+      [
+        1795392900,
+        10200.668694425724
+      ],
+      [
+        1795392900,
+        10168.306647371457
+      ],
+      [
+        1795393200,
+        10177.466582469808
+      ],
+      [
+        1795393500,
+        10177.466582469808
+      ],
+      [
+        1795393800,
+        10177.466582469808
+      ],
+      [
+        1795393800,
+        10177.466582469808
+      ],
+      [
+        1795394100,
+        10177.466582469808
+      ],
+      [
+        1795394400,
+        10175.215509019372
+      ],
+      [
+        1795394700,
+        10153.972412076311
+      ],
+      [
+        1795394700,
+        10153.972412076311
+      ],
+      [
+        1795395000,
+        10153.972412076311
+      ],
+      [
+        1795395300,
+        10153.972412076311
+      ],
+      [
+        1795395600,
+        10153.972412076311
+      ],
+      [
+        1795395600,
+        10153.972412076311
+      ],
+      [
+        1795395900,
+        10168.533353578618
+      ],
+      [
+        1795396200,
+        10202.526134242702
+      ],
+      [
+        1795396500,
+        10218.020800756201
+      ],
+      [
+        1795396500,
+        10255.73895154133
+      ],
+      [
+        1795396800,
+        10250.471817054091
+      ],
+      [
+        1795397100,
+        10243.477829551932
+      ],
+      [
+        1795397400,
+        10247.078891569628
+      ],
+      [
+        1795397400,
+        10233.237204906625
+      ],
+      [
+        1795397700,
+        10239.841756905878
+      ],
+      [
+        1795398000,
+        10227.631431893524
+      ],
+      [
+        1795398300,
+        10237.74709679607
+      ],
+      [
+        1795398300,
+        10242.823016989514
+      ],
+      [
+        1795398600,
+        10242.823016989514
+      ],
+      [
+        1795398900,
+        10242.823016989514
+      ],
+      [
+        1795399200,
+        10248.063391789514
+      ],
+      [
+        1795399200,
+        10248.872164287557
+      ],
+      [
+        1795399500,
+        10245.765579174998
+      ],
+      [
+        1795399800,
+        10245.765579174998
+      ],
+      [
+        1795400100,
+        10267.798943029267
+      ],
+      [
+        1795400100,
+        10297.707876570354
+      ],
+      [
+        1795400400,
+        10297.707876570354
+      ],
+      [
+        1795400700,
+        10309.291426132455
+      ],
+      [
+        1795401000,
+        10332.590439149737
+      ],
+      [
+        1795401000,
+        10328.371218658493
+      ],
+      [
+        1795401300,
+        10204.039299807482
+      ],
+      [
+        1795401600,
+        10222.687514142675
+      ],
+      [
+        1795401900,
+        10267.690622060918
+      ],
+      [
+        1795401900,
+        10197.769703946298
+      ],
+      [
+        1795402200,
+        10287.999569219479
+      ],
+      [
+        1795402500,
+        10308.919959046289
+      ],
+      [
+        1795402800,
+        10300.113859040655
+      ],
+      [
+        1795402800,
+        10293.902377340655
+      ],
+      [
+        1795403100,
+        10308.428606791646
+      ],
+      [
+        1795403400,
+        10324.269567836967
+      ],
+      [
+        1795403700,
+        10330.15550584639
+      ],
+      [
+        1795403700,
+        10330.15550584639
+      ],
+      [
+        1795404000,
+        10365.091676683858
+      ],
+      [
+        1795404300,
+        10368.864465220155
+      ],
+      [
+        1795404600,
+        10377.650499764135
+      ],
+      [
+        1795404600,
+        10376.341124764136
+      ],
+      [
+        1795404900,
+        10375.826124764135
+      ],
+      [
+        1795405200,
+        10364.915252738767
+      ],
+      [
+        1795405500,
+        10358.552480756607
+      ],
+      [
+        1795405500,
+        10334.197005909093
+      ],
+      [
+        1795405800,
+        10303.3038340722
+      ],
+      [
+        1795406100,
+        10327.305055026098
+      ],
+      [
+        1795406400,
+        10363.79671779336
+      ],
+      [
+        1795406400,
+        10344.088553848254
+      ],
+      [
+        1795406700,
+        10369.515756365492
+      ],
+      [
+        1795407000,
+        10338.669528932833
+      ],
+      [
+        1795407300,
+        10338.669528932833
+      ],
+      [
+        1795407300,
+        10329.28565750836
+      ],
+      [
+        1795407600,
+        10329.28565750836
+      ],
+      [
+        1795407900,
+        10324.132457507572
+      ],
+      [
+        1795408200,
+        10324.132457507572
+      ],
+      [
+        1795408200,
+        10324.132457507572
+      ],
+      [
+        1795408500,
+        10337.5961297424
+      ],
+      [
+        1795408800,
+        10362.079910926579
+      ],
+      [
+        1795409100,
+        10372.273823999158
+      ],
+      [
+        1795409100,
+        10366.948925484496
+      ],
+      [
+        1795409400,
+        10385.312793139206
+      ],
+      [
+        1795409700,
+        10349.87008536142
+      ],
+      [
+        1795410000,
+        10349.87008536142
+      ],
+      [
+        1795410000,
+        10331.162312360217
+      ],
+      [
+        1795410300,
+        10359.850207690544
+      ],
+      [
+        1795410600,
+        10359.850207690544
+      ],
+      [
+        1795410900,
+        10347.61628822021
+      ],
+      [
+        1795410900,
+        10348.213840368157
+      ],
+      [
+        1795411200,
+        10350.174258859317
+      ],
+      [
+        1795411500,
+        10309.03527277937
+      ],
+      [
+        1795411800,
+        10320.324710348232
+      ],
+      [
+        1795411800,
+        10334.496127128015
+      ],
+      [
+        1795412100,
+        10248.047889638283
+      ],
+      [
+        1795412400,
+        10245.330843107455
+      ],
+      [
+        1795412700,
+        10262.867470606674
+      ],
+      [
+        1795412700,
+        10230.28355983426
+      ],
+      [
+        1795413000,
+        10240.06064522399
+      ],
+      [
+        1795413300,
+        10233.122470027562
+      ],
+      [
+        1795413600,
+        10233.122470027562
+      ],
+      [
+        1795413600,
+        10233.122470027562
+      ],
+      [
+        1795413900,
+        10110.025519821671
+      ],
+      [
+        1795414200,
+        10113.214693451364
+      ],
+      [
+        1795414500,
+        10115.095656854648
+      ],
+      [
+        1795414500,
+        10121.699371931854
+      ],
+      [
+        1795414800,
+        10121.699371931854
+      ],
+      [
+        1795415100,
+        10130.461528346957
+      ],
+      [
+        1795415400,
+        10130.461528346957
+      ],
+      [
+        1795415400,
+        10112.615928344509
+      ],
+      [
+        1795415700,
+        10112.615928344509
+      ],
+      [
+        1795416000,
+        10042.26084637701
+      ],
+      [
+        1795416300,
+        10044.123746887197
+      ],
+      [
+        1795416300,
+        10026.07758025386
+      ],
+      [
+        1795416600,
+        10052.53461032283
+      ],
+      [
+        1795416900,
+        10052.53461032283
+      ],
+      [
+        1795417200,
+        10052.53461032283
+      ],
+      [
+        1795417200,
+        10049.747315320797
+      ],
+      [
+        1795417500,
+        10104.513419194744
+      ],
+      [
+        1795417800,
+        10013.529438108388
+      ],
+      [
+        1795418100,
+        10020.162815233454
+      ],
+      [
+        1795418100,
+        10034.288599730933
+      ],
+      [
+        1795418400,
+        10014.335407448569
+      ],
+      [
+        1795418700,
+        10053.938649000238
+      ],
+      [
+        1795419000,
+        10058.496274069523
+      ],
+      [
+        1795419000,
+        10103.872719518295
+      ],
+      [
+        1795419300,
+        10076.910400853274
+      ],
+      [
+        1795419600,
+        10027.373505088666
+      ],
+      [
+        1795419900,
+        10027.373505088666
+      ],
+      [
+        1795419900,
+        10026.3104226902
+      ],
+      [
+        1795420200,
+        10111.525470949207
+      ],
+      [
+        1795420500,
+        10111.525470949207
+      ],
+      [
+        1795420800,
+        10126.402898337703
+      ],
+      [
+        1795420800,
+        10126.402898337703
+      ],
+      [
+        1795421100,
+        10157.0921564767
+      ],
+      [
+        1795421400,
+        10170.032990967378
+      ],
+      [
+        1795421700,
+        10171.07212898052
+      ],
+      [
+        1795421700,
+        10199.038093644167
+      ],
+      [
+        1795422000,
+        10234.76311997082
+      ],
+      [
+        1795422300,
+        10286.672113716602
+      ],
+      [
+        1795422600,
+        10301.533578212211
+      ],
+      [
+        1795422600,
+        10317.613785351936
+      ],
+      [
+        1795422900,
+        10317.613785351936
+      ],
+      [
+        1795423200,
+        10360.14164262522
+      ],
+      [
+        1795423500,
+        10360.14164262522
+      ],
+      [
+        1795423500,
+        10348.71798271186
+      ],
+      [
+        1795423800,
+        10322.941287242695
+      ],
+      [
+        1795424100,
+        10321.322312241973
+      ],
+      [
+        1795424400,
+        10286.73507951301
+      ],
+      [
+        1795424400,
+        10248.882563798978
+      ],
+      [
+        1795424700,
+        10318.974119118739
+      ],
+      [
+        1795425000,
+        10291.062177938975
+      ],
+      [
+        1795425300,
+        10294.696008454834
+      ],
+      [
+        1795425300,
+        10221.870828244739
+      ],
+      [
+        1795425600,
+        10216.83129283392
+      ],
+      [
+        1795425900,
+        10275.609695143612
+      ],
+      [
+        1795426200,
+        10206.908554782247
+      ],
+      [
+        1795426200,
+        10189.31435400055
+      ],
+      [
+        1795426500,
+        10185.67435400055
+      ],
+      [
+        1795426800,
+        10185.67435400055
+      ],
+      [
+        1795427100,
+        10185.67435400055
+      ],
+      [
+        1795427100,
+        10222.862894526297
+      ],
+      [
+        1795427400,
+        10226.472269526297
+      ],
+      [
+        1795427700,
+        10226.472269526297
+      ],
+      [
+        1795428000,
+        10226.472269526297
+      ],
+      [
+        1795428000,
+        10226.472269526297
+      ],
+      [
+        1795428300,
+        10212.37879696697
+      ],
+      [
+        1795428600,
+        10244.456596710637
+      ],
+      [
+        1795428900,
+        10250.527302914026
+      ],
+      [
+        1795428900,
+        10276.17814657258
+      ],
+      [
+        1795429200,
+        10252.0689882602
+      ],
+      [
+        1795429500,
+        10240.430016388964
+      ],
+      [
+        1795429800,
+        10115.022843663142
+      ],
+      [
+        1795429800,
+        10118.285419446187
+      ],
+      [
+        1795430100,
+        10118.285419446187
+      ],
+      [
+        1795430400,
+        10170.470329128695
+      ],
+      [
+        1795430700,
+        10111.117043147084
+      ],
+      [
+        1795430700,
+        10111.117043147084
+      ],
+      [
+        1795431000,
+        10120.551714965746
+      ],
+      [
+        1795431300,
+        10126.203607442843
+      ],
+      [
+        1795431600,
+        10128.297070436021
+      ],
+      [
+        1795431600,
+        10128.034695436021
+      ],
+      [
+        1795431900,
+        10117.245048850105
+      ],
+      [
+        1795432200,
+        10068.210654666856
+      ],
+      [
+        1795432500,
+        10089.446026693802
+      ],
+      [
+        1795432500,
+        10089.782008682496
+      ],
+      [
+        1795432800,
+        10085.342164645725
+      ],
+      [
+        1795433100,
+        10168.731885661535
+      ],
+      [
+        1795433400,
+        10170.702783161534
+      ],
+      [
+        1795433400,
+        10164.414308248082
+      ],
+      [
+        1795433700,
+        10169.581926244125
+      ],
+      [
+        1795434000,
+        10119.639387222247
+      ],
+      [
+        1795434300,
+        10123.10276423334
+      ],
+      [
+        1795434300,
+        10126.436822250324
+      ],
+      [
+        1795434600,
+        10121.494447348268
+      ],
+      [
+        1795434900,
+        10103.240191632076
+      ],
+      [
+        1795435200,
+        10103.240191632076
+      ],
+      [
+        1795435200,
+        10096.962202915794
+      ],
+      [
+        1795435500,
+        10114.107574624983
+      ],
+      [
+        1795435800,
+        10120.546659109088
+      ],
+      [
+        1795436100,
+        10133.57817123442
+      ],
+      [
+        1795436100,
+        10168.22243039067
+      ],
+      [
+        1795436400,
+        10197.393915965538
+      ],
+      [
+        1795436700,
+        10140.936744547125
+      ],
+      [
+        1795437000,
+        10115.466335082669
+      ],
+      [
+        1795437000,
+        10093.2692176672
+      ],
+      [
+        1795437300,
+        10110.52895207191
+      ],
+      [
+        1795437600,
+        10100.228952071911
+      ],
+      [
+        1795437900,
+        10100.228952071911
+      ],
+      [
+        1795437900,
+        10100.228952071911
+      ],
+      [
+        1795438200,
+        10109.918945713354
+      ],
+      [
+        1795438500,
+        10109.918945713354
+      ],
+      [
+        1795438800,
+        10073.020845242285
+      ],
+      [
+        1795438800,
+        10036.96879333535
+      ],
+      [
+        1795439100,
+        10035.887787878304
+      ],
+      [
+        1795439400,
+        10031.101934157312
+      ],
+      [
+        1795439700,
+        9962.125760945617
+      ],
+      [
+        1795439700,
+        9962.125760945617
+      ],
+      [
+        1795440000,
+        9962.125760945617
+      ],
+      [
+        1795440300,
+        9911.91825072565
+      ],
+      [
+        1795440600,
+        9905.59823572046
+      ],
+      [
+        1795440600,
+        9905.59823572046
+      ],
+      [
+        1795440900,
+        9924.634004067511
+      ],
+      [
+        1795441200,
+        9924.634004067511
+      ],
+      [
+        1795441500,
+        9918.236379065076
+      ],
+      [
+        1795441500,
+        9868.602567838489
+      ],
+      [
+        1795441800,
+        9857.487309038894
+      ],
+      [
+        1795442100,
+        9855.782034038893
+      ],
+      [
+        1795442400,
+        9854.82206004564
+      ],
+      [
+        1795442400,
+        9854.82206004564
+      ],
+      [
+        1795442700,
+        9903.648027947496
+      ],
+      [
+        1795443000,
+        9897.185017573578
+      ],
+      [
+        1795443300,
+        9892.458745073043
+      ],
+      [
+        1795443300,
+        9890.240905072476
+      ],
+      [
+        1795443600,
+        9893.561698990972
+      ],
+      [
+        1795443900,
+        9862.920209049855
+      ],
+      [
+        1795444200,
+        9833.106291612545
+      ],
+      [
+        1795444200,
+        9832.228241612544
+      ],
+      [
+        1795444500,
+        9831.002541612545
+      ],
+      [
+        1795444800,
+        9947.354868048467
+      ],
+      [
+        1795445100,
+        9947.354868048467
+      ],
+      [
+        1795445100,
+        9942.914099383517
+      ],
+      [
+        1795445400,
+        9938.577110035425
+      ],
+      [
+        1795445700,
+        9938.577110035425
+      ],
+      [
+        1795446000,
+        9935.334518660304
+      ],
+      [
+        1795446000,
+        9897.798544394629
+      ],
+      [
+        1795446300,
+        9897.798544394629
+      ],
+      [
+        1795446600,
+        9882.782098142516
+      ],
+      [
+        1795446900,
+        9879.18818176605
+      ],
+      [
+        1795446900,
+        9912.54617429668
+      ],
+      [
+        1795447200,
+        9922.30146322087
+      ],
+      [
+        1795447500,
+        9922.30146322087
+      ],
+      [
+        1795447800,
+        9922.30146322087
+      ],
+      [
+        1795447800,
+        9912.671397911374
+      ],
+      [
+        1795448100,
+        9896.558892898422
+      ],
+      [
+        1795448400,
+        9848.625016441727
+      ],
+      [
+        1795448700,
+        9848.625016441727
+      ],
+      [
+        1795448700,
+        9847.58251644135
+      ],
+      [
+        1795449000,
+        9847.58251644135
+      ],
+      [
+        1795449300,
+        9817.206985580755
+      ],
+      [
+        1795449600,
+        9817.206985580755
+      ],
+      [
+        1795449600,
+        9930.073918648986
+      ],
+      [
+        1795449900,
+        9930.073918648986
+      ],
+      [
+        1795450200,
+        9930.073918648986
+      ],
+      [
+        1795450500,
+        9930.073918648986
+      ],
+      [
+        1795450500,
+        9930.073918648986
+      ],
+      [
+        1795450800,
+        9930.073918648986
+      ],
+      [
+        1795451100,
+        9875.116962985889
+      ],
+      [
+        1795451400,
+        9886.309216481734
+      ],
+      [
+        1795451400,
+        9888.180316481734
+      ],
+      [
+        1795451700,
+        9888.180316481734
+      ],
+      [
+        1795452000,
+        9888.180316481734
+      ],
+      [
+        1795452300,
+        9888.789899494233
+      ],
+      [
+        1795452300,
+        9898.389899494234
+      ],
+      [
+        1795452600,
+        9935.62681507752
+      ],
+      [
+        1795452900,
+        9922.493925154417
+      ],
+      [
+        1795453200,
+        9809.146329299416
+      ],
+      [
+        1795453200,
+        9891.987646466418
+      ],
+      [
+        1795453500,
+        9891.987646466418
+      ],
+      [
+        1795453800,
+        9894.91352897617
+      ],
+      [
+        1795454100,
+        9895.47191147617
+      ],
+      [
+        1795454100,
+        9889.03177147143
+      ],
+      [
+        1795454400,
+        9837.148440113257
+      ],
+      [
+        1795454700,
+        9837.148440113257
+      ],
+      [
+        1795455000,
+        9837.148440113257
+      ],
+      [
+        1795455000,
+        9837.148440113257
+      ],
+      [
+        1795455300,
+        9889.698419161625
+      ],
+      [
+        1795455600,
+        9911.21820366396
+      ],
+      [
+        1795455900,
+        9918.19129266762
+      ],
+      [
+        1795455900,
+        9918.19129266762
+      ],
+      [
+        1795456200,
+        9872.755831329476
+      ],
+      [
+        1795456500,
+        9872.755831329476
+      ],
+      [
+        1795456800,
+        9872.755831329476
+      ],
+      [
+        1795456800,
+        9861.362917140383
+      ],
+      [
+        1795457100,
+        9833.060028093845
+      ],
+      [
+        1795457400,
+        9820.247528093845
+      ],
+      [
+        1795457700,
+        9820.247528093845
+      ],
+      [
+        1795457700,
+        9828.577184135098
+      ],
+      [
+        1795458000,
+        9828.577184135098
+      ],
+      [
+        1795458300,
+        9820.455130634662
+      ],
+      [
+        1795458600,
+        9807.69037819164
+      ],
+      [
+        1795458600,
+        9839.841631996176
+      ],
+      [
+        1795458900,
+        9855.691058066604
+      ],
+      [
+        1795459200,
+        9857.996820073851
+      ],
+      [
+        1795459500,
+        9857.996820073851
+      ],
+      [
+        1795459500,
+        9846.940445073851
+      ],
+      [
+        1795459800,
+        9846.940445073851
+      ],
+      [
+        1795460100,
+        9865.83879859328
+      ],
+      [
+        1795460400,
+        9865.83879859328
+      ],
+      [
+        1795460400,
+        9849.993124256785
+      ],
+      [
+        1795460700,
+        9864.655466376036
+      ],
+      [
+        1795461000,
+        9754.288107157146
+      ],
+      [
+        1795461300,
+        9774.678067744788
+      ],
+      [
+        1795478400,
+        9774.678067744788
+      ],
+      [
+        1795478400,
+        9719.954277166622
+      ],
+      [
+        1795478700,
+        9755.386447237819
+      ],
+      [
+        1795479000,
+        9767.870475934846
+      ],
+      [
+        1795479300,
+        9787.44722046576
+      ],
+      [
+        1795479300,
+        9787.44722046576
+      ],
+      [
+        1795479600,
+        9791.00104387321
+      ],
+      [
+        1795479900,
+        9805.599850591127
+      ],
+      [
+        1795480200,
+        9673.359891437833
+      ],
+      [
+        1795480200,
+        9633.726789121372
+      ],
+      [
+        1795480500,
+        9585.551819375063
+      ],
+      [
+        1795480800,
+        9585.551819375063
+      ],
+      [
+        1795481100,
+        9545.300072457036
+      ],
+      [
+        1795481100,
+        9545.300072457036
+      ],
+      [
+        1795481400,
+        9545.300072457036
+      ],
+      [
+        1795481700,
+        9536.30938901192
+      ],
+      [
+        1795482000,
+        9526.801471550012
+      ],
+      [
+        1795482000,
+        9526.801471550012
+      ],
+      [
+        1795482300,
+        9529.536046550013
+      ],
+      [
+        1795482600,
+        9525.830334980203
+      ],
+      [
+        1795482900,
+        9539.641673065242
+      ],
+      [
+        1795482900,
+        9479.942582897478
+      ],
+      [
+        1795483200,
+        9500.629005396053
+      ],
+      [
+        1795483500,
+        9500.629005396053
+      ],
+      [
+        1795483800,
+        9500.629005396053
+      ],
+      [
+        1795483800,
+        9584.817535833608
+      ],
+      [
+        1795484100,
+        9590.024112350107
+      ],
+      [
+        1795484400,
+        9581.49202000329
+      ],
+      [
+        1795484700,
+        9581.49202000329
+      ],
+      [
+        1795484700,
+        9581.87387749769
+      ],
+      [
+        1795485000,
+        9581.87387749769
+      ],
+      [
+        1795485300,
+        9584.108774468272
+      ],
+      [
+        1795485600,
+        9591.968367462037
+      ],
+      [
+        1795485600,
+        9591.968367462037
+      ],
+      [
+        1795485900,
+        9621.485979144949
+      ],
+      [
+        1795486200,
+        9621.485979144949
+      ],
+      [
+        1795486500,
+        9647.385929747345
+      ],
+      [
+        1795486500,
+        9647.385929747345
+      ],
+      [
+        1795486800,
+        9651.913389196978
+      ],
+      [
+        1795487100,
+        9648.430439421978
+      ],
+      [
+        1795487400,
+        9656.158439421977
+      ],
+      [
+        1795487400,
+        9652.556964421978
+      ],
+      [
+        1795487700,
+        9652.91387973959
+      ],
+      [
+        1795488000,
+        9634.144364507509
+      ],
+      [
+        1795488300,
+        9634.144364507509
+      ],
+      [
+        1795488300,
+        9634.311227007509
+      ],
+      [
+        1795488600,
+        9637.198344121263
+      ],
+      [
+        1795488900,
+        9643.213969121263
+      ],
+      [
+        1795489200,
+        9643.213969121263
+      ],
+      [
+        1795489200,
+        9634.334147779597
+      ],
+      [
+        1795489500,
+        9617.03793750805
+      ],
+      [
+        1795489800,
+        9614.583067506812
+      ],
+      [
+        1795490100,
+        9627.79672251924
+      ],
+      [
+        1795490100,
+        9652.238840505686
+      ],
+      [
+        1795490400,
+        9590.51047684606
+      ],
+      [
+        1795490700,
+        9590.51047684606
+      ],
+      [
+        1795491000,
+        9571.086064481386
+      ],
+      [
+        1795491000,
+        9550.228799544006
+      ],
+      [
+        1795491300,
+        9547.51044954362
+      ],
+      [
+        1795491600,
+        9676.930123855278
+      ],
+      [
+        1795491900,
+        9672.543796549091
+      ],
+      [
+        1795491900,
+        9667.398796665746
+      ],
+      [
+        1795492200,
+        9671.524224785295
+      ],
+      [
+        1795492500,
+        9640.458948417727
+      ]
+    ]
+  },
+  "test_all_categories_best_params": {
+    "markets_considered": 1095,
+    "markets_traded": 575,
+    "pnl": -625.7171841088443,
+    "roi_pct": -6.257171841088443,
+    "final_equity": 9374.282815891156,
+    "win_rate_pct": 52.869565217391305,
+    "buy_usdc": 17767.56807823095,
+    "roi_on_buys_pct": -3.521681646884927,
+    "fees": 269.31302736897277,
+    "rebates": 0.0,
+    "maker_fills": 0,
+    "taker_fills": 6012,
+    "max_drawdown": 1020.6328878289496,
+    "sharpe_daily_annualized": -14.181762082785985,
+    "daily_pnl": {
+      "2026-11-22": 154.10480271642018,
+      "2026-11-23": -530.5250050895975,
+      "2026-11-24": -249.29698173566698
+    },
+    "daily_loss_halts": 1,
+    "peak_concurrent_capital": 346.23070412995634,
+    "median_pair_cost": 0.9164115212672701,
+    "two_sided_pct": 29.391304347826086,
+    "median_balance": 0.0,
+    "by_category": {
+      "ETH 5m": {
+        "markets": 203,
+        "pnl": -284.24863600137405,
+        "wins": 105,
+        "buy_usdc": 3467.850066808085,
+        "win_rate_pct": 51.724137931034484,
+        "roi_on_buys_pct": -8.196681820878293
+      },
+      "BTC 5m": {
+        "markets": 230,
+        "pnl": 163.94750076679594,
+        "wins": 113,
+        "buy_usdc": 10331.942153028525,
+        "win_rate_pct": 49.130434782608695,
+        "roi_on_buys_pct": 1.5868023488569303
+      },
+      "ETH 15m": {
+        "markets": 74,
+        "pnl": -244.21822211576085,
+        "wins": 41,
+        "buy_usdc": 1114.2443477022327,
+        "win_rate_pct": 55.4054054054054,
+        "roi_on_buys_pct": -21.917833607985685
+      },
+      "BTC 15m": {
+        "markets": 68,
+        "pnl": -261.1978267585055,
+        "wins": 45,
+        "buy_usdc": 2853.5315106920807,
+        "win_rate_pct": 66.17647058823529,
+        "roi_on_buys_pct": -9.153493689479392
+      }
+    },
+    "equity_curve": [
+      [
+        1795369200,
+        10000.992005001486
+      ],
+      [
+        1795369500,
+        9972.475618255608
+      ],
+      [
+        1795369500,
+        9973.261950808104
+      ],
+      [
+        1795369800,
+        9973.356351812605
+      ],
+      [
+        1795369800,
+        9973.657090813402
+      ],
+      [
+        1795370100,
+        9945.737558420416
+      ],
+      [
+        1795370100,
+        9943.834014670554
+      ],
+      [
+        1795370400,
+        9943.834014670554
+      ],
+      [
+        1795370400,
+        9941.571189669772
+      ],
+      [
+        1795370400,
+        9942.07230001977
+      ],
+      [
+        1795370400,
+        9942.497571023072
+      ],
+      [
+        1795370700,
+        9893.542014605948
+      ],
+      [
+        1795370700,
+        9884.661665346628
+      ],
+      [
+        1795371000,
+        9890.537687199596
+      ],
+      [
+        1795371000,
+        9896.427367385439
+      ],
+      [
+        1795371300,
+        9908.347640801238
+      ],
+      [
+        1795371300,
+        9876.060983442976
+      ],
+      [
+        1795371300,
+        9874.380942892234
+      ],
+      [
+        1795371300,
+        9874.380942892234
+      ],
+      [
+        1795371600,
+        9863.876270069075
+      ],
+      [
+        1795371600,
+        9905.531555180778
+      ],
+      [
+        1795371900,
+        9900.396720179942
+      ],
+      [
+        1795371900,
+        9900.396720179942
+      ],
+      [
+        1795372200,
+        9900.396720179942
+      ],
+      [
+        1795372200,
+        9900.599779186541
+      ],
+      [
+        1795372200,
+        9901.933381186001
+      ],
+      [
+        1795372200,
+        9848.752659111278
+      ],
+      [
+        1795372500,
+        9846.513358270455
+      ],
+      [
+        1795372500,
+        9831.88539469851
+      ],
+      [
+        1795372800,
+        9829.929226489254
+      ],
+      [
+        1795372800,
+        9829.929226489254
+      ],
+      [
+        1795373100,
+        9822.888726586503
+      ],
+      [
+        1795373100,
+        9816.190712586504
+      ],
+      [
+        1795373100,
+        9782.756897520172
+      ],
+      [
+        1795373100,
+        9782.756897520172
+      ],
+      [
+        1795373400,
+        9766.20875276157
+      ],
+      [
+        1795373400,
+        9766.20875276157
+      ],
+      [
+        1795373700,
+        9786.51737174424
+      ],
+      [
+        1795373700,
+        9785.544467551734
+      ],
+      [
+        1795374000,
+        9790.415540744842
+      ],
+      [
+        1795374000,
+        9786.112852244265
+      ],
+      [
+        1795374000,
+        9742.691051334685
+      ],
+      [
+        1795374000,
+        9743.274719335408
+      ],
+      [
+        1795374300,
+        9691.254604550555
+      ],
+      [
+        1795374300,
+        9682.521149679787
+      ],
+      [
+        1795374600,
+        9674.52552467447
+      ],
+      [
+        1795374600,
+        9674.776027176968
+      ],
+      [
+        1795374900,
+        9678.958561130505
+      ],
+      [
+        1795374900,
+        9671.268188628424
+      ],
+      [
+        1795374900,
+        9687.891760187491
+      ],
+      [
+        1795374900,
+        9697.871022436311
+      ],
+      [
+        1795375200,
+        9728.267013000348
+      ],
+      [
+        1795375200,
+        9736.054747005817
+      ],
+      [
+        1795375500,
+        9739.392057402307
+      ],
+      [
+        1795375500,
+        9741.219321402308
+      ],
+      [
+        1795375800,
+        9744.501508902307
+      ],
+      [
+        1795375800,
+        9763.718719621846
+      ],
+      [
+        1795375800,
+        9759.04964408726
+      ],
+      [
+        1795375800,
+        9755.099501587043
+      ],
+      [
+        1795376100,
+        9755.099501587043
+      ],
+      [
+        1795376100,
+        9755.290442589801
+      ],
+      [
+        1795376400,
+        9662.947154642807
+      ],
+      [
+        1795376400,
+        9644.6963135965
+      ],
+      [
+        1795376700,
+        9653.48916011491
+      ],
+      [
+        1795376700,
+        9650.329196871571
+      ],
+      [
+        1795376700,
+        9672.362553314097
+      ],
+      [
+        1795376700,
+        9667.939838317283
+      ],
+      [
+        1795377000,
+        9764.468452881027
+      ],
+      [
+        1795377000,
+        9774.880848211704
+      ],
+      [
+        1795377300,
+        9750.598109935954
+      ],
+      [
+        1795377300,
+        9750.093509935954
+      ],
+      [
+        1795377600,
+        9743.636105428413
+      ],
+      [
+        1795377600,
+        9744.654158428359
+      ],
+      [
+        1795377600,
+        9811.922195253188
+      ],
+      [
+        1795377600,
+        9814.918795765769
+      ],
+      [
+        1795377900,
+        9808.047160264929
+      ],
+      [
+        1795377900,
+        9780.048912880477
+      ],
+      [
+        1795378200,
+        9821.856407673064
+      ],
+      [
+        1795378200,
+        9824.988137673065
+      ],
+      [
+        1795378500,
+        9800.73588715459
+      ],
+      [
+        1795378500,
+        9810.96565215459
+      ],
+      [
+        1795378500,
+        9784.358749198442
+      ],
+      [
+        1795378500,
+        9785.228061698443
+      ],
+      [
+        1795378800,
+        9800.795551446343
+      ],
+      [
+        1795378800,
+        9811.885505930748
+      ],
+      [
+        1795379100,
+        9835.796263245393
+      ],
+      [
+        1795379100,
+        9855.150906202472
+      ],
+      [
+        1795379400,
+        9857.968870727278
+      ],
+      [
+        1795379400,
+        9860.843858226324
+      ],
+      [
+        1795379400,
+        9908.841315212969
+      ],
+      [
+        1795379400,
+        9941.224582367091
+      ],
+      [
+        1795379700,
+        10003.352261787895
+      ],
+      [
+        1795379700,
+        9992.330383794628
+      ],
+      [
+        1795380000,
+        9984.617722272187
+      ],
+      [
+        1795380000,
+        9984.617722272187
+      ],
+      [
+        1795380300,
+        9985.511351305415
+      ],
+      [
+        1795380300,
+        9984.033854305415
+      ],
+      [
+        1795380300,
+        9985.39975594847
+      ],
+      [
+        1795380300,
+        9976.119622948894
+      ],
+      [
+        1795380600,
+        9977.382806046628
+      ],
+      [
+        1795380600,
+        9977.382806046628
+      ],
+      [
+        1795380900,
+        9977.382806046628
+      ],
+      [
+        1795380900,
+        9980.661136471308
+      ],
+      [
+        1795381200,
+        9994.143402496307
+      ],
+      [
+        1795381200,
+        9995.677792998184
+      ],
+      [
+        1795381200,
+        9966.193473941721
+      ],
+      [
+        1795381200,
+        9950.753582441721
+      ],
+      [
+        1795381500,
+        9997.790122148475
+      ],
+      [
+        1795381500,
+        10008.4964809791
+      ],
+      [
+        1795381800,
+        9982.430597211294
+      ],
+      [
+        1795381800,
+        9977.362683211131
+      ],
+      [
+        1795382100,
+        9957.183513235756
+      ],
+      [
+        1795382100,
+        9952.406435735755
+      ],
+      [
+        1795382100,
+        10017.030608362118
+      ],
+      [
+        1795382100,
+        10026.231573322118
+      ],
+      [
+        1795382400,
+        10032.88054731998
+      ],
+      [
+        1795382400,
+        10025.468257106413
+      ],
+      [
+        1795382700,
+        10037.438836606278
+      ],
+      [
+        1795382700,
+        10086.60107954989
+      ],
+      [
+        1795383000,
+        10086.60107954989
+      ],
+      [
+        1795383000,
+        10089.91271855344
+      ],
+      [
+        1795383000,
+        10089.91271855344
+      ],
+      [
+        1795383000,
+        10089.91271855344
+      ],
+      [
+        1795383300,
+        10080.82094604959
+      ],
+      [
+        1795383300,
+        10079.714786049588
+      ],
+      [
+        1795383600,
+        10047.314185073848
+      ],
+      [
+        1795383600,
+        10071.123172073754
+      ],
+      [
+        1795383900,
+        10157.15828212175
+      ],
+      [
+        1795383900,
+        10156.63375812175
+      ],
+      [
+        1795383900,
+        10222.086759276375
+      ],
+      [
+        1795383900,
+        10228.471998340086
+      ],
+      [
+        1795384200,
+        10237.58954781859
+      ],
+      [
+        1795384200,
+        10238.6121883448
+      ],
+      [
+        1795384500,
+        10247.499688344798
+      ],
+      [
+        1795384500,
+        10247.499688344798
+      ],
+      [
+        1795384800,
+        10249.704791427876
+      ],
+      [
+        1795384800,
+        10249.704791427876
+      ],
+      [
+        1795384800,
+        10244.739804076724
+      ],
+      [
+        1795384800,
+        10211.65399139904
+      ],
+      [
+        1795385100,
+        10191.146486868673
+      ],
+      [
+        1795385100,
+        10201.871883067146
+      ],
+      [
+        1795385400,
+        10175.959499298182
+      ],
+      [
+        1795385400,
+        10178.044379298182
+      ],
+      [
+        1795385700,
+        10106.3264175493
+      ],
+      [
+        1795385700,
+        10112.653635964349
+      ],
+      [
+        1795385700,
+        10112.653635964349
+      ],
+      [
+        1795385700,
+        10109.844384964348
+      ],
+      [
+        1795386000,
+        10214.017088037946
+      ],
+      [
+        1795386000,
+        10208.776264969769
+      ],
+      [
+        1795386300,
+        10208.776264969769
+      ],
+      [
+        1795386300,
+        10208.776264969769
+      ],
+      [
+        1795386600,
+        10209.145835983769
+      ],
+      [
+        1795386600,
+        10210.857108933458
+      ],
+      [
+        1795386600,
+        10214.925331406272
+      ],
+      [
+        1795386600,
+        10276.868186237152
+      ],
+      [
+        1795386900,
+        10248.49074311033
+      ],
+      [
+        1795386900,
+        10208.773184109268
+      ],
+      [
+        1795387200,
+        10199.106687493815
+      ],
+      [
+        1795387200,
+        10199.106687493815
+      ],
+      [
+        1795387500,
+        10205.403155797676
+      ],
+      [
+        1795387500,
+        10184.292601314915
+      ],
+      [
+        1795387500,
+        10172.46090631355
+      ],
+      [
+        1795387500,
+        10172.46090631355
+      ],
+      [
+        1795387800,
+        10157.734511197645
+      ],
+      [
+        1795387800,
+        10157.734511197645
+      ],
+      [
+        1795388100,
+        10157.734511197645
+      ],
+      [
+        1795388100,
+        10157.734511197645
+      ],
+      [
+        1795388400,
+        10157.734511197645
+      ],
+      [
+        1795388400,
+        10157.734511197645
+      ],
+      [
+        1795388400,
+        10209.704136197644
+      ],
+      [
+        1795388400,
+        10168.191955953494
+      ],
+      [
+        1795388700,
+        10199.39854531027
+      ],
+      [
+        1795388700,
+        10205.613758985855
+      ],
+      [
+        1795389000,
+        10205.613758985855
+      ],
+      [
+        1795389000,
+        10202.091008985855
+      ],
+      [
+        1795389300,
+        10191.181259482666
+      ],
+      [
+        1795389300,
+        10126.257828657273
+      ],
+      [
+        1795389300,
+        10076.274520065794
+      ],
+      [
+        1795389300,
+        10056.202365399815
+      ],
+      [
+        1795389600,
+        10056.202365399815
+      ],
+      [
+        1795389600,
+        10056.202365399815
+      ],
+      [
+        1795389900,
+        10186.046377112514
+      ],
+      [
+        1795389900,
+        10189.887522112513
+      ],
+      [
+        1795390200,
+        10189.469122112514
+      ],
+      [
+        1795390200,
+        10189.469122112514
+      ],
+      [
+        1795390200,
+        10172.108976570127
+      ],
+      [
+        1795390200,
+        10171.203041434634
+      ],
+      [
+        1795390500,
+        10176.664828647834
+      ],
+      [
+        1795390500,
+        10170.242162020728
+      ],
+      [
+        1795390800,
+        10170.242162020728
+      ],
+      [
+        1795390800,
+        10170.242162020728
+      ],
+      [
+        1795391100,
+        10170.242162020728
+      ],
+      [
+        1795391100,
+        10170.16873892619
+      ],
+      [
+        1795391100,
+        10169.648988925926
+      ],
+      [
+        1795391100,
+        10169.171613925928
+      ],
+      [
+        1795391400,
+        10165.232338966702
+      ],
+      [
+        1795391400,
+        10161.630418966688
+      ],
+      [
+        1795391700,
+        10154.10480271642
+      ],
+      [
+        1795391700,
+        10154.10480271642
+      ],
+      [
+        1795392000,
+        10154.10480271642
+      ],
+      [
+        1795392000,
+        10140.927301716305
+      ],
+      [
+        1795392000,
+        10140.927301716305
+      ],
+      [
+        1795392000,
+        10142.513861716305
+      ],
+      [
+        1795392300,
+        10202.935042184637
+      ],
+      [
+        1795392300,
+        10205.987950229637
+      ],
+      [
+        1795392600,
+        10139.199919260256
+      ],
+      [
+        1795392600,
+        10158.470434357414
+      ],
+      [
+        1795392900,
+        10097.700408390609
+      ],
+      [
+        1795392900,
+        10096.893537802214
+      ],
+      [
+        1795392900,
+        10064.531490747948
+      ],
+      [
+        1795392900,
+        10051.185097271295
+      ],
+      [
+        1795393200,
+        10060.345032369645
+      ],
+      [
+        1795393200,
+        10052.141217870801
+      ],
+      [
+        1795393500,
+        10052.141217870801
+      ],
+      [
+        1795393500,
+        10061.361672458106
+      ],
+      [
+        1795393800,
+        10061.361672458106
+      ],
+      [
+        1795393800,
+        10062.878973458106
+      ],
+      [
+        1795393800,
+        10062.878973458106
+      ],
+      [
+        1795393800,
+        10062.878973458106
+      ],
+      [
+        1795394100,
+        10062.878973458106
+      ],
+      [
+        1795394100,
+        10064.252365458105
+      ],
+      [
+        1795394400,
+        10062.001292007672
+      ],
+      [
+        1795394400,
+        10062.001292007672
+      ],
+      [
+        1795394700,
+        10040.75819506461
+      ],
+      [
+        1795394700,
+        10007.307628246452
+      ],
+      [
+        1795394700,
+        10007.307628246452
+      ],
+      [
+        1795394700,
+        10007.307628246452
+      ],
+      [
+        1795395000,
+        10007.307628246452
+      ],
+      [
+        1795395000,
+        10007.307628246452
+      ],
+      [
+        1795395300,
+        10007.307628246452
+      ],
+      [
+        1795395300,
+        10007.307628246452
+      ],
+      [
+        1795395600,
+        10007.307628246452
+      ],
+      [
+        1795395600,
+        10009.253896747177
+      ],
+      [
+        1795395600,
+        10009.253896747177
+      ],
+      [
+        1795395600,
+        10009.253896747177
+      ],
+      [
+        1795395900,
+        10023.814838249484
+      ],
+      [
+        1795395900,
+        10031.062113630041
+      ],
+      [
+        1795396200,
+        10065.054894294126
+      ],
+      [
+        1795396200,
+        10071.473709293086
+      ],
+      [
+        1795396500,
+        10086.968375806586
+      ],
+      [
+        1795396500,
+        10088.604055806585
+      ],
+      [
+        1795396500,
+        10126.322206591714
+      ],
+      [
+        1795396500,
+        10111.294464879806
+      ],
+      [
+        1795396800,
+        10106.027330392568
+      ],
+      [
+        1795396800,
+        10140.237348864792
+      ],
+      [
+        1795397100,
+        10133.24336136263
+      ],
+      [
+        1795397100,
+        10133.838801362632
+      ],
+      [
+        1795397400,
+        10137.439863380328
+      ],
+      [
+        1795397400,
+        10124.148480370173
+      ],
+      [
+        1795397400,
+        10110.30679370717
+      ],
+      [
+        1795397400,
+        10112.10630670717
+      ],
+      [
+        1795397700,
+        10118.710858706423
+      ],
+      [
+        1795397700,
+        10118.710858706423
+      ],
+      [
+        1795398000,
+        10106.500533694069
+      ],
+      [
+        1795398000,
+        10105.494633693763
+      ],
+      [
+        1795398300,
+        10115.610298596308
+      ],
+      [
+        1795398300,
+        10127.449082842704
+      ],
+      [
+        1795398300,
+        10132.525003036148
+      ],
+      [
+        1795398300,
+        10168.440775968693
+      ],
+      [
+        1795398600,
+        10168.440775968693
+      ],
+      [
+        1795398600,
+        10168.440775968693
+      ],
+      [
+        1795398900,
+        10168.440775968693
+      ],
+      [
+        1795398900,
+        10170.192941776135
+      ],
+      [
+        1795399200,
+        10175.433316576136
+      ],
+      [
+        1795399200,
+        10176.18812007846
+      ],
+      [
+        1795399200,
+        10176.996892576502
+      ],
+      [
+        1795399200,
+        10184.499935961829
+      ],
+      [
+        1795399500,
+        10181.393350849272
+      ],
+      [
+        1795399500,
+        10189.956020348689
+      ],
+      [
+        1795399800,
+        10189.956020348689
+      ],
+      [
+        1795399800,
+        10190.921259849412
+      ],
+      [
+        1795400100,
+        10212.95462370368
+      ],
+      [
+        1795400100,
+        10223.031639704846
+      ],
+      [
+        1795400100,
+        10252.940573245933
+      ],
+      [
+        1795400100,
+        10252.940573245933
+      ],
+      [
+        1795400400,
+        10252.940573245933
+      ],
+      [
+        1795400400,
+        10255.740701746978
+      ],
+      [
+        1795400700,
+        10267.324251309079
+      ],
+      [
+        1795400700,
+        10267.324251309079
+      ],
+      [
+        1795401000,
+        10290.623264326361
+      ],
+      [
+        1795401000,
+        10290.623264326361
+      ],
+      [
+        1795401000,
+        10286.404043835117
+      ],
+      [
+        1795401000,
+        10264.950915810117
+      ],
+      [
+        1795401300,
+        10140.618996959105
+      ],
+      [
+        1795401300,
+        10126.208062456046
+      ],
+      [
+        1795401600,
+        10144.85627679124
+      ],
+      [
+        1795401600,
+        10144.85627679124
+      ],
+      [
+        1795401900,
+        10189.859384709482
+      ],
+      [
+        1795401900,
+        10190.978197209482
+      ],
+      [
+        1795401900,
+        10121.057279094863
+      ],
+      [
+        1795401900,
+        10121.057279094863
+      ],
+      [
+        1795402200,
+        10211.287144368043
+      ],
+      [
+        1795402200,
+        10210.006725521305
+      ],
+      [
+        1795402500,
+        10230.927115348115
+      ],
+      [
+        1795402500,
+        10230.927115348115
+      ],
+      [
+        1795402800,
+        10222.121015342482
+      ],
+      [
+        1795402800,
+        10212.33094534112
+      ],
+      [
+        1795402800,
+        10206.11946364112
+      ],
+      [
+        1795402800,
+        10206.11946364112
+      ],
+      [
+        1795403100,
+        10220.645693092112
+      ],
+      [
+        1795403100,
+        10220.645693092112
+      ],
+      [
+        1795403400,
+        10236.486654137432
+      ],
+      [
+        1795403400,
+        10229.950531636461
+      ],
+      [
+        1795403700,
+        10235.836469645883
+      ],
+      [
+        1795403700,
+        10235.836469645883
+      ],
+      [
+        1795403700,
+        10235.836469645883
+      ],
+      [
+        1795403700,
+        10237.924289645882
+      ],
+      [
+        1795404000,
+        10272.860460483353
+      ],
+      [
+        1795404000,
+        10328.668482558764
+      ],
+      [
+        1795404300,
+        10332.441271095058
+      ],
+      [
+        1795404300,
+        10332.441271095058
+      ],
+      [
+        1795404600,
+        10341.22730563904
+      ],
+      [
+        1795404600,
+        10342.754148638269
+      ],
+      [
+        1795404600,
+        10341.444773638268
+      ],
+      [
+        1795404600,
+        10327.363629137948
+      ],
+      [
+        1795404900,
+        10326.848629137949
+      ],
+      [
+        1795404900,
+        10338.134602641485
+      ],
+      [
+        1795405200,
+        10327.223730616117
+      ],
+      [
+        1795405200,
+        10300.330686665955
+      ],
+      [
+        1795405500,
+        10293.967914683795
+      ],
+      [
+        1795405500,
+        10293.967914683795
+      ],
+      [
+        1795405500,
+        10269.61243983628
+      ],
+      [
+        1795405500,
+        10259.510778709124
+      ],
+      [
+        1795405800,
+        10228.61760687223
+      ],
+      [
+        1795405800,
+        10227.558944372231
+      ],
+      [
+        1795406100,
+        10251.560165326127
+      ],
+      [
+        1795406100,
+        10227.931415980123
+      ],
+      [
+        1795406400,
+        10264.423078747384
+      ],
+      [
+        1795406400,
+        10248.243503274854
+      ],
+      [
+        1795406400,
+        10228.53533932975
+      ],
+      [
+        1795406400,
+        10228.53533932975
+      ],
+      [
+        1795406700,
+        10253.962541846986
+      ],
+      [
+        1795406700,
+        10294.69384332037
+      ],
+      [
+        1795407000,
+        10263.84761588771
+      ],
+      [
+        1795407000,
+        10261.06702688771
+      ],
+      [
+        1795407300,
+        10261.06702688771
+      ],
+      [
+        1795407300,
+        10217.821927383426
+      ],
+      [
+        1795407300,
+        10208.438055958954
+      ],
+      [
+        1795407300,
+        10208.438055958954
+      ],
+      [
+        1795407600,
+        10208.438055958954
+      ],
+      [
+        1795407600,
+        10204.53593095811
+      ],
+      [
+        1795407900,
+        10199.382730957323
+      ],
+      [
+        1795407900,
+        10199.382730957323
+      ],
+      [
+        1795408200,
+        10199.382730957323
+      ],
+      [
+        1795408200,
+        10199.382730957323
+      ],
+      [
+        1795408200,
+        10199.382730957323
+      ],
+      [
+        1795408200,
+        10199.382730957323
+      ],
+      [
+        1795408500,
+        10212.846403192152
+      ],
+      [
+        1795408500,
+        10212.968898692256
+      ],
+      [
+        1795408800,
+        10237.452679876435
+      ],
+      [
+        1795408800,
+        10236.194304876279
+      ],
+      [
+        1795409100,
+        10246.388217948857
+      ],
+      [
+        1795409100,
+        10246.449465451162
+      ],
+      [
+        1795409100,
+        10241.1245669365
+      ],
+      [
+        1795409100,
+        10241.192148439324
+      ],
+      [
+        1795409400,
+        10259.556016094035
+      ],
+      [
+        1795409400,
+        10260.272578593522
+      ],
+      [
+        1795409700,
+        10224.829870815734
+      ],
+      [
+        1795409700,
+        10229.43970349301
+      ],
+      [
+        1795410000,
+        10229.43970349301
+      ],
+      [
+        1795410000,
+        10227.87516599301
+      ],
+      [
+        1795410000,
+        10209.167392991807
+      ],
+      [
+        1795410000,
+        10209.167392991807
+      ],
+      [
+        1795410300,
+        10237.855288322135
+      ],
+      [
+        1795410300,
+        10238.624940822136
+      ],
+      [
+        1795410600,
+        10238.624940822136
+      ],
+      [
+        1795410600,
+        10238.624940822136
+      ],
+      [
+        1795410900,
+        10226.3910213518
+      ],
+      [
+        1795410900,
+        10232.3018953518
+      ],
+      [
+        1795410900,
+        10232.899447499747
+      ],
+      [
+        1795410900,
+        10227.92904466264
+      ],
+      [
+        1795411200,
+        10229.889463153799
+      ],
+      [
+        1795411200,
+        10229.889463153799
+      ],
+      [
+        1795411500,
+        10188.750477073852
+      ],
+      [
+        1795411500,
+        10161.977254648704
+      ],
+      [
+        1795411800,
+        10173.266692217563
+      ],
+      [
+        1795411800,
+        10176.494407216342
+      ],
+      [
+        1795411800,
+        10190.665823996125
+      ],
+      [
+        1795411800,
+        10252.97338284443
+      ],
+      [
+        1795412100,
+        10166.525145354697
+      ],
+      [
+        1795412100,
+        10161.403641357541
+      ],
+      [
+        1795412400,
+        10158.686594826711
+      ],
+      [
+        1795412400,
+        10158.686594826711
+      ],
+      [
+        1795412700,
+        10176.223222325933
+      ],
+      [
+        1795412700,
+        10174.11263252708
+      ],
+      [
+        1795412700,
+        10141.528721754667
+      ],
+      [
+        1795412700,
+        10143.130689253325
+      ],
+      [
+        1795413000,
+        10152.907774643054
+      ],
+      [
+        1795413000,
+        10110.135500113403
+      ],
+      [
+        1795413300,
+        10103.197324916973
+      ],
+      [
+        1795413300,
+        10088.903915330138
+      ],
+      [
+        1795413600,
+        10088.903915330138
+      ],
+      [
+        1795413600,
+        10086.392665831288
+      ],
+      [
+        1795413600,
+        10086.392665831288
+      ],
+      [
+        1795413600,
+        10086.392665831288
+      ],
+      [
+        1795413900,
+        9963.295715625398
+      ],
+      [
+        1795413900,
+        9943.61842600104
+      ],
+      [
+        1795414200,
+        9946.807599630734
+      ],
+      [
+        1795414200,
+        9949.656116021333
+      ],
+      [
+        1795414500,
+        9951.537079424617
+      ],
+      [
+        1795414500,
+        9951.537079424617
+      ],
+      [
+        1795414500,
+        9958.140794501822
+      ],
+      [
+        1795414500,
+        9938.726973974506
+      ],
+      [
+        1795414800,
+        9938.726973974506
+      ],
+      [
+        1795414800,
+        9938.726973974506
+      ],
+      [
+        1795415100,
+        9947.48913038961
+      ],
+      [
+        1795415100,
+        9947.48913038961
+      ],
+      [
+        1795415400,
+        9947.48913038961
+      ],
+      [
+        1795415400,
+        9957.741821605392
+      ],
+      [
+        1795415400,
+        9939.896221602945
+      ],
+      [
+        1795415400,
+        9929.717995930592
+      ],
+      [
+        1795415700,
+        9929.717995930592
+      ],
+      [
+        1795415700,
+        9929.717995930592
+      ],
+      [
+        1795416000,
+        9859.362913963092
+      ],
+      [
+        1795416000,
+        9864.95029364763
+      ],
+      [
+        1795416300,
+        9866.813194157816
+      ],
+      [
+        1795416300,
+        9880.250222189861
+      ],
+      [
+        1795416300,
+        9862.204055556524
+      ],
+      [
+        1795416300,
+        9860.42411931215
+      ],
+      [
+        1795416600,
+        9886.881149381123
+      ],
+      [
+        1795416600,
+        9888.741003382198
+      ],
+      [
+        1795416900,
+        9888.741003382198
+      ],
+      [
+        1795416900,
+        9888.741003382198
+      ],
+      [
+        1795417200,
+        9888.741003382198
+      ],
+      [
+        1795417200,
+        9887.280708382199
+      ],
+      [
+        1795417200,
+        9884.493413380165
+      ],
+      [
+        1795417200,
+        9884.493413380165
+      ],
+      [
+        1795417500,
+        9939.259517254111
+      ],
+      [
+        1795417500,
+        9979.17142467368
+      ],
+      [
+        1795417800,
+        9888.187443587325
+      ],
+      [
+        1795417800,
+        9919.916294171071
+      ],
+      [
+        1795418100,
+        9926.549671296136
+      ],
+      [
+        1795418100,
+        9926.549671296136
+      ],
+      [
+        1795418100,
+        9940.675455793615
+      ],
+      [
+        1795418100,
+        9942.384727794815
+      ],
+      [
+        1795418400,
+        9922.43153551245
+      ],
+      [
+        1795418400,
+        9922.43153551245
+      ],
+      [
+        1795418700,
+        9962.03477706412
+      ],
+      [
+        1795418700,
+        9958.149076863732
+      ],
+      [
+        1795419000,
+        9962.706701933017
+      ],
+      [
+        1795419000,
+        9962.706701933017
+      ],
+      [
+        1795419000,
+        10008.083147381789
+      ],
+      [
+        1795419000,
+        9992.025547381789
+      ],
+      [
+        1795419300,
+        9965.063228716768
+      ],
+      [
+        1795419300,
+        9965.803855216462
+      ],
+      [
+        1795419600,
+        9916.266959451852
+      ],
+      [
+        1795419600,
+        9916.4645138725
+      ],
+      [
+        1795419900,
+        9916.4645138725
+      ],
+      [
+        1795419900,
+        9916.4645138725
+      ],
+      [
+        1795419900,
+        9915.401431474036
+      ],
+      [
+        1795419900,
+        9923.134734474894
+      ],
+      [
+        1795420200,
+        10008.349782733903
+      ],
+      [
+        1795420200,
+        9971.166261664594
+      ],
+      [
+        1795420500,
+        9971.166261664594
+      ],
+      [
+        1795420500,
+        9964.596677663683
+      ],
+      [
+        1795420800,
+        9979.474105052179
+      ],
+      [
+        1795420800,
+        9986.685698558285
+      ],
+      [
+        1795420800,
+        9986.685698558285
+      ],
+      [
+        1795420800,
+        9986.685698558285
+      ],
+      [
+        1795421100,
+        10017.374956697282
+      ],
+      [
+        1795421100,
+        10014.072307597955
+      ],
+      [
+        1795421400,
+        10027.013142088634
+      ],
+      [
+        1795421400,
+        10037.68639708911
+      ],
+      [
+        1795421700,
+        10038.725535102252
+      ],
+      [
+        1795421700,
+        10033.711035099977
+      ],
+      [
+        1795421700,
+        10061.676999763624
+      ],
+      [
+        1795421700,
+        10060.509896772737
+      ],
+      [
+        1795422000,
+        10096.23492309939
+      ],
+      [
+        1795422000,
+        10084.412343194059
+      ],
+      [
+        1795422300,
+        10136.321336939842
+      ],
+      [
+        1795422300,
+        10136.321336939842
+      ],
+      [
+        1795422600,
+        10151.18280143545
+      ],
+      [
+        1795422600,
+        10128.992883934903
+      ],
+      [
+        1795422600,
+        10145.073091074628
+      ],
+      [
+        1795422600,
+        10145.073091074628
+      ],
+      [
+        1795422900,
+        10145.073091074628
+      ],
+      [
+        1795422900,
+        10145.073091074628
+      ],
+      [
+        1795423200,
+        10187.600948347912
+      ],
+      [
+        1795423200,
+        10187.600948347912
+      ],
+      [
+        1795423500,
+        10187.600948347912
+      ],
+      [
+        1795423500,
+        10188.380613847912
+      ],
+      [
+        1795423500,
+        10176.956953934552
+      ],
+      [
+        1795423500,
+        10176.956953934552
+      ],
+      [
+        1795423800,
+        10151.180258465387
+      ],
+      [
+        1795423800,
+        10128.316731154595
+      ],
+      [
+        1795424100,
+        10126.697756153875
+      ],
+      [
+        1795424100,
+        10127.84412295728
+      ],
+      [
+        1795424400,
+        10093.256890228315
+      ],
+      [
+        1795424400,
+        10093.256890228315
+      ],
+      [
+        1795424400,
+        10055.404374514283
+      ],
+      [
+        1795424400,
+        10024.693541173874
+      ],
+      [
+        1795424700,
+        10094.785096493635
+      ],
+      [
+        1795424700,
+        10041.704377329766
+      ],
+      [
+        1795425000,
+        10013.792436150003
+      ],
+      [
+        1795425000,
+        10023.710317025296
+      ],
+      [
+        1795425300,
+        10027.344147541155
+      ],
+      [
+        1795425300,
+        10025.713460041155
+      ],
+      [
+        1795425300,
+        9952.888279831059
+      ],
+      [
+        1795425300,
+        9939.763227436908
+      ],
+      [
+        1795425600,
+        9934.72369202609
+      ],
+      [
+        1795425600,
+        9940.118561526058
+      ],
+      [
+        1795425900,
+        9998.89696383575
+      ],
+      [
+        1795425900,
+        10008.910310532041
+      ],
+      [
+        1795426200,
+        9940.209170170674
+      ],
+      [
+        1795426200,
+        9940.209170170674
+      ],
+      [
+        1795426200,
+        9922.614969388978
+      ],
+      [
+        1795426200,
+        9967.956702008465
+      ],
+      [
+        1795426500,
+        9964.316702008466
+      ],
+      [
+        1795426500,
+        9964.316702008466
+      ],
+      [
+        1795426800,
+        9964.316702008466
+      ],
+      [
+        1795426800,
+        9964.316702008466
+      ],
+      [
+        1795427100,
+        9964.316702008466
+      ],
+      [
+        1795427100,
+        9964.316702008466
+      ],
+      [
+        1795427100,
+        10001.505242534213
+      ],
+      [
+        1795427100,
+        10001.505242534213
+      ],
+      [
+        1795427400,
+        10005.114617534213
+      ],
+      [
+        1795427400,
+        10006.236666534714
+      ],
+      [
+        1795427700,
+        10006.236666534714
+      ],
+      [
+        1795427700,
+        10013.076042034796
+      ],
+      [
+        1795428000,
+        10013.076042034796
+      ],
+      [
+        1795428000,
+        10021.281967034796
+      ],
+      [
+        1795428000,
+        10021.281967034796
+      ],
+      [
+        1795428000,
+        10016.679295034897
+      ],
+      [
+        1795428300,
+        10002.585822475572
+      ],
+      [
+        1795428300,
+        10010.224733225572
+      ],
+      [
+        1795428600,
+        10042.30253296924
+      ],
+      [
+        1795428600,
+        10040.088777991568
+      ],
+      [
+        1795428900,
+        10046.159484194957
+      ],
+      [
+        1795428900,
+        10047.358907198282
+      ],
+      [
+        1795428900,
+        10073.009750856836
+      ],
+      [
+        1795428900,
+        10074.052464856366
+      ],
+      [
+        1795429200,
+        10049.943306543986
+      ],
+      [
+        1795429200,
+        10042.580908545331
+      ],
+      [
+        1795429500,
+        10030.941936674095
+      ],
+      [
+        1795429500,
+        10038.900643144114
+      ],
+      [
+        1795429800,
+        9913.493470418292
+      ],
+      [
+        1795429800,
+        9861.717531885113
+      ],
+      [
+        1795429800,
+        9864.980107668158
+      ],
+      [
+        1795429800,
+        9863.974107668158
+      ],
+      [
+        1795430100,
+        9863.974107668158
+      ],
+      [
+        1795430100,
+        9850.473613920345
+      ],
+      [
+        1795430400,
+        9902.658523602851
+      ],
+      [
+        1795430400,
+        9903.328596102852
+      ],
+      [
+        1795430700,
+        9843.97531012124
+      ],
+      [
+        1795430700,
+        9841.45981012105
+      ],
+      [
+        1795430700,
+        9841.45981012105
+      ],
+      [
+        1795430700,
+        9842.859066620378
+      ],
+      [
+        1795431000,
+        9852.29373843904
+      ],
+      [
+        1795431000,
+        9852.29373843904
+      ],
+      [
+        1795431300,
+        9857.945630916138
+      ],
+      [
+        1795431300,
+        9857.945630916138
+      ],
+      [
+        1795431600,
+        9860.039093909314
+      ],
+      [
+        1795431600,
+        9863.772756411889
+      ],
+      [
+        1795431600,
+        9863.510381411888
+      ],
+      [
+        1795431600,
+        9857.783860411248
+      ],
+      [
+        1795431900,
+        9846.994213825334
+      ],
+      [
+        1795431900,
+        9827.978332101518
+      ],
+      [
+        1795432200,
+        9778.94393791827
+      ],
+      [
+        1795432200,
+        9727.666416998534
+      ],
+      [
+        1795432500,
+        9748.90178902548
+      ],
+      [
+        1795432500,
+        9748.90178902548
+      ],
+      [
+        1795432500,
+        9749.237771014174
+      ],
+      [
+        1795432500,
+        9749.237771014174
+      ],
+      [
+        1795432800,
+        9744.797926977402
+      ],
+      [
+        1795432800,
+        9750.060451979976
+      ],
+      [
+        1795433100,
+        9833.450172995786
+      ],
+      [
+        1795433100,
+        9830.685743270042
+      ],
+      [
+        1795433400,
+        9832.656640770041
+      ],
+      [
+        1795433400,
+        9833.871801769694
+      ],
+      [
+        1795433400,
+        9827.583326856242
+      ],
+      [
+        1795433400,
+        9827.181008856242
+      ],
+      [
+        1795433700,
+        9832.348626852283
+      ],
+      [
+        1795433700,
+        9832.348626852283
+      ],
+      [
+        1795434000,
+        9782.406087830406
+      ],
+      [
+        1795434000,
+        9737.176525125391
+      ],
+      [
+        1795434300,
+        9740.639902136483
+      ],
+      [
+        1795434300,
+        9741.868713134963
+      ],
+      [
+        1795434300,
+        9745.202771151946
+      ],
+      [
+        1795434300,
+        9736.682304151238
+      ],
+      [
+        1795434600,
+        9731.739929249183
+      ],
+      [
+        1795434600,
+        9733.34745625074
+      ],
+      [
+        1795434900,
+        9715.09320053455
+      ],
+      [
+        1795434900,
+        9715.355640320113
+      ],
+      [
+        1795435200,
+        9715.355640320113
+      ],
+      [
+        1795435200,
+        9716.251701318282
+      ],
+      [
+        1795435200,
+        9709.973712602
+      ],
+      [
+        1795435200,
+        9710.678300604093
+      ],
+      [
+        1795435500,
+        9727.82367231328
+      ],
+      [
+        1795435500,
+        9738.41416946889
+      ],
+      [
+        1795435800,
+        9744.853253952995
+      ],
+      [
+        1795435800,
+        9744.853253952995
+      ],
+      [
+        1795436100,
+        9757.884766078327
+      ],
+      [
+        1795436100,
+        9759.139256579827
+      ],
+      [
+        1795436100,
+        9793.783515736077
+      ],
+      [
+        1795436100,
+        9793.783515736077
+      ],
+      [
+        1795436400,
+        9822.955001310946
+      ],
+      [
+        1795436400,
+        9821.199576310286
+      ],
+      [
+        1795436700,
+        9764.742404891873
+      ],
+      [
+        1795436700,
+        9755.383053814303
+      ],
+      [
+        1795437000,
+        9729.912644349846
+      ],
+      [
+        1795437000,
+        9720.05620074215
+      ],
+      [
+        1795437000,
+        9697.859083326684
+      ],
+      [
+        1795437000,
+        9662.82565068933
+      ],
+      [
+        1795437300,
+        9680.085385094042
+      ],
+      [
+        1795437300,
+        9695.076186823173
+      ],
+      [
+        1795437600,
+        9684.776186823174
+      ],
+      [
+        1795437600,
+        9687.555838323804
+      ],
+      [
+        1795437900,
+        9687.555838323804
+      ],
+      [
+        1795437900,
+        9698.824342281525
+      ],
+      [
+        1795437900,
+        9698.824342281525
+      ],
+      [
+        1795437900,
+        9700.755551888858
+      ],
+      [
+        1795438200,
+        9710.445545530301
+      ],
+      [
+        1795438200,
+        9727.703349537864
+      ],
+      [
+        1795438500,
+        9727.703349537864
+      ],
+      [
+        1795438500,
+        9727.703349537864
+      ],
+      [
+        1795438800,
+        9690.805249066794
+      ],
+      [
+        1795438800,
+        9665.79053703396
+      ],
+      [
+        1795438800,
+        9629.738485127025
+      ],
+      [
+        1795438800,
+        9623.579797626822
+      ],
+      [
+        1795478400,
+        9623.579797626822
+      ],
+      [
+        1795478400,
+        9628.273197626822
+      ],
+      [
+        1795478400,
+        9573.549407048657
+      ],
+      [
+        1795478400,
+        9581.264550656062
+      ],
+      [
+        1795478700,
+        9616.696720727261
+      ],
+      [
+        1795478700,
+        9618.53761397826
+      ],
+      [
+        1795479000,
+        9631.021642675287
+      ],
+      [
+        1795479000,
+        9620.952149642832
+      ],
+      [
+        1795479300,
+        9640.528894173745
+      ],
+      [
+        1795479300,
+        9668.784884690678
+      ],
+      [
+        1795479300,
+        9668.784884690678
+      ],
+      [
+        1795479300,
+        9665.13068853839
+      ],
+      [
+        1795479600,
+        9668.68451194584
+      ],
+      [
+        1795479600,
+        9669.11971195038
+      ],
+      [
+        1795479900,
+        9683.718518668296
+      ],
+      [
+        1795479900,
+        9649.496163079586
+      ],
+      [
+        1795480200,
+        9517.256203926294
+      ],
+      [
+        1795480200,
+        9523.225003926293
+      ],
+      [
+        1795480200,
+        9483.591901609832
+      ],
+      [
+        1795480200,
+        9481.079401609832
+      ],
+      [
+        1795480500,
+        9432.904431863524
+      ],
+      [
+        1795480500,
+        9432.965679861567
+      ],
+      [
+        1795480800,
+        9432.965679861567
+      ],
+      [
+        1795480800,
+        9432.92727486399
+      ],
+      [
+        1795481100,
+        9392.675527945963
+      ],
+      [
+        1795481100,
+        9382.282890445962
+      ],
+      [
+        1795481100,
+        9382.282890445962
+      ],
+      [
+        1795481100,
+        9382.282890445962
+      ],
+      [
+        1795481400,
+        9382.282890445962
+      ],
+      [
+        1795481400,
+        9382.282890445962
+      ],
+      [
+        1795481700,
+        9373.292207000846
+      ],
+      [
+        1795481700,
+        9373.292207000846
+      ],
+      [
+        1795482000,
+        9363.78428953894
+      ],
+      [
+        1795482000,
+        9363.78428953894
+      ],
+      [
+        1795482000,
+        9363.78428953894
+      ],
+      [
+        1795482000,
+        9363.78428953894
+      ],
+      [
+        1795482300,
+        9366.518864538939
+      ],
+      [
+        1795482300,
+        9367.935188544858
+      ],
+      [
+        1795482600,
+        9364.229476975048
+      ],
+      [
+        1795482600,
+        9379.053548475255
+      ],
+      [
+        1795482900,
+        9392.864886560294
+      ],
+      [
+        1795482900,
+        9397.254105559947
+      ],
+      [
+        1795482900,
+        9337.555015392183
+      ],
+      [
+        1795482900,
+        9324.279320753143
+      ],
+      [
+        1795483200,
+        9344.96574325172
+      ],
+      [
+        1795483200,
+        9322.12126080932
+      ],
+      [
+        1795483500,
+        9322.12126080932
+      ],
+      [
+        1795483500,
+        9331.348668926003
+      ],
+      [
+        1795483800,
+        9331.348668926003
+      ],
+      [
+        1795483800,
+        9340.493396359348
+      ],
+      [
+        1795483800,
+        9424.681926796904
+      ],
+      [
+        1795483800,
+        9417.048303264877
+      ],
+      [
+        1795484100,
+        9422.254879781376
+      ],
+      [
+        1795484100,
+        9437.71652224804
+      ],
+      [
+        1795484400,
+        9429.184429901221
+      ],
+      [
+        1795484400,
+        9438.89971619162
+      ],
+      [
+        1795484700,
+        9438.89971619162
+      ],
+      [
+        1795484700,
+        9447.609868689913
+      ],
+      [
+        1795484700,
+        9447.991726184313
+      ],
+      [
+        1795484700,
+        9453.159270685415
+      ],
+      [
+        1795485000,
+        9453.159270685415
+      ],
+      [
+        1795485000,
+        9453.159270685415
+      ],
+      [
+        1795485300,
+        9455.394167655997
+      ],
+      [
+        1795485300,
+        9449.68166866139
+      ],
+      [
+        1795485600,
+        9457.541261655157
+      ],
+      [
+        1795485600,
+        9457.992685656312
+      ],
+      [
+        1795485600,
+        9457.992685656312
+      ],
+      [
+        1795485600,
+        9457.992685656312
+      ],
+      [
+        1795485900,
+        9487.510297339224
+      ],
+      [
+        1795485900,
+        9506.391173872638
+      ],
+      [
+        1795486200,
+        9506.391173872638
+      ],
+      [
+        1795486200,
+        9506.391173872638
+      ],
+      [
+        1795486500,
+        9532.291124475034
+      ],
+      [
+        1795486500,
+        9488.077866122856
+      ],
+      [
+        1795486500,
+        9488.077866122856
+      ],
+      [
+        1795486500,
+        9494.990451751624
+      ],
+      [
+        1795486800,
+        9499.51791120126
+      ],
+      [
+        1795486800,
+        9499.51791120126
+      ],
+      [
+        1795487100,
+        9496.034961426258
+      ],
+      [
+        1795487100,
+        9496.034961426258
+      ],
+      [
+        1795487400,
+        9503.762961426259
+      ],
+      [
+        1795487400,
+        9503.762961426259
+      ],
+      [
+        1795487400,
+        9500.16148642626
+      ],
+      [
+        1795487400,
+        9483.557811426259
+      ],
+      [
+        1795487700,
+        9483.914726743873
+      ],
+      [
+        1795487700,
+        9486.378045565758
+      ],
+      [
+        1795488000,
+        9467.608530333675
+      ],
+      [
+        1795488000,
+        9465.960702333592
+      ],
+      [
+        1795488300,
+        9465.960702333592
+      ],
+      [
+        1795488300,
+        9465.960702333592
+      ],
+      [
+        1795488300,
+        9466.12756483359
+      ],
+      [
+        1795488300,
+        9466.12756483359
+      ],
+      [
+        1795488600,
+        9469.014681947347
+      ],
+      [
+        1795488600,
+        9475.118047445461
+      ],
+      [
+        1795488900,
+        9481.133672445461
+      ],
+      [
+        1795488900,
+        9477.739491488503
+      ],
+      [
+        1795489200,
+        9477.739491488503
+      ],
+      [
+        1795489200,
+        9477.739491488503
+      ],
+      [
+        1795489200,
+        9468.859670146836
+      ],
+      [
+        1795489200,
+        9442.206838591239
+      ],
+      [
+        1795489500,
+        9424.910628319692
+      ],
+      [
+        1795489500,
+        9404.599205416662
+      ],
+      [
+        1795489800,
+        9402.144335415423
+      ],
+      [
+        1795489800,
+        9409.648399700573
+      ],
+      [
+        1795490100,
+        9422.862054713001
+      ],
+      [
+        1795490100,
+        9435.021339745315
+      ],
+      [
+        1795490100,
+        9459.463457731763
+      ],
+      [
+        1795490100,
+        9466.29830985536
+      ],
+      [
+        1795490400,
+        9404.569946195734
+      ],
+      [
+        1795490400,
+        9393.37418733552
+      ],
+      [
+        1795490700,
+        9393.37418733552
+      ],
+      [
+        1795490700,
+        9391.103712408109
+      ],
+      [
+        1795491000,
+        9371.679300043434
+      ],
+      [
+        1795491000,
+        9355.171119955648
+      ],
+      [
+        1795491000,
+        9334.313855018268
+      ],
+      [
+        1795491000,
+        9327.372552033221
+      ],
+      [
+        1795491300,
+        9324.654202032836
+      ],
+      [
+        1795491300,
+        9324.654202032836
+      ],
+      [
+        1795491600,
+        9454.073876344492
+      ],
+      [
+        1795491600,
+        9454.073876344492
+      ],
+      [
+        1795491900,
+        9449.687549038306
+      ],
+      [
+        1795491900,
+        9460.956911696394
+      ],
+      [
+        1795491900,
+        9455.811911813049
+      ],
+      [
+        1795491900,
+        9455.811911813049
+      ],
+      [
+        1795492200,
+        9459.937339932598
+      ],
+      [
+        1795492200,
+        9459.937339932598
+      ],
+      [
+        1795492500,
+        9428.872063565028
+      ],
+      [
+        1795492500,
+        9374.282815891156
+      ]
+    ]
+  },
+  "test_config_defaults": {
+    "markets_considered": 683,
+    "markets_traded": 139,
+    "pnl": -1276.1747728623507,
+    "roi_pct": -12.761747728623506,
+    "final_equity": 8723.82522713765,
+    "win_rate_pct": 42.44604316546763,
+    "buy_usdc": 17767.685375032375,
+    "roi_on_buys_pct": -7.1825606201675845,
+    "fees": 36.912238329965255,
+    "rebates": 0.0,
+    "maker_fills": 3987,
+    "taker_fills": 745,
+    "max_drawdown": 1332.380529871718,
+    "sharpe_daily_annualized": -48.96203260196133,
+    "daily_pnl": {
+      "2026-11-22": -504.0205731793482,
+      "2026-11-23": -577.6260092619001,
+      "2026-11-24": -194.52819042110232
+    },
+    "daily_loss_halts": 2,
+    "peak_concurrent_capital": 665.7811108799801,
+    "median_pair_cost": 0.9166242132668366,
+    "two_sided_pct": 71.94244604316546,
+    "median_balance": 0.30078482581460503,
+    "by_category": {
+      "BTC 5m": {
+        "markets": 83,
+        "pnl": -716.787600351808,
+        "wins": 32,
+        "buy_usdc": 12485.469424907275,
+        "win_rate_pct": 38.55421686746988,
+        "roi_on_buys_pct": -5.740974375556019
+      },
+      "BTC 15m": {
+        "markets": 28,
+        "pnl": -402.59420465876394,
+        "wins": 13,
+        "buy_usdc": 2856.5791800325674,
+        "win_rate_pct": 46.42857142857143,
+        "roi_on_buys_pct": -14.093577642548455
+      },
+      "ETH 15m": {
+        "markets": 28,
+        "pnl": -156.7929678517792,
+        "wins": 14,
+        "buy_usdc": 2425.6367700925302,
+        "win_rate_pct": 50.0,
+        "roi_on_buys_pct": -6.463992044686808
+      }
+    },
+    "equity_curve": [
+      [
+        1795369500,
+        9919.08784935795
+      ],
+      [
+        1795369800,
+        9900.205949357949
+      ],
+      [
+        1795370100,
+        9845.293348792035
+      ],
+      [
+        1795370400,
+        9833.856237572034
+      ],
+      [
+        1795370400,
+        9763.63885997125
+      ],
+      [
+        1795370400,
+        9740.556349082666
+      ],
+      [
+        1795370700,
+        9673.693283442379
+      ],
+      [
+        1795371000,
+        9711.801996533763
+      ],
+      [
+        1795371300,
+        9754.625552032825
+      ],
+      [
+        1795371300,
+        9664.09755062748
+      ],
+      [
+        1795371300,
+        9630.88378827448
+      ],
+      [
+        1795371600,
+        9582.68378827448
+      ],
+      [
+        1795371900,
+        9530.82225401448
+      ],
+      [
+        1795372200,
+        9571.01958674448
+      ],
+      [
+        1795372200,
+        9612.657906658804
+      ],
+      [
+        1795372200,
+        9638.023129848263
+      ],
+      [
+        1795372500,
+        9659.267346198263
+      ],
+      [
+        1795372800,
+        9600.927506389864
+      ],
+      [
+        1795373100,
+        9554.117126679863
+      ],
+      [
+        1795373100,
+        9529.248001359863
+      ],
+      [
+        1795373100,
+        9495.979426820651
+      ],
+      [
+        1795392000,
+        9591.401614500652
+      ],
+      [
+        1795392000,
+        9558.682962854627
+      ],
+      [
+        1795392000,
+        9578.279456564627
+      ],
+      [
+        1795392300,
+        9663.218881472683
+      ],
+      [
+        1795392600,
+        9618.8589611469
+      ],
+      [
+        1795392900,
+        9528.448117109641
+      ],
+      [
+        1795392900,
+        9522.902764921248
+      ],
+      [
+        1795392900,
+        9437.269664061247
+      ],
+      [
+        1795393200,
+        9393.762385347489
+      ],
+      [
+        1795393500,
+        9430.942545613689
+      ],
+      [
+        1795393800,
+        9377.243824198014
+      ],
+      [
+        1795393800,
+        9349.107943358014
+      ],
+      [
+        1795393800,
+        9345.536103990935
+      ],
+      [
+        1795394100,
+        9362.925999976298
+      ],
+      [
+        1795394400,
+        9311.881095605864
+      ],
+      [
+        1795394700,
+        9177.391199145985
+      ],
+      [
+        1795394700,
+        9050.812630048076
+      ],
+      [
+        1795394700,
+        9061.429919118076
+      ],
+      [
+        1795395000,
+        9053.994631858075
+      ],
+      [
+        1795395300,
+        9041.794631858076
+      ],
+      [
+        1795395600,
+        9004.033863098075
+      ],
+      [
+        1795395600,
+        9049.280902197905
+      ],
+      [
+        1795395600,
+        9019.861085847906
+      ],
+      [
+        1795395900,
+        9069.016242807715
+      ],
+      [
+        1795396200,
+        9120.393613933993
+      ],
+      [
+        1795396500,
+        9152.122064441244
+      ],
+      [
+        1795396500,
+        9161.361244441243
+      ],
+      [
+        1795396500,
+        9238.876716899187
+      ],
+      [
+        1795396800,
+        9269.09892538045
+      ],
+      [
+        1795397100,
+        9215.197435132455
+      ],
+      [
+        1795397400,
+        9250.508711693312
+      ],
+      [
+        1795397400,
+        9178.535420459295
+      ],
+      [
+        1795397400,
+        9110.692467629295
+      ],
+      [
+        1795397700,
+        9128.168371651394
+      ],
+      [
+        1795398000,
+        9029.696870938731
+      ],
+      [
+        1795398300,
+        8920.386368691376
+      ],
+      [
+        1795398300,
+        8874.627129888619
+      ],
+      [
+        1795398300,
+        8918.353417558752
+      ],
+      [
+        1795478400,
+        8959.068740208751
+      ],
+      [
+        1795478400,
+        8947.502262128752
+      ],
+      [
+        1795478400,
+        8888.654761954296
+      ],
+      [
+        1795478700,
+        8944.0525366869
+      ],
+      [
+        1795479000,
+        8985.624995259466
+      ],
+      [
+        1795479300,
+        9031.375554168651
+      ],
+      [
+        1795479300,
+        9071.299158440692
+      ],
+      [
+        1795479300,
+        8979.753058210692
+      ],
+      [
+        1795479600,
+        9023.867545965008
+      ],
+      [
+        1795479900,
+        9064.298597541565
+      ],
+      [
+        1795480200,
+        8951.362763841566
+      ],
+      [
+        1795480200,
+        8991.457333531565
+      ],
+      [
+        1795480200,
+        8973.364279113119
+      ],
+      [
+        1795480500,
+        8938.338378111208
+      ],
+      [
+        1795480800,
+        8941.229806691208
+      ],
+      [
+        1795481100,
+        8829.407574906045
+      ],
+      [
+        1795481100,
+        8894.114182516894
+      ],
+      [
+        1795481100,
+        8858.596808711425
+      ],
+      [
+        1795481400,
+        8810.996808711425
+      ],
+      [
+        1795481700,
+        8771.996319371425
+      ],
+      [
+        1795482000,
+        8711.129253251122
+      ],
+      [
+        1795482000,
+        8710.37049874263
+      ],
+      [
+        1795482000,
+        8698.75286592263
+      ],
+      [
+        1795482300,
+        8699.971141109354
+      ],
+      [
+        1795482600,
+        8755.526573926156
+      ],
+      [
+        1795482900,
+        8797.10471766618
+      ],
+      [
+        1795482900,
+        8815.777161325834
+      ],
+      [
+        1795482900,
+        8786.598036061747
+      ],
+      [
+        1795483200,
+        8701.849005298925
+      ],
+      [
+        1795483500,
+        8718.209005298926
+      ],
+      [
+        1795483800,
+        8668.421520388925
+      ],
+      [
+        1795483800,
+        8680.050267500666
+      ],
+      [
+        1795483800,
+        8843.713408708267
+      ],
+      [
+        1795484100,
+        8838.507963632426
+      ],
+      [
+        1795484400,
+        8812.777998406504
+      ],
+      [
+        1795484700,
+        8796.829720206504
+      ],
+      [
+        1795484700,
+        8808.823424195813
+      ],
+      [
+        1795484700,
+        8808.421213160213
+      ],
+      [
+        1795485000,
+        8788.148574594612
+      ],
+      [
+        1795485300,
+        8802.704080227697
+      ],
+      [
+        1795485600,
+        8790.083977347593
+      ],
+      [
+        1795485600,
+        8794.59604464875
+      ],
+      [
+        1795485600,
+        8833.344016604602
+      ],
+      [
+        1795485900,
+        8893.137333913955
+      ],
+      [
+        1795486200,
+        8907.834713353002
+      ],
+      [
+        1795486500,
+        8941.748175493052
+      ],
+      [
+        1795486500,
+        8877.275298550374
+      ],
+      [
+        1795486500,
+        8838.180228525169
+      ],
+      [
+        1795486800,
+        8830.92169322517
+      ],
+      [
+        1795487100,
+        8823.545418450169
+      ],
+      [
+        1795487400,
+        8837.827818450169
+      ],
+      [
+        1795487400,
+        8831.954001260168
+      ],
+      [
+        1795487400,
+        8728.439178795918
+      ],
+      [
+        1795487700,
+        8718.140427354365
+      ],
+      [
+        1795488000,
+        8669.4951399173
+      ],
+      [
+        1795488300,
+        8735.6470050773
+      ],
+      [
+        1795488300,
+        8753.8379506073
+      ],
+      [
+        1795488300,
+        8766.9863872473
+      ],
+      [
+        1795488600,
+        8800.68259836401
+      ],
+      [
+        1795488900,
+        8762.38761430401
+      ],
+      [
+        1795489200,
+        8796.53126373401
+      ],
+      [
+        1795489200,
+        8841.686767854011
+      ],
+      [
+        1795489200,
+        8871.516496469872
+      ],
+      [
+        1795489500,
+        8831.641894780087
+      ],
+      [
+        1795489800,
+        8830.587024778848
+      ],
+      [
+        1795490100,
+        8882.357722945435
+      ],
+      [
+        1795490100,
+        8927.143302239416
+      ],
+      [
+        1795490100,
+        9021.678186771474
+      ],
+      [
+        1795490400,
+        8949.960409319903
+      ],
+      [
+        1795490700,
+        8918.476106109903
+      ],
+      [
+        1795491000,
+        8834.866352283865
+      ],
+      [
+        1795491000,
+        8763.57370090828
+      ],
+      [
+        1795491000,
+        8718.54084420828
+      ],
+      [
+        1795491300,
+        8667.619470128282
+      ],
+      [
+        1795491600,
+        8770.009868366484
+      ],
+      [
+        1795491900,
+        8725.135735806483
+      ],
+      [
+        1795491900,
+        8822.844522593801
+      ],
+      [
+        1795491900,
+        8811.255372543392
+      ],
+      [
+        1795492200,
+        8759.778249793393
+      ],
+      [
+        1795492500,
+        8723.82522713765
+      ]
+    ]
+  },
+  "robustness_test": {
+    "measured random delay (main result)": {
+      "chosen": {
+        "pnl": 2210.421236725901,
+        "roi_on_buys_pct": 7.3488695608289625,
+        "win_rate_pct": 57.76031434184676,
+        "markets_traded": 509,
+        "maker_fills": 0,
+        "taker_fills": 9526,
+        "fees": 576.7181319177173,
+        "max_drawdown": 398.7066246857612
+      },
+      "maker_only": {
+        "pnl": 0.0,
+        "roi_on_buys_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "markets_traded": 0,
+        "maker_fills": 0,
+        "taker_fills": 0,
+        "fees": 0.0,
+        "max_drawdown": 0.0
+      }
+    },
+    "fixed 2 s delay": {
+      "chosen": {
+        "pnl": 389.30337063273987,
+        "roi_on_buys_pct": 2.319226427072844,
+        "win_rate_pct": 56.72645739910314,
+        "markets_traded": 446,
+        "maker_fills": 0,
+        "taker_fills": 5491,
+        "fees": 318.5776805656359,
+        "max_drawdown": 614.2049962964193
+      },
+      "maker_only": {
+        "pnl": 0.0,
+        "roi_on_buys_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "markets_traded": 0,
+        "maker_fills": 0,
+        "taker_fills": 0,
+        "fees": 0.0,
+        "max_drawdown": 0.0
+      }
+    },
+    "fixed 3 s delay (no look-ahead)": {
+      "chosen": {
+        "pnl": -359.5410515822741,
+        "roi_on_buys_pct": -2.3266687686643834,
+        "win_rate_pct": 50.136986301369866,
+        "markets_traded": 365,
+        "maker_fills": 0,
+        "taker_fills": 5164,
+        "fees": 297.61814449325755,
+        "max_drawdown": 905.3702102417283
+      },
+      "maker_only": {
+        "pnl": 0.0,
+        "roi_on_buys_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "markets_traded": 0,
+        "maker_fills": 0,
+        "taker_fills": 0,
+        "fees": 0.0,
+        "max_drawdown": 0.0
+      }
+    },
+    "fixed 3 s delay + 2 s latency": {
+      "chosen": {
+        "pnl": -424.2048129000697,
+        "roi_on_buys_pct": -2.6063648608735632,
+        "win_rate_pct": 51.94174757281554,
+        "markets_traded": 412,
+        "maker_fills": 0,
+        "taker_fills": 5705,
+        "fees": 328.44564828500694,
+        "max_drawdown": 962.4655218609132
+      },
+      "maker_only": {
+        "pnl": 0.0,
+        "roi_on_buys_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "markets_traded": 0,
+        "maker_fills": 0,
+        "taker_fills": 0,
+        "fees": 0.0,
+        "max_drawdown": 0.0
+      }
+    }
+  },
+  "runtime_seconds": 100.8,
+  "selection_delay": "fixed3",
+  "grid_version": "v2"
+}

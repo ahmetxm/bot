@@ -1,0 +1,164 @@
+{
+  "generated_at": "2026-11-24 15:43:07 UTC",
+  "variant": "btc_taker05_fast",
+  "params": {
+    "markets": [
+      "BTC 5m",
+      "BTC 15m"
+    ],
+    "vol_halflife_seconds": 600,
+    "vol_multiplier": 1.0,
+    "vol_floor_bps_per_sqrt_s": 0.35,
+    "half_spread": 1.0,
+    "inventory_skew": 0.02,
+    "max_imbalance_shares": 150,
+    "order_shares": 25,
+    "pair_cost_cap": 0.98,
+    "min_price": 0.05,
+    "max_price": 0.95,
+    "start_delay_seconds": 5,
+    "stop_before_end_seconds": 30,
+    "requote_threshold": 0.01,
+    "guard_seconds": 3,
+    "guard_move": 0.0,
+    "take_enabled": true,
+    "take_edge": 0.05,
+    "take_shares": 25,
+    "take_cutoff_frac": 1.0,
+    "maker_cutoff_frac": 1.0,
+    "max_market_usd": 400
+  },
+  "latency_seconds": 0.3,
+  "decision_interval_seconds": 0.25,
+  "logloss_fair_vs_market_mid": {
+    "fair_value": 0.3110977835022987,
+    "market_mid": 0.3269640154774674,
+    "samples": 258
+  },
+  "starting_balance": 10000.0,
+  "final_equity": 10040.16866405,
+  "realized_pnl": 40.16866404999997,
+  "markets_settled": 7,
+  "markets_traded": 5,
+  "markets_unsettled": [
+    "btc-updown-15m-1795534200",
+    "btc-updown-5m-1795534500",
+    "btc-updown-5m-1795534800"
+  ],
+  "unsettled_cost_basis": 95.595422,
+  "win_rate_pct": 80.0,
+  "buy_usdc": 338.84630000000004,
+  "pnl_per_buy_pct": 11.85453819327523,
+  "fills": 53,
+  "maker_fills": 0,
+  "taker_fills": 36,
+  "fees": 5.416435950000001,
+  "by_category": {
+    "BTC 15m": {
+      "markets": 1,
+      "pnl": -2.1662140500000002,
+      "buy_usdc": 2.1021,
+      "wins": 0
+    },
+    "BTC 5m": {
+      "markets": 4,
+      "pnl": 42.33487809999997,
+      "buy_usdc": 336.74420000000003,
+      "wins": 4
+    }
+  },
+  "halted_day": null,
+  "markets": [
+    {
+      "slug": "btc-updown-15m-1795532400",
+      "category": "BTC 15m",
+      "outcome_up": 0.0,
+      "pnl": 0.0,
+      "maker_fills": 0,
+      "taker_fills": 0,
+      "buy_usdc": 0.0,
+      "fees": 0.0,
+      "shares_up": 0.0,
+      "shares_down": 0.0,
+      "prints_seen": 4
+    },
+    {
+      "slug": "btc-updown-5m-1795533000",
+      "category": "BTC 5m",
+      "outcome_up": 0.0,
+      "pnl": 0.0,
+      "maker_fills": 0,
+      "taker_fills": 0,
+      "buy_usdc": 0.0,
+      "fees": 0.0,
+      "shares_up": 0.0,
+      "shares_down": 0.0,
+      "prints_seen": 192
+    },
+    {
+      "slug": "btc-updown-15m-1795533300",
+      "category": "BTC 15m",
+      "outcome_up": 0.0,
+      "pnl": -2.1662140500000002,
+      "maker_fills": 0,
+      "taker_fills": 1,
+      "buy_usdc": 2.1021,
+      "fees": 0.06411405,
+      "shares_up": 5.39,
+      "shares_down": 0.0,
+      "prints_seen": 706
+    },
+    {
+      "slug": "btc-updown-5m-1795533300",
+      "category": "BTC 5m",
+      "outcome_up": 0.0,
+      "pnl": 17.720511499999997,
+      "maker_fills": 0,
+      "taker_fills": 5,
+      "buy_usdc": 80.299,
+      "fees": 0.6804884999999999,
+      "shares_up": 0.0,
+      "shares_down": 98.7,
+      "prints_seen": 1464
+    },
+    {
+      "slug": "btc-updown-5m-1795533600",
+      "category": "BTC 5m",
+      "outcome_up": 1.0,
+      "pnl": 13.71785439999998,
+      "maker_fills": 0,
+      "taker_fills": 13,
+      "buy_usdc": 139.3776,
+      "fees": 1.4245456000000005,
+      "shares_up": 39.51999999999998,
+      "shares_down": 0.0,
+      "prints_seen": 1626
+    },
+    {
+      "slug": "btc-updown-5m-1795533900",
+      "category": "BTC 5m",
+      "outcome_up": 0.0,
+      "pnl": 6.096512199999995,
+      "maker_fills": 0,
+      "taker_fills": 16,
+      "buy_usdc": 97.06760000000001,
+      "fees": 3.0472878000000003,
+      "shares_up": 0.009999999999999787,
+      "shares_down": 30.38,
+      "prints_seen": 2504
+    },
+    {
+      "slug": "btc-updown-5m-1795534200",
+      "category": "BTC 5m",
+      "outcome_up": 1.0,
+      "pnl": 4.8,
+      "maker_fills": 0,
+      "taker_fills": 1,
+      "buy_usdc": 20.0,
+      "fees": 0.2,
+      "shares_up": 25.0,
+      "shares_down": 0.0,
+      "prints_seen": 1096
+    }
+  ]
+}
