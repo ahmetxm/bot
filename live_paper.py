@@ -14,6 +14,11 @@ Paper execution model:
     already resting at that price (read from the live book). A real taker print at our price first
     consumes the queue ahead of us; a print *through* our price fills us directly. Complementary
     prints (taker BUY of the other outcome at y  ==  hit of our bid at 1-y) count too.
+  * Cancelling or replacing a quote is not instant: the old quote stays fillable for `cancel_latency`
+    seconds (default = latency); such fills are logged as "maker_late".
+  * Optional fast signal (v3): Binance USD-M futures bookTicker (ms; fallback Binance spot bookTicker) moved
+    onto the spot scale gives the fair value between spot prints ("fast_signal"), and "fade" cancels a resting
+    bid as soon as its fair value fell by >= fade (estimated from the sensitivity stored at quote time).
   * Taker orders execute `latency` seconds later against the then-current book, walking levels up to
     the limit price, paying the Polymarket taker fee rate*p*(1-p) per share.
   * Markets are settled with the official resolution (gamma outcomePrices once closed).
@@ -44,6 +49,7 @@ from pair_strategy import Inventory, PairStrategy, StrategyParams, taker_fee_per
 
 CLOB_WS = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 BINANCE_WS = "wss://data-stream.binance.vision/ws/{stream}"
+BINANCE_FUT_WS = "wss://fstream.binance.com/ws/{stream}"
 BINANCE_TICKER = "https://data-api.binance.vision/api/v3/ticker/price"
 COINBASE_WS = "wss://ws-feed.exchange.coinbase.com"
 COINBASE_CANDLES = "https://api.exchange.coinbase.com/products/{pid}/candles"
@@ -96,6 +102,7 @@ class SpotFeed:
         self.basis_hist = {a: {} for a in assets}     # second -> Chainlink-Binance log basis
         self.basis_now = {a: None for a in assets}
         self.cl_last = {a: 0.0 for a in assets}
+        self.last_log: dict = {}                     # asset -> (log price of the latest spot print, wall time)
 
     # ---- history seed (1 h of 1 s closes for the volatility estimate and the window-start strike)
     def _seed_binance(self, a: str):
@@ -147,6 +154,8 @@ class SpotFeed:
         with self.lock:
             self.fv[asset].update(sec, px)
             self.last_msg[asset] = time.time()
+            if px > 0:
+                self.last_log[asset] = (math.log(px), self.last_msg[asset])
         prev = self._pend.get(asset)
         if prev and prev[0] != sec:
             self.rec.write("spot", asset, prev[0], prev[1])   # last price of each second
@@ -273,18 +282,129 @@ class SpotFeed:
                 return None   # stale spot -> no quotes
             return fv.p_up(t, ws, we, twap, self._shift_fn(asset))
 
+    def p_up_fast(self, asset: str, t: int, ws: int, we: int, twap: int, now_log: float,
+                  dlog: float = 1e-4) -> Optional[tuple]:
+        """(P(Up) with the current price replaced by `now_log`, dP(Up)/dlog(price)) - the sensitivity lets the
+        fast feed estimate fair-value moves between decisions without recomputing the model."""
+        with self.lock:
+            fv = self.fv[asset]
+            if time.time() - self.last_msg[asset] > 10 and fv.last_t < t - 10:
+                return None
+            r = fv.p_up(t, ws, we, twap, self._shift_fn(asset), now_logs=(now_log, now_log + dlog))
+        if r is None:
+            return None
+        return r[0], (r[1] - r[0]) / dlog
+
+
+class FastFeed:
+    """Millisecond best bid/ask of a leading venue: Binance USD-M futures bookTicker (fallback: Binance spot
+    bookTicker). Its mid, moved onto the spot feed's scale by a slow basis (log spot - log fast, ~60 s EWMA), gives
+    the fair value between spot prints, and every move is pushed to `on_move` (quote cancels, re-decisions)."""
+
+    BASIS_TAU = 60.0
+
+    def __init__(self, assets: list, spot: SpotFeed, rec: Optional[Recorder] = None, on_move=None):
+        self.assets = assets
+        self.spot = spot
+        self.rec = rec or Recorder(None)
+        self.on_move = on_move
+        self.lock = threading.Lock()
+        self.lm = {a: None for a in assets}          # log mid of the fast venue
+        self.ts = {a: 0.0 for a in assets}
+        self.basis = {a: None for a in assets}
+        self.source = {a: None for a in assets}
+        self.n = {a: 0 for a in assets}
+        self._last_cb = {a: (0.0, 0.0) for a in assets}
+        self._last_rec = {a: 0.0 for a in assets}
+        self._stop = False
+
+    def start(self) -> None:
+        for a in self.assets:
+            threading.Thread(target=self._run, args=(a,), daemon=True).start()
+
+    def _run(self, asset: str) -> None:
+        sym = BINANCE_SYMBOL[asset].lower()
+        urls = [("futures", BINANCE_FUT_WS.format(stream=f"{sym}@bookTicker")),
+                ("spot", BINANCE_WS.format(stream=f"{sym}@bookTicker"))]
+        k, fails = 0, 0
+        while not self._stop:
+            src, url = urls[k]
+            got = [0]
+
+            def on_msg(_ws, msg, src=src):
+                try:
+                    d = json.loads(msg)
+                    mid = (float(d["b"]) + float(d["a"])) / 2
+                except (ValueError, KeyError, TypeError):
+                    return
+                got[0] += 1
+                self._tick(asset, src, mid)
+
+            websocket.WebSocketApp(url, on_message=on_msg).run_forever(ping_interval=20, ping_timeout=10)
+            if got[0] == 0:
+                fails += 1
+                if fails >= 3 and k == 0:
+                    log.warning("fast feed: Binance futures unreachable for %s -> Binance spot bookTicker", asset)
+                    k, fails = 1, 0
+            else:
+                fails = 0
+            time.sleep(2)
+
+    def _tick(self, asset: str, src: str, mid: float) -> None:
+        if mid <= 0:
+            return
+        now = time.time()
+        lm = math.log(mid)
+        with self.lock:
+            prev_ts = self.ts[asset]
+            self.lm[asset], self.ts[asset], self.source[asset] = lm, now, src
+            self.n[asset] += 1
+            sp = self.spot.last_log.get(asset)
+            if sp is not None and now - sp[1] < 2.0:
+                b = sp[0] - lm
+                if self.basis[asset] is None:
+                    self.basis[asset] = b
+                else:
+                    a = min(1.0, max(now - prev_ts, 0.0) / self.BASIS_TAU)
+                    self.basis[asset] += a * (b - self.basis[asset])
+            basis = self.basis[asset]
+        if now - self._last_rec[asset] >= 0.1:
+            self._last_rec[asset] = now
+            self.rec.write("fast", asset, round(mid, 3))
+        if basis is None or self.on_move is None:
+            return
+        adj = lm + basis
+        t_cb, l_cb = self._last_cb[asset]
+        if abs(adj - l_cb) >= 2e-5 or now - t_cb >= 0.1:      # coalesce: >= 0.2 bp move or every 0.1 s
+            self._last_cb[asset] = (now, adj)
+            self.on_move(asset, adj, now)
+
+    def now_log(self, asset: str, max_age: float = 1.0) -> Optional[float]:
+        """Fast mid on the spot feed's log scale, None if stale or the basis is not known yet."""
+        with self.lock:
+            if self.lm[asset] is None or self.basis[asset] is None or time.time() - self.ts[asset] > max_age:
+                return None
+            return self.lm[asset] + self.basis[asset]
+
 
 # --------------------------------------------------------------------------- accounts / markets
 class Variant:
     """One strategy configuration with its own paper account."""
 
     def __init__(self, name: str, params: StrategyParams, start_balance: float, data_dir: Path, tag: str,
-                 latency: float, interval: float):
+                 latency: float, interval: float, fast: bool = False, fade: float = 0.0,
+                 cancel_latency: Optional[float] = None):
         self.name = name
         self.p = params
         self.start_balance = start_balance
         self.latency = latency            # decision -> order live (seconds)
         self.interval = interval          # seconds between decisions
+        self.fade = fade                  # cancel a resting bid once its fair value moved this much against it (0 = off)
+        # fair value from the fast (futures) feed instead of the last spot print; fading needs it
+        self.fast = fast or fade > 0
+        self.cancel_latency = latency if cancel_latency is None else float(cancel_latency)
+        self.n_fades = 0
+        self.n_late = 0                   # maker fills on quotes whose cancel had not landed yet
         self.realized = 0.0
         self.daily_realized: dict = defaultdict(float)
         self.halted_day: Optional[str] = None
@@ -302,7 +422,9 @@ class VariantMarket:
     def __init__(self, strat: PairStrategy):
         self.strat = strat
         self.inv = Inventory()
-        self.quotes: dict = {}         # i -> {"price", "rem", "live_from", "ahead"}
+        self.quotes: dict = {}         # i -> {"price", "rem", "live_from", "ahead"[, "fair_ref", "dfair", "log_ref"]}
+        # replaced / cancelled quotes stay fillable until their cancel lands ("dead_from" = cancel time + latency)
+        self.dying: list = []
         self.pending_takers: list = []
         # paper taker volume already taken per (book side, Up-equivalent price): a paper fill does not remove
         # the real liquidity, so without this the same resting size could be "bought" again every second
@@ -320,6 +442,7 @@ class PaperMarket:
         self.meta = meta
         self.books = [{"bids": {}, "asks": {}}, {"bids": {}, "asks": {}}]
         self.fair_hist: dict = {}
+        self.fair_hist_fast: dict = {}
         self.status = "active"
         self.outcome_up: Optional[float] = None
         self.ws_app = None
@@ -362,7 +485,9 @@ class LiveStrategyPaperBot:
         if isinstance(variants, StrategyParams):
             variants = [{"name": "", "params": variants}]
         self.variants = [Variant(v["name"], v["params"], self.start_balance, data_dir, self.tag,
-                                 float(v.get("latency", self.lat)), float(v.get("interval", 1.0)))
+                                 float(v.get("latency", self.lat)), float(v.get("interval", 1.0)),
+                                 bool(v.get("fast_signal", False)), float(v.get("fade", 0.0)),
+                                 v.get("cancel_latency"))
                          for v in variants]
         names = [v.name for v in self.variants]
         if len(set(names)) != len(names):
@@ -385,6 +510,9 @@ class LiveStrategyPaperBot:
         assets = sorted({c.split()[0] for c in self.categories})
         self.spot = SpotFeed(assets, lambda: LiveFairValue(p0.vol_halflife_seconds, p0.vol_multiplier,
                                                            p0.vol_floor), self.rec)
+        self._fade_names = [v.name for v in self.variants if v.fade > 0]
+        self.fast = (FastFeed(assets, self.spot, self.rec, self._on_fast_move)
+                     if any(v.fast for v in self.variants) or record else None)
         self.state_path = data_dir / f"live_paper_state{self.tag}.json"
 
     # ---- equity / risk
@@ -522,25 +650,69 @@ class LiveStrategyPaperBot:
         m.prints += 1
         hit_i, P = (oi, px) if side == "SELL" else (1 - oi, round(1.0 - px, 6))
         for name, vm in m.vm.items():
-            q = vm.quotes.get(hit_i)
-            if not q or q["rem"] <= 1e-9 or ts < q["live_from"]:
-                continue
-            if P < q["price"] - 1e-9:
-                f = min(q["rem"], sz)
-            elif abs(P - q["price"]) < 1e-9:
-                take = sz - q["ahead"]
-                q["ahead"] = max(q["ahead"] - sz, 0.0)
-                f = min(q["rem"], max(take, 0.0))
-            else:
-                continue
-            room = (vm.strat.budget - vm.inv.cost_basis) / max(q["price"], 0.01)
-            f = min(f, max(room, 0.0))
-            if f < 0.01:
-                continue
-            reb = float(self.bt.get("maker_rebate_rate", 0.0)) * taker_fee_per_share(q["price"], m.meta["fee_rate"]) * f
-            vm.inv.apply_buy(hit_i, q["price"], f, 0.0, True, reb)
-            q["rem"] -= f
-            self._record_fill(m, self.vmap[name], ts, "BUY", hit_i, q["price"], f, 0.0, "maker")
+            cands = [q for q in vm.dying if q["i"] == hit_i]
+            if vm.quotes.get(hit_i):
+                cands.append(vm.quotes[hit_i])
+            # one print fills our live orders at most once in total: best price first, older order first
+            cands.sort(key=lambda q: -q["price"])
+            left = sz
+            for q in cands:
+                if left < 0.01:
+                    break
+                if q["rem"] <= 1e-9 or ts < q["live_from"] or ts >= q.get("dead_from", math.inf):
+                    continue
+                if P < q["price"] - 1e-9:
+                    f = min(q["rem"], left)
+                elif abs(P - q["price"]) < 1e-9:
+                    take = left - q["ahead"]
+                    q["ahead"] = max(q["ahead"] - sz, 0.0)
+                    f = min(q["rem"], max(take, 0.0))
+                else:
+                    continue
+                room = (vm.strat.budget - vm.inv.cost_basis) / max(q["price"], 0.01)
+                f = min(f, max(room, 0.0))
+                if f < 0.01:
+                    continue
+                reb = float(self.bt.get("maker_rebate_rate", 0.0)) * taker_fee_per_share(q["price"], m.meta["fee_rate"]) * f
+                vm.inv.apply_buy(hit_i, q["price"], f, 0.0, True, reb)
+                q["rem"] -= f
+                left -= f
+                late = "dead_from" in q
+                self.vmap[name].n_late += late
+                self._record_fill(m, self.vmap[name], ts, "BUY", hit_i, q["price"], f, 0.0,
+                                  "maker_late" if late else "maker")
+
+    @staticmethod
+    def _retire(vm: VariantMarket, i: int, dead_from: float) -> None:
+        """Cancel quote i: it can still be filled until the cancel reaches the exchange (dead_from)."""
+        q = vm.quotes.pop(i, None)
+        if q and q["rem"] > 1e-9 and q["live_from"] < dead_from:
+            q["i"], q["dead_from"] = i, dead_from
+            vm.dying.append(q)
+
+    def _retire_all(self, vm: VariantMarket, v: Variant, now: float) -> None:
+        for i in list(vm.quotes):
+            self._retire(vm, i, now + v.cancel_latency)
+
+    def _on_fast_move(self, asset: str, adj_log: float, now: float) -> None:
+        """Fast-feed tick (futures mid on the spot scale): cancel resting bids of fading variants whose fair value
+        - estimated with the sensitivity stored at quote time - fell by at least `fade` since the quote was set."""
+        if not self._fade_names:
+            return
+        with self.lock:
+            for m in list(self.markets.values()):
+                if m.status != "active" or m.meta["asset"] != asset:
+                    continue
+                for name in self._fade_names:
+                    vm = m.vm.get(name)
+                    if vm is None:
+                        continue
+                    v = self.vmap[name]
+                    for i in [k for k, q in vm.quotes.items() if "fair_ref" in q]:
+                        q = vm.quotes[i]
+                        if -q["dfair"] * (adj_log - q["log_ref"]) >= v.fade - 1e-12:
+                            self._retire(vm, i, now + v.cancel_latency)
+                            v.n_fades += 1
 
     def _record_fill(self, m, v: Variant, ts, side, i, price, shares, fee, role):
         vm = m.vm[v.name]
@@ -561,17 +733,30 @@ class LiveStrategyPaperBot:
     # ---- decision loop
     def _step_market(self, m: PaperMarket, now: float) -> None:
         t = int(now)
-        fair = self.spot.p_up(m.meta["asset"], t, m.ws, m.we, m.meta["twap_lookback"])
+        asset, twap = m.meta["asset"], m.meta["twap_lookback"]
+        fair = self.spot.p_up(asset, t, m.ws, m.we, twap)
+        for vm in m.vm.values():                      # cancels that landed more than 5 s ago (late prints)
+            if vm.dying:
+                vm.dying = [q for q in vm.dying if q["dead_from"] > now - 5]
         if fair is None:
-            for vm in m.vm.values():
-                vm.quotes.clear()
+            for name, vm in m.vm.items():
+                self._retire_all(vm, self.vmap[name], now)
             return
         m.fair_hist[t] = fair
+        fast = None                                   # (P(Up) from the fast feed, dP(Up)/dlog, log price used)
+        if self.fast is not None and any(self.vmap[n].fast for n in m.vm):
+            lg = self.fast.now_log(asset)
+            if lg is not None:
+                r = self.spot.p_up_fast(asset, t, m.ws, m.we, twap, lg)
+                if r is not None:
+                    fast = (r[0], r[1], lg)
+                    m.fair_hist_fast[t] = r[0]
         bb0, ba0 = m.best(0)
         bb1, ba1 = m.best(1)
         if bb0 is not None and ba0 is not None and ba0 - bb0 <= 0.05 and t % 10 == 0 and \
                 (not m.diag or m.diag[-1][0] != t):
-            m.diag.append((t, fair, (bb0 + ba0) / 2))     # fair value vs market mid, for the report
+            # fair value (spot / fast feed) vs market mid, for the report
+            m.diag.append((t, fair, (bb0 + ba0) / 2, fast[0] if fast else None))
         bid, ask = [bb0, bb1], [ba0, ba1]
         for name, vm in m.vm.items():
             v = self.vmap[name]
@@ -581,26 +766,34 @@ class LiveStrategyPaperBot:
                     vm.pending_takers.remove(po)
                     self._exec_taker(m, v, po, now)
             if t > m.we - vm.strat.p.stop_before_end_seconds or v.halted_day:
-                vm.quotes.clear(); vm.pending_takers.clear()
+                self._retire_all(vm, v, now); vm.pending_takers.clear()
                 continue
             if now - vm.last_decision < v.interval - 1e-6:
                 continue
             vm.last_decision = now
-            prev = m.fair_hist.get(t - vm.strat.p.guard_seconds)
-            desired = vm.strat.quotes(t, m.ws, m.we, fair, vm.inv, bid, ask, prev)
+            use_fast = v.fast and fast is not None
+            f_v = fast[0] if use_fast else fair
+            g = t - vm.strat.p.guard_seconds
+            prev = m.fair_hist_fast.get(g, m.fair_hist.get(g)) if use_fast else m.fair_hist.get(g)
+            desired = vm.strat.quotes(t, m.ws, m.we, f_v, vm.inv, bid, ask, prev)
             for i in (0, 1):
                 if i not in desired:
-                    vm.quotes.pop(i, None)
+                    self._retire(vm, i, now + v.cancel_latency)
                     continue
                 price, size = desired[i]
+                # reference for fading: this side's fair value, its sensitivity to log price, the price used
+                ref = ({"fair_ref": f_v if i == 0 else 1.0 - f_v, "dfair": fast[1] if i == 0 else -fast[1],
+                        "log_ref": fast[2]} if use_fast else {})
                 cur = vm.quotes.get(i)
                 if cur and abs(cur["price"] - price) < vm.strat.p.requote_threshold - 1e-9:
                     cur["rem"] = max(cur["rem"], size)
+                    cur.update(ref)
                     continue
+                self._retire(vm, i, now + v.cancel_latency)
                 ahead = m.books[i]["bids"].get(price, 0.0)
-                vm.quotes[i] = {"price": price, "rem": size, "live_from": now + v.latency, "ahead": ahead}
+                vm.quotes[i] = {"price": price, "rem": size, "live_from": now + v.latency, "ahead": ahead, **ref}
             busy = {(po["side"], po["i"]) for po in vm.pending_takers}
-            for side, i, limit, size in vm.strat.taker_orders(t, m.ws, m.we, fair, vm.inv, bid, ask):
+            for side, i, limit, size in vm.strat.taker_orders(t, m.ws, m.we, f_v, vm.inv, bid, ask):
                 if (side, i) not in busy:
                     vm.pending_takers.append({"side": side, "i": i, "limit": limit, "size": size,
                                               "live_from": now + v.latency})
@@ -703,13 +896,15 @@ class LiveStrategyPaperBot:
         self.spot.seed()
         self.spot.start()
         self.spot.start_chainlink()
+        if self.fast is not None:
+            self.fast.start()
         time.sleep(3)
         t_end = time.time() + minutes * 60
         last_status = last_report = time.time()
         for v in self.variants:
-            log.info("PAPER variant %s started: %s | latency %.2fs interval %.2fs | params %s", v.name or "-",
-                     v.p.markets, v.latency, v.interval,
-                     {k: val for k, val in v.p.as_dict().items() if k != "markets"})
+            log.info("PAPER variant %s started: %s | latency %.2fs interval %.2fs cancel %.2fs | fast %s fade %.3f "
+                     "| params %s", v.name or "-", v.p.markets, v.latency, v.interval, v.cancel_latency, v.fast,
+                     v.fade, {k: val for k, val in v.p.as_dict().items() if k != "markets"})
         try:
             while True:
                 now = time.time()
@@ -723,7 +918,7 @@ class LiveStrategyPaperBot:
                                 self._risk_check(m)
                             else:
                                 for vm in m.vm.values():
-                                    vm.quotes.clear()
+                                    vm.quotes.clear(); vm.dying.clear()
                                 self._check_resolution(m, now)
                 if now - last_status > 60:
                     last_status = now
@@ -749,9 +944,13 @@ class LiveStrategyPaperBot:
     def _status(self):
         act = sum(m.status == "active" for m in self.markets.values())
         basis = {a: (None if b is None else round(b * 1e4, 2)) for a, b in self.spot.basis_now.items()}
-        eq = " | ".join(f"{v.name or 'equity'} ${v.equity():,.2f} ({v.realized:+.2f}, {v.n_fills} fills)"
-                        for v in self.variants)
-        log.info("STATUS %s | open markets %d | spot %s | Chainlink basis (bps) %s", eq, act, self.spot.source, basis)
+        eq = " | ".join(f"{v.name or 'equity'} ${v.equity():,.2f} ({v.realized:+.2f}, {v.n_fills} fills"
+                        + (f", {v.n_fades} fades" if v.fade > 0 else "") + ")" for v in self.variants)
+        fast = ({a: (self.fast.source[a], self.fast.n[a],
+                     None if self.fast.basis[a] is None else round(self.fast.basis[a] * 1e4, 2))
+                 for a in self.fast.assets} if self.fast is not None else None)
+        log.info("STATUS %s | open markets %d | spot %s | Chainlink basis (bps) %s | fast feed (src, msgs, basis bps) %s",
+                 eq, act, self.spot.source, basis, fast)
 
     def save_state(self) -> None:
         save_json({"saved_at": utc(time.time()),
@@ -764,18 +963,32 @@ class LiveStrategyPaperBot:
 
     # ---- reporting
     def _logloss(self) -> Optional[dict]:
+        def ll(y, p):
+            p = min(max(p, 1e-3), 1 - 1e-3)
+            return -(y * math.log(p) + (1 - y) * math.log(1 - p))
+
         ll_f = ll_m = 0.0
         n = 0
+        fast_rows = []                       # (spot fair, fast fair) log-loss on the samples where both exist
         for m in self.markets.values():
             if m.status != "settled":
                 continue
             y = 1.0 if (m.outcome_up or 0) >= 0.5 else 0.0
-            for _, f, mid in m.diag:
-                f, mid = min(max(f, 1e-3), 1 - 1e-3), min(max(mid, 1e-3), 1 - 1e-3)
-                ll_f -= y * math.log(f) + (1 - y) * math.log(1 - f)
-                ll_m -= y * math.log(mid) + (1 - y) * math.log(1 - mid)
+            for row in m.diag:
+                f, mid = row[1], row[2]
+                ll_f += ll(y, f)
+                ll_m += ll(y, mid)
                 n += 1
-        return {"fair_value": ll_f / n, "market_mid": ll_m / n, "samples": n} if n else None
+                if len(row) > 3 and row[3] is not None:
+                    fast_rows.append((ll(y, f), ll(y, row[3])))
+        if not n:
+            return None
+        out = {"fair_value": ll_f / n, "market_mid": ll_m / n, "samples": n}
+        if fast_rows:
+            out["fast_vs_spot_same_samples"] = {"spot": sum(a for a, _ in fast_rows) / len(fast_rows),
+                                                "fast": sum(b for _, b in fast_rows) / len(fast_rows),
+                                                "samples": len(fast_rows)}
+        return out
 
     def _variant_report(self, v: Variant, logloss: Optional[dict]) -> dict:
         mine = [m for m in self.markets.values() if v.name in m.vm]
@@ -798,6 +1011,8 @@ class LiveStrategyPaperBot:
             c["markets"] += 1; c["pnl"] += r["pnl"] or 0.0; c["buy_usdc"] += r["buy_usdc"]; c["wins"] += (r["pnl"] or 0) > 0
         out = {"generated_at": utc(time.time()), "variant": v.name, "params": v.p.as_dict(),
                "latency_seconds": v.latency, "decision_interval_seconds": v.interval,
+               "cancel_latency_seconds": v.cancel_latency, "fast_signal": v.fast, "fade": v.fade,
+               "fades": v.n_fades, "late_maker_fills": v.n_late,
                "logloss_fair_vs_market_mid": logloss,
                "starting_balance": self.start_balance, "final_equity": v.equity(),
                "realized_pnl": v.realized, "markets_settled": len(settled), "markets_traded": len(traded),
@@ -815,7 +1030,10 @@ class LiveStrategyPaperBot:
         L = [f"# Live paper trading - strategy replica{(' - variant ' + v.name) if v.name else ''}", "",
              f"Generated {out['generated_at']}. No real orders were sent; fills are simulated against the live "
              "Polymarket order book and live trade prints (see live_paper.py docstring).", "",
-             f"- Latency {v.latency:.2f} s, decision every {v.interval:.2f} s, markets {v.p.markets}",
+             f"- Latency {v.latency:.2f} s, decision every {v.interval:.2f} s, cancel latency {v.cancel_latency:.2f} s, "
+             f"markets {v.p.markets}",
+             f"- Fast (futures) fair value: {v.fast}; fade threshold {v.fade:.3f} -> {v.n_fades} fast cancels; "
+             f"fills on quotes already being cancelled: {out['late_maker_fills']}",
              f"- Starting balance: ${self.start_balance:,.2f} -> final equity ${out['final_equity']:,.2f}",
              f"- Realized PnL: ${v.realized:+,.2f} over {len(settled)} settled markets ({len(traded)} with fills)",
              f"- Win rate (traded markets): {fmt(out['win_rate_pct'])}",
@@ -843,11 +1061,14 @@ class LiveStrategyPaperBot:
             fmt = lambda x, d=2: "n/a" if x is None else f"{x:.{d}f}%"  # noqa: E731
             L = ["# Live paper trading - variant comparison (same live feed)", "",
                  f"Generated {utc(time.time())}. No real orders were sent.", "",
-                 "| variant | markets | latency | PnL | PnL / buys | win rate | bought | maker / taker | fees |",
-                 "|---|---|---:|---:|---:|---:|---:|---:|---:|"]
+                 "| variant | markets | latency | fast / fade | PnL | PnL / buys | win rate | bought | maker / taker "
+                 "| fast cancels | fees |",
+                 "|---|---|---:|---|---:|---:|---:|---:|---:|---:|---:|"]
             L += [f"| {o['variant']} | {', '.join(o['params']['markets'])} | {o['latency_seconds']:.2f}s | "
+                  f"{'yes' if o['fast_signal'] else 'no'} / {o['fade']:.3f} | "
                   f"${o['realized_pnl']:+,.2f} | {fmt(o['pnl_per_buy_pct'])} | {fmt(o['win_rate_pct'], 1)} | "
-                  f"${o['buy_usdc']:,.0f} | {o['maker_fills']} / {o['taker_fills']} | ${o['fees']:.2f} |" for o in outs]
+                  f"${o['buy_usdc']:,.0f} | {o['maker_fills']} / {o['taker_fills']} | {o['fades']} | "
+                  f"${o['fees']:.2f} |" for o in outs]
             L += ["", f"Forecast quality (log-loss): {ll}"]
             (rep / f"live_paper_compare{self.tag}.md").write_text("\n".join(L) + "\n", encoding="utf-8")
             save_json([{k: o[k] for k in o if k != "markets"} for o in outs], rep / f"live_paper_compare{self.tag}.json")
@@ -885,9 +1106,11 @@ def build_variants(cfg: dict, base: StrategyParams, spec: list) -> list:
             d.update(cal["params"])
         d.update({k: _parse_value(v) for k, v in (item.get("set") or {}).items()})
         v = {"name": item["name"], "params": StrategyParams(**d)}
-        for k in ("latency", "interval"):
+        for k in ("latency", "interval", "fade", "cancel_latency"):
             if k in item:
                 v[k] = float(item[k])
+        if "fast_signal" in item:
+            v["fast_signal"] = bool(_parse_value(item["fast_signal"]))
         out.append(v)
     return out
 
